@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+    user-select: none;
 }
 .admin-login{
     width: 100%;
@@ -79,5 +80,106 @@
 .error-message {
     font-size: 18px;
     text-align: center;
-    color: red;
+}
+/* .main-container{
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+.left-container{
+    flex: 0.2;
+    height: 10vh;
+    background: rgb(66, 66, 66);
+    color: #fff;
+    padding: 10px;
+}
+.right-container{
+    flex: 0.8;
+    height: 10vh;
+    background: #0d705c;
+    padding: 10px ;
+} */
+
+/* side bar styling */
+.wrapper{
+    display: flex;
+    position: relative;
+}
+.wrapper .sidebar{
+    width: 250px;
+    height: 100%;
+    background: #1b1b1b;
+    padding: 30px 0px;
+    position: fixed;
+}
+.wrapper .sidebar h2{
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.menus{
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    left: 0;
+    color: #fff;
+}
+nav ul {
+    width: 100%;
+    list-style: none;
+}
+nav ul li {
+    line-height: 60px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+nav ul li a { 
+    position:relative;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding-left: 40px;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    border-left: 3px solid transparent;
+}
+nav ul li a:hover{
+    color: #1ba085;
+    background: #3a3a3a;
+    border-left-color: rgb(11, 206, 206);
+}
+nav ul li a i{
+    padding-right: 10px;
+    font-size: 18px;
+    color: #fff;
+}
+nav ul ul{
+    position: static;
+    display: none;
+}
+nav ul .show-1.show,.show-2.show,.show-3.show{
+    display: block;
+}
+nav ul ul li{
+    line-height: 42px;
+    border-bottom: none;
+}
+nav ul ul li a {
+    font-size: 17px;
+    color: #e6e6e6;
+    padding-left: 60px;
+    padding-right: 10px;
+}
+nav ul li a span{
+    position: absolute;
+    top:  50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 22px;
+}
+nav ul li a:hover span{
+    transform: translateY(-50%) rotate(-180deg);
 }

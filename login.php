@@ -27,7 +27,7 @@ require("includes/login_handler.php");
                     <input type="password" name="password" class="input-type-1" value="<?php if (isset($_SESSION['password'])) echo $_SESSION['password']; ?>" placeholder="Password" required>
                 </div>
                 <div class="wrapper-row">
-                    <p class="error-message"><?php if (in_array("<span style= 'color: red;'>Email or Password was Incorrect</span><br>", $error_array)) echo "<span style= 'color: red;'>Email or Password was Incorrect</span><br>";?></p>
+                    <p class="error-message"><?php if (in_array("<span style='color: red;'>Email or Password was Incorrect</span><br>", $err_array)) echo "<span style='color: red;'>Email or Password was Incorrect</span><br>"; ?></p>
                 </div>
                 <div class="wrapper-row row-button">
                     <input type="submit" name="submit" value="Login" class="submit-login-1">
