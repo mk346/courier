@@ -103,17 +103,23 @@
 
 /* side bar styling */
 .wrapper{
+    width: 100%;
     display: flex;
-    position: relative;
+    /* position: relative; */
+    flex-direction: row;
+    height: 100%;
+    /* align-items: center; */
+    /* justify-content: space-between */
 }
-.wrapper .sidebar{
+.sidebar{
     width: 250px;
+    /* flex: 0.3; */
     height: 100%;
     background: #1b1b1b;
     padding: 30px 0px;
     position: fixed;
 }
-.wrapper .sidebar h2{
+.sidebar h2{
     color: #fff;
     text-transform: uppercase;
     text-align: center;
@@ -122,7 +128,7 @@
 
 .menus{
     position: fixed;
-    width: 250px;
+    width: 100%;
     height: 100%;
     left: 0;
     color: #fff;
@@ -133,6 +139,9 @@ nav ul {
 }
 nav ul li {
     line-height: 60px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+nav ul li:last-child{
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 nav ul li a { 
@@ -149,6 +158,7 @@ nav ul li a {
 nav ul li a:hover{
     color: #1ba085;
     background: #3a3a3a;
+    width: 250px;
     border-left-color: rgb(11, 206, 206);
 }
 nav ul li a i{
@@ -180,6 +190,13 @@ nav ul li a span{
     transform: translateY(-50%);
     font-size: 22px;
 }
-nav ul li a:hover span{
+nav ul li a span.rotate{
     transform: translateY(-50%) rotate(-180deg);
+}
+.main{
+    width: 100%;
+    margin-left: 250px;
+}
+.main h1{
+    color: #000;
 }

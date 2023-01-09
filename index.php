@@ -23,13 +23,15 @@ if (isset($_SESSION['username'])) {
     <div class="sidebar">
         <h2 class="text">Pamoja Courier</h2>
         <nav class="menus">
-            <ul class="menus">
+            <ul class="list">
                 <li class="flex">
-                    <a href="#"><i class="fa-solid fa-gauge"></i>Dashboard</a>
+                    <a href="#"><i class="fa-solid fa-gauge"></i>Dashboard
+                </a>
+                    
                 </li>
                 <li>
                     <a href="#" class="btn-1"><i class="fa-solid fa-code-branch"></i>Branch
-                        <span class="fas fa-caret-down"></span>
+                        <span class="fas fa-caret-down first"></span>
                     </a>
                     <ul class="show-1">
                         <li><a href="#"><i class="fas fa-caret-right"></i>Add New</a></li>
@@ -38,7 +40,7 @@ if (isset($_SESSION['username'])) {
                 </li>
                 <li>
                     <a href="#" class="btn-2"><i class="fa-solid fa-users"></i>Branch Staff
-                        <span class="fas fa-caret-down"></span>
+                        <span class="fas fa-caret-down second"></span>
                     </a>
                     <ul class="show-2">
                         <li><a href="#"><i class="fas fa-caret-right"></i>Add New</a></li>
@@ -47,7 +49,7 @@ if (isset($_SESSION['username'])) {
                 </li>
                 <li>
                     <a href="#" class="btn-3"><i class="fa-solid fa-box"></i>Parcels
-                        <span class="fas fa-caret-down"></span>
+                        <span class="fas fa-caret-down third"></span>
                     </a>
                     <ul class="show-3">
                         <li><a href="#"><i class="fas fa-caret-right"></i>Add New</a></li>
@@ -68,6 +70,9 @@ if (isset($_SESSION['username'])) {
                 <li><a href="#"><i class="fa-solid fa-book"></i>Reports</a></li>
             </ul>
         </nav>
+    </div>
+    <div class="main">
+        <h1>Welcome</h1>
     </div>
 </div>
 <script src="assets/js/menu.js"></script>
