@@ -81,25 +81,7 @@
     font-size: 18px;
     text-align: center;
 }
-/* .main-container{
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-}
-.left-container{
-    flex: 0.2;
-    height: 10vh;
-    background: rgb(66, 66, 66);
-    color: #fff;
-    padding: 10px;
-}
-.right-container{
-    flex: 0.8;
-    height: 10vh;
-    background: #0d705c;
-    padding: 10px ;
-} */
+
 
 /* side bar styling */
 .wrapper{
@@ -115,7 +97,7 @@
     background: #1b1b1b;
     padding: 30px 0px;
     position: fixed;
-    left: -250px;
+    left: 0px;
     transition: left 0.4s ease;
 }
 .sidebar h2{
@@ -131,12 +113,11 @@
     width: 250px;
     position: fixed;
     top: 45px;
-    width: 100%;
     height: 100%;
-    left: 0;
     color: #fff;
-    left: -250px;
+    left: 0px;
     transition: left 0.4s ease;
+    /* overflow: scroll; */
 }
 nav ul {
     width: 100%;
@@ -204,7 +185,7 @@ nav ul li a span.rotate{
     align-items: center;
     color: #fff;
     top: 0px;
-    left: 0px;
+    left: 250px;
     height: 45px;
     width: 100%;
     background: #0e6b59;
@@ -213,8 +194,9 @@ nav ul li a span.rotate{
     transition: left 0.4s ease;
 }
 .bars.click,.top-nav.click{
-    left: 250px;
+    left: 0px;
 }
+
 .bars.click span.fas::before{
     content: '\f00d';
 }
@@ -228,8 +210,8 @@ nav ul li a span.rotate{
     font-size: 28px;
     line-height: 45px;
 } 
-.sidebar.show, .menus.show{
-    left: 0px;
+.sidebar.hide-menus, .menus.hide-menus{
+    left: -250px;
 }
 .mytitle {
     margin-left: 40px;
@@ -237,7 +219,7 @@ nav ul li a span.rotate{
 .user-log{
     display: flex;
     position: relative;
-    left: 1230px;
+    left: 1200px;
     color: #fff;
     align-items: center;
 }
@@ -253,7 +235,7 @@ nav ul li a span.rotate{
     display: none;
     position: relative;
     list-style: none;
-    left: 1090px;
+    left: 1060px;
     top: 55px;
     background: #3a3a3a;
     padding: 10px;

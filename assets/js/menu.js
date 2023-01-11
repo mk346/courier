@@ -32,8 +32,8 @@ button3.addEventListener("click", function () {
 bars.addEventListener("click", function(){
     this.classList.toggle("click")
     topNav.classList.toggle("click")
-    sidebar.classList.toggle("show")
-    menus.classList.toggle("show")
+    sidebar.classList.toggle("hide-menus")
+    menus.classList.toggle("hide-menus")
 })
 arrow4.addEventListener("click", function(){
     usermenu.classList.toggle("show-me")

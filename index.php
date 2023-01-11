@@ -78,7 +78,7 @@ if (isset($_SESSION['username'])) {
         <a href="#" class="user-log">
             <i class="fa-solid fa-user logged-in"></i>Administrator
             <span class="fa fa-angle-down"></span>
-            <ul class="user-menu show-4">
+            <ul class="user-menu">
                 <li><a href="#"><i class="fa-solid fa-gear"></i>Manage Account</a></li>
                 <li><a href="#"><i class="fa-solid fa-power-off"></i>Log Out</a></li>
 
