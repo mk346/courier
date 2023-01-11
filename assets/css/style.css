@@ -105,33 +105,38 @@
 .wrapper{
     width: 100%;
     display: flex;
-    /* position: relative; */
+    position: relative;
     flex-direction: row;
     height: 100%;
-    /* align-items: center; */
-    /* justify-content: space-between */
 }
 .sidebar{
     width: 250px;
-    /* flex: 0.3; */
     height: 100%;
     background: #1b1b1b;
     padding: 30px 0px;
     position: fixed;
+    left: -250px;
+    transition: left 0.4s ease;
 }
 .sidebar h2{
+    position: relative;
     color: #fff;
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 30px;
+    top: -20px;
 }
 
 .menus{
+    width: 250px;
     position: fixed;
+    top: 45px;
     width: 100%;
     height: 100%;
     left: 0;
     color: #fff;
+    left: -250px;
+    transition: left 0.4s ease;
 }
 nav ul {
     width: 100%;
@@ -193,10 +198,73 @@ nav ul li a span{
 nav ul li a span.rotate{
     transform: translateY(-50%) rotate(-180deg);
 }
-.main{
+.top-nav{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    top: 0px;
+    left: 0px;
+    height: 45px;
     width: 100%;
-    margin-left: 250px;
+    background: #0e6b59;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: left 0.4s ease;
 }
-.main h1{
-    color: #000;
+.bars.click,.top-nav.click{
+    left: 250px;
+}
+.bars.click span.fas::before{
+    content: '\f00d';
+}
+.top-nav span.fas{
+    position: relative;
+    text-align: center;
+    color: #fff;
+    background: #0e6b59;
+    width: 45px;
+    height: 45px;
+    font-size: 28px;
+    line-height: 45px;
+} 
+.sidebar.show, .menus.show{
+    left: 0px;
+}
+.mytitle {
+    margin-left: 40px;
+}
+.user-log{
+    display: flex;
+    position: relative;
+    left: 1230px;
+    color: #fff;
+    align-items: center;
+}
+.user-log i.logged-in{
+    padding-right: 10px;
+    font-size: 15px;
+}
+.user-log span.fa{
+    font-size: 15px;
+    padding-left: 10px;
+}
+.user-menu{
+    display: none;
+    position: relative;
+    list-style: none;
+    left: 1090px;
+    top: 55px;
+    background: #3a3a3a;
+    padding: 10px;
+}
+.user-menu li a{
+    color: #fff;
+}
+.user-menu li a i{
+    padding-right: 10px;
+    padding-bottom: 15px;
+}
+.user-menu.show-me{
+    display: block;
 }

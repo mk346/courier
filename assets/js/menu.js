@@ -7,11 +7,16 @@ var button3 = document.querySelector(".btn-3")
 var arrow1 = document.querySelector(".first")
 var arrow2 = document.querySelector(".second")
 var arrow3 = document.querySelector(".third")
+var bars = document.querySelector(".bars")
+var topNav = document.querySelector(".top-nav")
+var sidebar = document.querySelector(".sidebar")
+var menus = document.querySelector(".menus")
+var arrow4 = document.querySelector(".user-log")
+var usermenu = document.querySelector(".user-menu")
 
 button1.addEventListener("click", function () {
     submenus1.classList.toggle("show")
     arrow1.classList.toggle("rotate")
-    
 })
 
 button2.addEventListener("click", function () {
@@ -22,5 +27,15 @@ button2.addEventListener("click", function () {
 button3.addEventListener("click", function () {
     submenus3.classList.toggle("show")
     arrow3.classList.toggle("rotate")
+})
+
+bars.addEventListener("click", function(){
+    this.classList.toggle("click")
+    topNav.classList.toggle("click")
+    sidebar.classList.toggle("show")
+    menus.classList.toggle("show")
+})
+arrow4.addEventListener("click", function(){
+    usermenu.classList.toggle("show-me")
 })
 
