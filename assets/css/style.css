@@ -117,7 +117,10 @@
     color: #fff;
     left: 0px;
     transition: left 0.4s ease;
-    /* overflow: scroll; */
+    overflow: scroll;
+}
+.menus::-webkit-scrollbar{
+    width: 0;
 }
 nav ul {
     width: 100%;
@@ -222,6 +225,7 @@ nav ul li a span.rotate{
     left: 1200px;
     color: #fff;
     align-items: center;
+    overflow: hidden;
 }
 .user-log i.logged-in{
     padding-right: 10px;
@@ -236,9 +240,10 @@ nav ul li a span.rotate{
     position: relative;
     list-style: none;
     left: 1060px;
-    top: 55px;
+    top: 45px;
     background: #3a3a3a;
     padding: 10px;
+    max-height: 70px;
 }
 .user-menu li a{
     color: #fff;
@@ -249,4 +254,37 @@ nav ul li a span.rotate{
 }
 .user-menu.show-me{
     display: block;
+}
+.sub-wrapper{
+    position: absolute;
+    width: 100%;
+    left: 260px;
+    top: 75px;
+    display: flex;
+    align-items: center;
+    transition: left 0.4s ease;
+    overflow: hidden;
+}
+.sub-wrapper.click{
+    left: 10px;
+}
+
+.line{
+    height: 1px;
+    width: 100%;
+    position: absolute;
+    font-size: 50px;
+    margin-top: 0.5em;
+    background-color: red;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+    color: green;
+    
+}
+.icons {
+    position: absolute;
+    left: 260px;
+    top: 110px;
 }

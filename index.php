@@ -21,7 +21,7 @@ if (isset($_SESSION['username'])) {
 <body>
 <div class="wrapper">
     <div class="sidebar">
-        <h2 class="text">Pamoja Courier</h2>
+        <h2 class="text">OnTime Courier</h2>
         <nav class="menus">
             <ul class="list">
                 <li class="flex">
@@ -81,11 +81,23 @@ if (isset($_SESSION['username'])) {
             <ul class="user-menu">
                 <li><a href="#"><i class="fa-solid fa-gear"></i>Manage Account</a></li>
                 <li><a href="#"><i class="fa-solid fa-power-off"></i>Log Out</a></li>
-
             </ul>
         </a>
     </div>
+    <div class="sub-wrapper">
+        <h1 class="main-header1">Dashboard</h1>
+        <hr class="line">
+    </div>
+    <div class="icons">
+        <div class="row">
+            <div class="col">
+                
+            </div>
+        </div>
+
+    </div>
 </div>
+
 <script src="assets/js/menu.js"></script>
 </body>
 </html>
