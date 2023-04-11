@@ -98,7 +98,7 @@ if (isset($_SESSION['username'])) {
                             <p>Total Parcels</p>
                         </div>
                         <div class="icon">
-                            <i class="fa fa-boxes"></i>
+                            <i class="icon-fa fa fa-boxes"></i>
                         </div>
                     </div>
 
@@ -110,7 +110,7 @@ if (isset($_SESSION['username'])) {
                             <p>Total Branches</p>
                         </div>
                         <div class="icon">
-                            <i class="fa fa-building"></i>
+                            <i class="icon-fa fa fa-building"></i>
                         </div>
                     </div>
 
@@ -122,7 +122,62 @@ if (isset($_SESSION['username'])) {
                             <p>Total Staff</p>
                         </div>
                         <div class="icon">
-                            <i class="fa fa-users"></i>
+                            <i class="icon-fa fa fa-users"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="small-box">
+                        <div class="inner">
+                            <h3>10</h3>
+                            <p>Items Accepted by Courier</p>
+                        </div>
+                        <div class="icon">
+                            <i class="icon-fa fa-solid fa-box"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="small-box">
+                        <div class="inner">
+                            <h3>9</h3>
+                            <p>Collected</p>
+                        </div>
+                        <div class="icon">
+                            <i class="icon-fa fa-solid fa-box"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="small-box">
+                        <div class="inner">
+                            <h3>3</h3>
+                            <p>Shipped</p>
+                        </div>
+                        <div class="icon">
+                            <i class="icon-fa fa-solid fa-truck-fast"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="small-box">
+                        <div class="inner">
+                            <h3>15</h3>
+                            <p>In-Transit</p>
+                        </div>
+                        <div class="icon">
+                            <i class="icon-fa fa-solid fa-truck"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="small-box">
+                        <div class="inner">
+                            <h3>10</h3>
+                            <p>Arrived at Destination</p>
+                        </div>
+                        <div class="icon">
+                            <i class="icon-fa fa-solid fa-plane-arrival"></i>
                         </div>
                     </div>
                 </div>
@@ -130,35 +185,58 @@ if (isset($_SESSION['username'])) {
                     <div class="small-box">
                         <div class="inner">
                             <h3>5</h3>
-                            <p>Total Staff</p>
+                            <p>Out of Delivery</p>
                         </div>
                         <div class="icon">
-                            <i class="fa fa-users"></i>
+                            <i class="icon-fa fa-solid fa-truck"></i>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="small-box">
                         <div class="inner">
-                            <h3>5</h3>
-                            <p>Total Staff</p>
+                            <h3>20</h3>
+                            <p>Ready For Pickup</p>
                         </div>
                         <div class="icon">
-                            <i class="fa fa-users"></i>
+                            <i class="icon-fa fa-solid fa-box-tissue"></i>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="small-box">
                         <div class="inner">
-                            <h3>5</h3>
-                            <p>Total Staff</p>
+                            <h3>8</h3>
+                            <p>Delivered</p>
                         </div>
                         <div class="icon">
-                            <i class="fa fa-users"></i>
+                            <i class="icon-fa fa fa-boxes"></i>
                         </div>
                     </div>
                 </div>
+                <div class="col">
+                    <div class="small-box">
+                        <div class="inner">
+                            <h3>3</h3>
+                            <p>Picked Up</p>
+                        </div>
+                        <div class="icon">
+                            <i class="icon-fa fa-solid fa-box"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="small-box">
+                        <div class="inner">
+                            <h3>0</h3>
+                            <p>Unsuccessfull Delivery Attempt</p>
+                        </div>
+                        <div class="icon">
+                            <i class="icon-fa fa-solid fa-truck"></i>
+                        </div>
+                    </div>
+                </div>
+
 
             </div>
 

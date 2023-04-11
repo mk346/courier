@@ -287,7 +287,7 @@ nav ul li a span.rotate{
     
 }
 .container-1 {
-    width: 100%;
+    width: 80%;
     padding-left: 7px;
     padding-right: 7px;
     margin-left: auto;
@@ -307,7 +307,9 @@ nav ul li a span.rotate{
     position: relative;
     padding-left: 7px;
     padding-right: 7px;
-    width: 20%;
+    /* width: 20%; */
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
 }
 .small-box {
     display: flex;
@@ -320,22 +322,30 @@ nav ul li a span.rotate{
     padding: 10px;
 }
 .inner{
+    width: 100%;
     margin-right: 20px;
 }
 .inner h3{
     padding-bottom: 10px;
 }
+.col > .small-box .icon {
+    width: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    text-align: end;
+}
 .small-box > .icon{
     color: rgba(0, 0, 0, .15);
     z-index: 0;
 }
-.small-box .icon > i.fa{
+.small-box .icon > i.icon-fa{
     text-align: end;
     font-size: 70px;
     top: 20px;
     margin-left: 30px;
 }
-.col .small-box .icon > i.fa{
+.col .small-box .icon > i.icon-fa{
     text-align: end;
 }
 
