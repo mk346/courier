@@ -4,6 +4,7 @@
     box-sizing: border-box;
     text-decoration: none;
     user-select: none;
+    /* overflow-x: hidden; */
 }
 .admin-login{
     width: 100%;
@@ -87,9 +88,10 @@
 .wrapper{
     width: 100%;
     display: flex;
-    position: relative;
+    position: fixed;
     flex-direction: row;
     height: 100%;
+    /* overflow-y: hidden; */
 }
 .sidebar{
     width: 250px;
@@ -99,6 +101,7 @@
     position: fixed;
     left: 0px;
     transition: left 0.4s ease;
+    /* overflow-y: scroll; */
 }
 .sidebar h2{
     position: relative;
@@ -183,7 +186,7 @@ nav ul li a span.rotate{
     transform: translateY(-50%) rotate(-180deg);
 }
 .top-nav{
-    position: absolute;
+    position: fixed;
     display: flex;
     align-items: center;
     color: #fff;
@@ -256,14 +259,14 @@ nav ul li a span.rotate{
     display: block;
 }
 .sub-wrapper{
-    position: absolute;
+    position: fixed;
     width: 100%;
     left: 260px;
     top: 75px;
     display: flex;
     align-items: center;
     transition: left 0.4s ease;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 .main-header1{
     margin-bottom: 10px;
@@ -292,9 +295,15 @@ nav ul li a span.rotate{
     padding-right: 7px;
     margin-left: auto;
     margin-right: auto;
-    position: absolute;
+    position: fixed;
     left: 260px;
     top: 115px;
+    /* overflow-y: hidden; */
+    
+}
+.container-1.click{
+    left: 0px;
+    width: 100%;
 }
 .row{
     display: flex;
@@ -310,6 +319,7 @@ nav ul li a span.rotate{
     /* width: 20%; */
     flex: 0 0 33.333333%;
     max-width: 33.333333%;
+    overflow-y: hidden;
 }
 .small-box {
     display: flex;

@@ -14,6 +14,7 @@ var menus = document.querySelector(".menus")
 var arrow4 = document.querySelector(".user-log")
 var usermenu = document.querySelector(".user-menu")
 var wrapper = document.querySelector(".sub-wrapper")
+var mainwrapper = document.querySelector(".container-1")
 
 
 button1.addEventListener("click", function () {
@@ -37,6 +38,7 @@ bars.addEventListener("click", function(){
     sidebar.classList.toggle("hide-menus")
     menus.classList.toggle("hide-menus")
     wrapper.classList.toggle("click")
+    mainwrapper.classList.toggle("click")
 })
 arrow4.addEventListener("click", function(){
     usermenu.classList.toggle("show-me")
