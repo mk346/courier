@@ -4,7 +4,6 @@
     box-sizing: border-box;
     text-decoration: none;
     user-select: none;
-    /* overflow-x: hidden; */
 }
 .admin-login{
     width: 100%;
@@ -358,4 +357,219 @@ nav ul li a span.rotate{
 .col .small-box .icon > i.icon-fa{
     text-align: end;
 }
+
+.content{
+    padding: 0 0.5rem;
+}
+.container-fluid{
+    width: 80%;
+    position: relative;
+    padding-right: 7.5px;
+    padding-left: 7.5px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 100px;
+    top: 130px;
+}
+.container-fluid.click{
+    width: 100%;
+    left: 0px;
+}
+.card-primary.card-outline{
+    border-top: 3px solid #007bff;
+}
+.card-1{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+    box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2);
+    margin-bottom: 1rem;
+}
+.card-body{
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+}
+.form-row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -7.5px;
+    margin-left: -7.5px;
+}
+.form-col{
+    /* flex: 0 0 100%;
+    max-width: 100%; */
+    position: relative;
+    width: 100%;
+    padding-right: 7.5px;
+    padding-left: 7.5px;
+}
+.form-group{
+    width: 50%;
+    position: relative;
+    margin-bottom: 1rem;
+    padding-right: 7.5px;
+    padding-left: 7.5px;
+}
+/* .col-1{
+    flex: 0 0 50%;
+    max-width: 50%;
+} */
+label{
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    font-size: 15px;
+    font-weight: bold;
+}
+textarea{
+    resize: none;
+    overflow: auto;
+}
+.form-control{
+    display: block;
+    width: 100%;
+    padding:.375rem.75rem;
+    /* padding-right: 10px;
+    padding-left: 10px; */
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius:.25rem;
+    box-shadow: inset 0 0 0 transparent;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.line2{
+    background-color: #007bff;
+    color: #1ba085;
+    font-size: 10px;
+    width: 100%;
+    height: 2px;
+    margin-bottom: 5px;
+}
+.col-2{
+    width: 100%;
+    display: flex;
+    padding-right: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.btn1{
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    color: #fff;
+    background-color: #007bff;
+    width: 80px;
+}
+.btn2{
+    width: 80px;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    color: #fff;
+    background-color: rgb(208, 11, 11);
+    cursor: pointer;
+}
+.col-3{
+    position: relative;
+    width: 100%;
+    padding-right: 7.5px;
+    padding-left: 7.5px;
+    max-width: 100%;
+}
+.card-header{
+    background-color: transparent;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    padding: 0.75rem 1.25rem;
+    position: relative;
+    border-top-right-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+    margin-bottom: 0;
+}
+
+.card-header > .card-item{
+    float: right;
+    margin-right: -0.625rem;
+
+}
+.btn3{
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 0.25rem 0.5rem;
+    border-width: 1px;
+    box-shadow: none;
+    background-color: #f8f9fa;
+    color: #444;
+    font-size: .875rem;
+    line-height: 1.5;
+    text-align: center;
+    border-color: #007bff!important;
+    user-select: none;
+    transition: color .15s 
+        ease-in-out, background-color .15s
+        ease-in-out, border-color .15s
+        ease-in-out, box-shadow.15s ease-in-out;
+}
+.container-wrapper{
+    width: 100%;
+}
+.row-1{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -7.5px;
+    margin-right: -7.5px;
+}
+.col-search{
+    position: relative;
+    width: 100%;
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+}
+.list-filter{
+    margin-left: 0.5em;
+    display: flex;
+    width: auto;
+    text-align: right;
+    align-items: center;
+    float: right;
+}
+.table-col{
+    position: relative;
+    width: 100%;
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+}
+
+.branch-table {
+    width: 100%;
+    border-spacing: 0;
+}
+.rhead,.rbody{
+    text-align: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.rhead,.rbody{
+    border-bottom: 1px solid #dee2e6;
+    border-top: 1px solid #dee2e6;
+    border-right: 1px solid #dee2e6;
+}
+.rhead:first-child,.rbody:first-child{
+    border-left: 1px solid #dee2e6;
+}
+
 
