@@ -21,8 +21,8 @@
                                 <span class="fas fa-caret-down second"></span>
                             </a>
                             <ul class="show-2">
-                                <li><a href="#"><i class="fas fa-caret-right"></i>Add New</a></li>
-                                <li><a href="#"><i class="fas fa-caret-right"></i>List</a></li>
+                                <li><a href="new_staff.php"><i class="fas fa-caret-right"></i>Add New</a></li>
+                                <li><a href="staff.php"><i class="fas fa-caret-right"></i>List</a></li>
                             </ul>
                         </li>
                         <li>
@@ -30,7 +30,7 @@
                                 <span class="fas fa-caret-down third"></span>
                             </a>
                             <ul class="show-3">
-                                <li><a href="#"><i class="fas fa-caret-right"></i>Add New</a></li>
+                                <li><a href="add_parcel.php"><i class="fas fa-caret-right"></i>Add New</a></li>
                                 <li><a href="#"><i class="fas fa-caret-right"></i>List</a></li>
                                 <li><a href="#"><i class="fas fa-caret-right"></i>Item Accepted</a></li>
                                 <li><a href="#"><i class="fas fa-caret-right"></i>Collected</a></li>

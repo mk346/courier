@@ -36,11 +36,9 @@ include 'topbar.php';
                                 <thead>
                                     <tr role="row" class="trow">
                                         <th class="rhead">#</th>
-                                        <th class="rhead">Branch Code</th>
-                                        <th class="rhead">Street/Building</th>
-                                        <th class="rhead">City/Town</th>
-                                        <th class="rhead">County</th>
-                                        <th class="rhead">Contact</th>
+                                        <th class="rhead">Staff</th>
+                                        <th class="rhead">Email</th>
+                                        <th class="rhead">Branch</th>
                                         <th class="rhead">Action</th>
                                     </tr>
                                 </thead>
@@ -51,10 +49,8 @@ include 'topbar.php';
                                     ?>
                                         <tr>
                                             <td class="rbody"><?php echo $i++ ?></td>
-                                            <td class="rbody">0911</td>
-                                            <td class="rbody">KenWoods</td>
-                                            <td class="rbody">Kenyatta Avenue</td>
-                                            <td class="rbody">Nairobi</td>
+                                            <td class="rbody">Caleb Munene</td>
+                                            <td class="rbody">calebkm@gmail.com</td>
                                             <td class="rbody">Nairobi</td>
                                             <td class="rbody">
                                                 <div class="btn-group">

@@ -9,5 +9,4 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Home</title>
 </head>
-
 <body>
