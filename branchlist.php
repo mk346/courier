@@ -3,8 +3,9 @@ require 'config/config.php';
 include 'header.php';
 include 'sidebar.php';
 include 'topbar.php';
+// require 'config/pdo.php';
 ?>
-<div class="sub-wrapper">
+<div class="sub-wrapper2">
     <h1 class="main-header1">Branch List</h1>
     <hr class="line">
 </div>
@@ -13,7 +14,7 @@ include 'topbar.php';
         <div class="card-1 card-outline card-primary">
             <div class="card-header">
                 <div class="card-item">
-                    <a href="#" class="btn3">
+                    <a href="new_branch.php" class="btn3">
                         <i class="fa fa-plus"></i>
                         Add New
                     </a>
@@ -40,6 +41,7 @@ include 'topbar.php';
                                         <th class="rhead">Street/Building</th>
                                         <th class="rhead">City/Town</th>
                                         <th class="rhead">County</th>
+                                        <th class="rhead">Postal Code</th>
                                         <th class="rhead">Contact</th>
                                         <th class="rhead">Action</th>
                                     </tr>
@@ -47,23 +49,49 @@ include 'topbar.php';
                                 <tbody>
                                     <?php
                                     $i = 1;
-                                    while ($i <= 5) :
+                                    $query = $con->query("SELECT * FROM branch order by id desc");
+                                    while ($row = $query->fetch_assoc()) :
                                     ?>
                                         <tr>
                                             <td class="rbody"><?php echo $i++ ?></td>
-                                            <td class="rbody">0911</td>
-                                            <td class="rbody">KenWoods</td>
-                                            <td class="rbody">Kenyatta Avenue</td>
-                                            <td class="rbody">Nairobi</td>
-                                            <td class="rbody">Nairobi</td>
+                                            <td class="rbody">
+                                                <b>
+                                                    <?php echo $row['code'] ?>
+                                                </b>
+                                            </td>
+                                            <td class="rbody">
+                                                <b>
+                                                    <?php echo $row['street'] ?>
+                                                </b>
+                                            </td>
+                                            <td class="rbody">
+                                                <b>
+                                                    <?php echo $row['city'] ?>
+                                                </b>
+                                            </td>
+                                            <td class="rbody">
+                                                <b>
+                                                    <?php echo $row['county'] ?>
+                                                </b>
+                                            </td>
+                                            <td class="rbody">
+                                                <b>
+                                                    <?php echo $row['postal'] ?>
+                                                </b>
+                                            </td>
+                                            <td class="rbody">
+                                                <b>
+                                                    <?php echo $row['contact'] ?>
+                                                </b>
+                                            </td>
                                             <td class="rbody">
                                                 <div class="btn-group">
-                                                    <a href="#" class="btn-main btn-edit">
+                                                    <a href="edit_branch.php?&id=<?php echo $row['id'] ?>" class="btn-main btn-edit">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
-                                                    <button type="button" class="btn-main btn-del">
+                                                    <a href="delete_branch.php?&del_id=<?php echo $row['id'] ?>" class="btn-main btn-del">
                                                         <i class="fas fa-trash"></i>
-                                                    </button>
+                                                    </a>
                                                 </div>
                                             </td>
                                         </tr>

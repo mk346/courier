@@ -5,6 +5,11 @@
     text-decoration: none;
     user-select: none;
 }
+body{
+    background-color: #fffd;
+    /* min-height: 5000px; */
+    padding-top: 45px;
+}
 .admin-login{
     width: 100%;
     height: 100%;
@@ -87,7 +92,7 @@
 .wrapper{
     width: 100%;
     display: flex;
-    position: fixed;
+    position: relative;
     flex-direction: row;
     height: 100%;
     /* overflow-y: hidden; */
@@ -95,11 +100,13 @@
 .sidebar{
     width: 250px;
     height: 100%;
+    top: 0;
     background: #1b1b1b;
     padding: 30px 0px;
     position: fixed;
     left: 0px;
     transition: left 0.4s ease;
+    cursor: pointer;
     /* overflow-y: scroll; */
 }
 .sidebar h2{
@@ -193,10 +200,11 @@ nav ul li a span.rotate{
     left: 250px;
     height: 45px;
     width: 100%;
-    background: #0e6b59;
+    background-color: #0e6b59;
     border-radius: 3px;
     cursor: pointer;
     transition: left 0.4s ease;
+    z-index: 9999;
 }
 .bars.click,.top-nav.click{
     left: 0px;
@@ -258,22 +266,21 @@ nav ul li a span.rotate{
     display: block;
 }
 .sub-wrapper{
-    position: fixed;
+    position: absolute;
     width: 80%;
     left: 260px;
-    top: 75px;
+    top: 25px;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
     transition: left 0.4s ease;
-    /* overflow: hidden; */
 }
 .main-header1{
     margin-bottom: 10px;
 }
 .sub-wrapper.click{
     width: 100%;
-    left: 10px;
-
+    left: 15px;
 }
 
 .line{
@@ -296,7 +303,7 @@ nav ul li a span.rotate{
     padding-right: 7px;
     margin-left: auto;
     margin-right: auto;
-    position: fixed;
+    position: absolute;
     left: 260px;
     top: 115px;
     /* overflow-y: hidden; */
@@ -369,6 +376,20 @@ nav ul li a span.rotate{
 .content{
     padding: 0 0.5rem;
 }
+.sub-wrapper2{
+        position: absolute;
+        width: 80%;
+        left: 260px;
+        top: 55px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        transition: left 0.4s ease;
+}
+.sub-wrapper2.click{
+    left: 15px;
+    width: 100%;
+}
 .container-fluid{
     width: 80%;
     position: relative;
@@ -377,11 +398,12 @@ nav ul li a span.rotate{
     margin-left: auto;
     margin-right: auto;
     left: 100px;
-    top: 130px;
+    top: 70px;
 }
 .container-fluid.click{
     width: 100%;
-    left: 0px;
+    padding-right: 30px;
+    left: 15px;
 }
 .card-primary.card-outline{
     border-top: 3px solid #007bff;
@@ -478,10 +500,10 @@ textarea{
     border-radius: 10px;
     color: #fff;
     background-color: #007bff;
-    width: 80px;
+    width: 120px;
 }
 .btn2{
-    width: 80px;
+    width: 120px;
     padding: 10px;
     border: 1px solid #000;
     border-radius: 10px;
@@ -684,4 +706,131 @@ textarea{
 
 .margin-top{
     margin-top: 20px;
+}
+/* .add-col{
+    flex: 0 0 100%;
+    max-width: 100%;
+} */
+.border {
+    border: 1px solid #787d81;
+}
+.text-right{
+    text-align: right;
+    border-bottom: 1px solid #dee2e6;
+    border-left: 1px solid #dee2e6;
+}
+.col-5{
+    position: relative;
+    display: flex;
+    width: 100%;
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+    align-items: center;
+    text-align: center;
+    justify-content: end;
+}
+.btn-style{
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 0.2rem;
+    cursor: pointer;
+}
+.card-footer{
+    border-top: 1px solid #dee2e6 !important;
+    border-color: #17a2b8 !important;
+    padding: 0.75rem;
+    background-color: rgba(0,0,0,.03);
+}
+.cardfooter-items{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-btn1{
+    padding: 10px;
+    margin-right: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 0.2rem;
+    width: 80px;
+    text-align: center;
+}
+.card-btn2{
+        padding: 10px;
+        margin-right: 10px;
+        background-color: #787d81;
+        color: #fff;
+        border-radius: 0.2rem;
+        width: 80px;
+        text-align: center;
+}
+
+.fluid-col{
+    position: relative;
+    width: 100%;
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+}
+.track-div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+}
+.input-group{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    text-align: center;
+    width: 50%;
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+}
+.input-group > .form-control2{
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+    margin-bottom: 0;
+}
+.form-control2 {
+    height: calc(1.8125rem + 2px);
+    padding: 0.25rem 0.5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: 0.2rem;
+}
+.input-group-append{
+    display: flex;
+    margin-left: -1px;
+}
+.search-btn{
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    box-shadow: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    padding: 0.25rem 0.5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    /* border-radius: 0.2rem; */
+    transition: color .15s ease-in-out,
+            background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.d-none{
+    display: none;
+    visibility: hidden;
 }

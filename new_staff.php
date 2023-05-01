@@ -3,8 +3,10 @@ require 'config/config.php';
 include 'header.php';
 include 'sidebar.php';
 include 'topbar.php';
+require 'form_handler/save_staff.php';
+$options = "";
 ?>
-<div class="sub-wrapper">
+<div class="sub-wrapper2">
     <h1 class="main-header1">New Staff</h1>
     <hr class="line">
 </div>
@@ -12,7 +14,7 @@ include 'topbar.php';
     <div class="col-3">
         <div class="card-1 card-outline card-primary">
             <div class="card-body">
-                <form action="#">
+                <form action="new_staff.php" method="POST">
                     <div class="row">
                         <div class="form-col2">
                             <div class="row">
@@ -21,36 +23,58 @@ include 'topbar.php';
                                     <input type="text" name="fname" id="" class="form-control" required>
                                 </div>
                                 <div class="form-group2 form-col2">
-                                    <label for class="control-label">Middle Name</label>
-                                    <input type="text" name="mname" id="" class="form-control" required>
-                                </div>
-                                <div class="form-group2 form-col2">
                                     <label for class="control-label">Last Name</label>
                                     <input type="text" name="lname" id="" class="form-control" required>
                                 </div>
                                 <div class="form-group2 form-col2">
+                                    <label for class="control-label">User Role</label>
+                                    <select name="role" id="" class="form-control" required>
+                                        <option value="#">User Role</option>
+                                        <option value="1">1 - Admin</option>
+                                        <option value="2">2 - Normal</option>
+                                    </select>
+                                </div>
+                                <div class="form-group2 form-col2">
+                                    <?php
+                                    //extract data from database
+                                    $query = "SELECT code,city FROM branch ORDER BY id DESC";
+                                    $result = mysqli_query($con, $query);
+                                    if (mysqli_num_rows($result) > 0) {
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            //create html element option
+                                            $options = $options . "<option>" . $row['code'] . " " . $row['city'] . "</option>";
+                                        }
+                                    }
+                                    ?>
                                     <label for class="control-label">Branch</label>
-                                    <select name="branches" id="" class="form-control" required>
-                                        <option value="">--Select--</option>
-                                        <option value="">Nairobi</option>
-                                        <option value="">Kisumu</option>
-                                        <option value="">Mombasa</option>
-                                        <option value="">Nakuru</option>
+                                    <select name="branch" id="" class="form-control" required>
+                                        <option value="">Select Branch</option>
+                                        <option value="<?php $options; ?>"><?php echo $options; ?></option>
                                     </select>
                                 </div>
                                 <div class="form-group2 form-col2">
                                     <label for class="control-label">Email</label>
                                     <input type="email" name="email" id="" class="form-control" required>
+                                    <?php
+                                    if (in_array("<span style='color:red;'>Email already Exists</span><br>", $err_array)){
+                                        echo "<span style='color:red;'>Email already Exists</span><br>";
+                                    }
+                                    ?>
                                 </div>
                                 <div class="form-group2 form-col2">
                                     <label for class="control-label">Password</label>
                                     <input type="password" name="password" id="" class="form-control" required>
+                                    <?php
+                                if (in_array("<span style='color:red;'>Password must be between 32 and 8 characters</span><br>", $err_array)) {
+                                    echo "<span style='color:red;'>Password must be between 32 and 8 characters</span><br>";
+                                }
+                                    ?>
                                 </div>
                             </div>
                             <hr class="line3">
                             <div class="col-2">
-                                <input type="submit" name="save" value="Save" class="btn1">
-                                <a href="#" class="btn2">Cancel</a>
+                                <input type="submit" name="save_staff" value="Save" class="btn1">
+                                <a href="staff.php" class="btn2">Cancel</a>
                             </div>
 
                         </div>

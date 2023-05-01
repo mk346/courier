@@ -3,9 +3,10 @@ require 'config/config.php';
 include 'header.php';
 include 'sidebar.php';
 include 'topbar.php';
+require 'config/pdo.php';
 ?>
 <div class="sub-wrapper2">
-    <h1 class="main-header1">Staff List</h1>
+    <h1 class="main-header1">Parcel List</h1>
     <hr class="line">
 </div>
 <div class="container-fluid">
@@ -13,7 +14,7 @@ include 'topbar.php';
         <div class="card-1 card-outline card-primary">
             <div class="card-header">
                 <div class="card-item">
-                    <a href="new_staff.php" class="btn3">
+                    <a href="#" class="btn3">
                         <i class="fa fa-plus"></i>
                         Add New
                     </a>
@@ -36,31 +37,32 @@ include 'topbar.php';
                                 <thead>
                                     <tr role="row" class="trow">
                                         <th class="rhead">#</th>
-                                        <th class="rhead">Staff</th>
-                                        <th class="rhead">Email</th>
-                                        <th class="rhead">Branch</th>
+                                        <th class="rhead">Reference Number</th>
+                                        <th class="rhead">Sender Name</th>
+                                        <th class="rhead">Recipient Name</th>
+                                        <th class="rhead">Status</th>
                                         <th class="rhead">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
                                     $i = 1;
-                                    $query = $con->query("SELECT * FROM users ORDER BY id DESC");
-                                    while ($row = $query->fetch_assoc()) :
+                                    while ($i <= 5) :
                                     ?>
                                         <tr>
                                             <td class="rbody"><?php echo $i++ ?></td>
-                                            <td class="rbody"><b><?php echo $row['fname'] . " " . $row['lname'] ?></b></td>
-                                            <td class="rbody"><b><?php echo $row['email'] ?></b></td>
-                                            <td class="rbody"><b><?php echo $row['branch'] ?></b></td>
+                                            <td class="rbody">NFRT45901</td>
+                                            <td class="rbody">Caleb Munene</td>
+                                            <td class="rbody">John Smith</td>
+                                            <td class="rbody">Collected</td>
                                             <td class="rbody">
                                                 <div class="btn-group">
-                                                    <a href="edit_staff.php?&id=<?php echo $row['id'] ?>" class="btn-main btn-edit">
+                                                    <a href="#" class="btn-main btn-edit">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
-                                                    <a href="delete_staff.php?&del_id=<?php echo $row['id'] ?>" class="btn-main btn-del">
+                                                    <button type="button" class="btn-main btn-del">
                                                         <i class="fas fa-trash"></i>
-                                                    </a>
+                                                    </button>
                                                 </div>
                                             </td>
                                         </tr>

@@ -1,4 +1,5 @@
     <?php
+    require 'config/session.php';
     require 'config/config.php';
     if (isset($_SESSION['username'])) {
         $userLoggedIn = $_SESSION['username'];

@@ -1,4 +1,5 @@
 <?php
+require 'config/session.php';
 require("config/config.php");
 require("includes/login_handler.php");
 ?>
