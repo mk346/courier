@@ -1,22 +1,16 @@
 var price = document.getElementById("price");
 var amount = document.getElementById("amount");
-var total
+var total;
+let x, y, z;
 const VAT = 0.16;
 
 function calcPrice(p) {
-    //console.log(p.value)
-    x = p.value
-    total = x + (x * VAT)
-    console.log(total)
+    x = (p.parentElement.parentElement.children[4].children[0].value)
+    y = parseFloat(x) * VAT 
+    total = parseFloat(y) + parseFloat(x)
+    //console.log(total)
+    amount.innerHTML = parseFloat(total)
+    z = parseFloat(total);
 }
-// let total,p;
 
-
-// total = price + price * VAT;
-
-// x = total.replace(/,/g, '');
-// total = parseFloat(x) + parseFloat(total);
-// if (amount.length > 0) {
-//     amount = amount.textContent(parseFloat(total).toLocaleString('en-US',{style: 'decimal', maximumFractionDigits:2,minimumFractionDigits:2}))
-// }
 

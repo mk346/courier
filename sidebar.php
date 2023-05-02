@@ -30,7 +30,7 @@
                 </a>
                 <ul class="show-3">
                     <li><a href="add_parcel.php"><i class="fas fa-caret-right"></i>Add New</a></li>
-                    <li><a href="parcel_list.php"><i class="fas fa-caret-right"></i>List All</a></li>
+                    <li><a href="list_parcel.php"><i class="fas fa-caret-right"></i>List All</a></li>
                     <li><a href="parcel_list.php"><i class="fas fa-caret-right"></i>Item Accepted</a></li>
                     <li><a href="parcel_list.php"><i class="fas fa-caret-right"></i>Collected</a></li>
                     <li><a href="parcel_list.php"><i class="fas fa-caret-right"></i>Arrived at Destination</a></li>

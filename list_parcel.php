@@ -3,7 +3,7 @@ require 'config/config.php';
 include 'header.php';
 include 'sidebar.php';
 include 'topbar.php';
-require 'config/pdo.php';
+// require 'config/pdo.php';
 ?>
 <div class="sub-wrapper2">
     <h1 class="main-header1">Parcel List</h1>
@@ -47,31 +47,36 @@ require 'config/pdo.php';
                                 <tbody>
                                     <?php
                                     $i = 1;
-                                    $query = $con->query("SELECT * parcels ORDER BY parcel_id DESC");
-                                    echo $query;
-                                    while ($row = $query->fetch_assoc()) :
+                                    $query = $con->query("SELECT * FROM parcels ORDER BY parcel_id DESC");
+                                    while ($rows = $query->fetch_assoc()) :
                                     ?>
                                         <tr>
                                             <td class="rbody"><?php echo $i++ ?></td>
-                                            <td class="rbody">
+                                            <td class="rbody text-center">
                                                 <b>
-                                                    <?php echo $row['reference_number'] ?>
+                                                    <?php
+                                                    echo $rows['reference_number']
+                                                    ?>
                                                 </b>
                                             </td>
-                                            <td class="rbody">
+                                            <td class="rbody text-center">
                                                 <b>
-                                                    <?php echo $row['sname'] ?>
+                                                    <?php
+                                                    echo $rows['sname']
+                                                    ?>
                                                 </b>
                                             </td>
-                                            <td class="rbody">
+                                            <td class="rbody text-center">
                                                 <b>
-                                                    <?php echo $row['rname'] ?>
+                                                    <?php
+                                                    echo $rows['rname']
+                                                    ?>
                                                 </b>
                                             </td>
                                             <td class="rbody text-center">
                                                 <?php
                                                 //create a switch case to set the parcel status
-                                                switch($row['status']){
+                                                switch ($rows['status']) {
                                                     case '1':
                                                         echo "<span class='status-btn'>Collected</span>";
                                                         break;
@@ -102,15 +107,16 @@ require 'config/pdo.php';
                                                     default:
                                                         echo "<span class='status-btn'>Item Accepted By Courier</span>";
                                                         break;
-                                            }
+                                                }
+
                                                 ?>
                                             </td>
                                             <td class="rbody">
                                                 <div class="btn-group">
                                                     <button type="bu
                                                     " class="btn-main btn-green">
-                                                    <i class="fas fa-eye"></i>
-                                                </button>
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
                                                     <a href="#" class="btn-main btn-edit">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
@@ -120,14 +126,17 @@ require 'config/pdo.php';
                                                 </div>
                                             </td>
                                         </tr>
+
                                     <?php endwhile; ?>
                                 </tbody>
                             </table>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 <script src="assets/js/handler.js"></script>

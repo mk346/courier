@@ -666,6 +666,18 @@ textarea{
     background-color: #dc3545;
     border-color: #dc3545;
 }
+.btn-green{
+        position: relative;
+        flex: 1 1 auto;
+        margin-left: -1px;
+        cursor: pointer;
+        border-radius: 0;
+        border-width: 1px;
+        box-shadow: none;
+        color: #fff;
+        background-color: #17a2b8;
+        border-color: #17a2b8;
+}
 .form-title{
     font-weight: bolder;
     padding-left: 7.5px;
@@ -833,4 +845,30 @@ textarea{
 .d-none{
     display: none;
     visibility: hidden;
+}
+
+.text-align{
+    text-align: start;
+    font-size: large;
+    font-weight: bolder;
+    
+}
+.text-center{
+    text-align: center;
+}
+.status-btn{
+    display: inline-block;
+    padding: 0.25em 0.4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    vertical-align: baseline;
+    color: #fff;
+    background-color: #17a2b8;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+    border-radius: 10rem;
+    transition: color 1.5s ease-in-out;
+    cursor: pointer;
 }

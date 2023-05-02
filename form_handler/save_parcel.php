@@ -1,4 +1,5 @@
 <?php
+require '../config/config.php';
 //declare variables
 $sname = "";
 $saddress = "";
@@ -16,7 +17,8 @@ $length = "";
 $width = "";
 $price = "";
 $amount = "";
-$ref = sprintf("%'012d",mt_rand(0,9999999999999)); // generate a random reference number
+$VAT = 0.16;
+$reference_number = sprintf("%'012d",mt_rand(0,9999999999999)); // generate a random reference number
 $status = "";
 $date_created = date("Y-m-d"); // get the current date
 
@@ -72,6 +74,12 @@ $_SESSION['width'] = $width;
 $price = strip_tags($_POST['price']);
 $_SESSION['price'] = $price;
 
+$amount = $price + ($price * $VAT);
 
+
+//sql query to save the data into the database
+$query = mysqli_query($con, "INSERT INTO parcels VALUES ('','$sname','$saddress','$scontact','$rname','$raddress','$rcontact','$type','$processed_br','$pickup_br','$delivery_loc','$weight','$height','$length','$width','$price','$amount','$reference_number','','$date_created')");
+
+header('Location: ../parcel_list.php');
 
 ?>

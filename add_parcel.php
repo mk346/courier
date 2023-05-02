@@ -21,30 +21,30 @@ $options = "";
                             <input type="hidden" name="id" value="<?php echo isset($id) ? $id : '' ?>">
                             <div class="form-group spacing">
                                 <label for class="control-label">Name</label>
-                                <input type="text" name="name" id="" class="form-control" required>
+                                <input type="text" name="sname" id="" class="form-control" required>
                             </div>
                             <div class="form-group spacing">
                                 <label for class="control-label">Address</label>
-                                <input type="text" name="address" id="" class="form-control" required>
+                                <input type="text" name="saddress" id="" class="form-control" required>
                             </div>
                             <div class="form-group spacing">
                                 <label for class="control-label">Contact</label>
-                                <input type="text" name="contact" id="" class="form-control" required>
+                                <input type="text" name="scontact" id="" class="form-control" required>
                             </div>
                         </div>
                         <div class="main-col col-span">
                             <b class="form-title">Recipient Information</b>
                             <div class="form-group spacing">
                                 <label for class="control-label">Name</label>
-                                <input type="text" name="name" id="" class="form-control" required>
+                                <input type="text" name="rname" id="" class="form-control" required>
                             </div>
                             <div class="form-group spacing">
                                 <label for class="control-label">Address</label>
-                                <input type="text" name="address" id="" class="form-control" required>
+                                <input type="text" name="raddress" id="" class="form-control" required>
                             </div>
                             <div class="form-group spacing">
                                 <label for class="control-label">Contact</label>
-                                <input type="text" name="contact" id="" class="form-control" required>
+                                <input type="text" name="rcontact" id="" class="form-control" required>
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@ $options = "";
                             </div>
                             <div class="form-group spacing" id="hide-div">
                                 <label for="deliver-loc">Delivery Location</label>
-                                <input type="text" name="delivery-location" class="form-control hide-input" id="address">
+                                <input type="text" name="delivery_loc" class="form-control hide-input" id="address">
                             </div>
                         </div>
                     </div>
@@ -115,15 +115,15 @@ $options = "";
                                     <input type="text" name="width" class="form-control" required>
                                 </td>
                                 <td class="rbody">
-                                    <input type="text" name="price" class="form-control" id="price" onkeyup="calcPrice(this)" required>
+                                    <input type="text" name="price" class="form-control" value="" id="price" onkeyup="calcPrice(this)" required>
                                 </td>
                             </tr>
                         </tbody>
                         <?php if (!isset($id)) : ?>
                             <tfoot class="border">
                                 <tr>
-                                    <th colspan="4" class="text-right rhead">Total</th>
-                                    <th class="text-right rhead" id="amount">0.00</th>
+                                    <th colspan="4" class="text-right rhead">Total VAT Inclusive (16%)</th>
+                                    <td class="text-right text-align rhead" id="amount">0.00</td>
                                     <!-- <th class="rhead"></th> -->
                                 </tr>
                             </tfoot>
