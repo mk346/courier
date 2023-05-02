@@ -30,14 +30,14 @@
                 </a>
                 <ul class="show-3">
                     <li><a href="add_parcel.php"><i class="fas fa-caret-right"></i>Add New</a></li>
-                    <li><a href="parcel_list.php"><i class="fas fa-caret-right"></i>List</a></li>
+                    <li><a href="parcel_list.php"><i class="fas fa-caret-right"></i>List All</a></li>
                     <li><a href="parcel_list.php"><i class="fas fa-caret-right"></i>Item Accepted</a></li>
                     <li><a href="parcel_list.php"><i class="fas fa-caret-right"></i>Collected</a></li>
-                    <li><a href="parcel_list.php"><i class="fas fa-caret-right"></i>List</a></li>
+                    <li><a href="parcel_list.php"><i class="fas fa-caret-right"></i>Arrived at Destination</a></li>
                     <li><a href="parcel_list.php"><i class="fas fa-caret-right"></i>Shipped</a></li>
                     <li><a href="parcel_list.php"><i class="fas fa-caret-right"></i>In-Transit</a></li>
                     <li><a href="parcel_list.php"><i class="fas fa-caret-right"></i>Out of Delivery</a></li>
-                    <li><a href="parcel_list.php"><i class="fas fa-caret-right"></i>Ready to Pickup</a></li>
+                    <li><a href="parcel_list.php"><i class="fas fa-caret-right"></i>Ready for Pickup</a></li>
                     <li><a href="parcel_list.php"><i class="fas fa-caret-right"></i>Delivered</a></li>
                     <li><a href="parcel_list.php"><i class="fas fa-caret-right"></i>Picked-Up</a></li>
                     <li><a href="parcel_list.php"><i class="fas fa-caret-right"></i>Unsuccessful Delivery</a></li>

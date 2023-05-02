@@ -3,6 +3,7 @@ require 'config/config.php';
 include 'header.php';
 include 'sidebar.php';
 include 'topbar.php';
+$options = "";
 ?>
 <!-- <div class="wrapper-main"> -->
 <div class="sub-wrapper2">
@@ -13,7 +14,7 @@ include 'topbar.php';
     <div class="main-col">
         <div class="card-1 card-outline card-primary">
             <div class="card-body">
-                <form action="#" class="add-parcel" id="manage-parcel">
+                <form action="form_handler/save_parcel.php" method="POST" class="add-parcel" id="manage-parcel">
                     <div class="row">
                         <div class="main-col col-span">
                             <b class="form-title">Sender Information</b>
@@ -60,19 +61,24 @@ include 'topbar.php';
                         </div>
                         <div class="main-col col-span">
                             <div class="form-group spacing">
-                                <select name="branch-pr" id="" class="form-control">
+                                <?php
+                                $query = "SELECT code,city FROM branch ORDER BY id DESC";
+                                $result = mysqli_query($con, $query);
+                                if (mysqli_num_rows($result) > 0) {
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        $options = $options . "<option>" . $row['code'] . " " . $row['city'] . "</option>";
+                                    }
+                                }
+                                ?>
+                                <select name="processed_br" id="" class="form-control">
                                     <option value="#">Branch Processed</option>
-                                    <option value="#">Nairobi</option>
-                                    <option value="#">Kisumu</option>
-                                    <option value="#">Mombasa</option>
+                                    <option value="<?php $options; ?>"><?php echo $options; ?></option>
                                 </select>
                             </div>
                             <div class="form-group spacing">
-                                <select name="branch-pc" id="pickup" class="form-control hide-select">
+                                <select name="pickup_br" id="pickup" class="form-control hide-select">
                                     <option value="#">Pickup Branch</option>
-                                    <option value="#">Nairobi</option>
-                                    <option value="#">Kisumu</option>
-                                    <option value="#">Mombasa</option>
+                                    <option value="<?php $options; ?>"><?php echo $options; ?></option>
                                 </select>
                             </div>
                             <div class="form-group spacing" id="hide-div">
@@ -92,32 +98,24 @@ include 'topbar.php';
                                 <th class="rhead">Length</th>
                                 <th class="rhead">Width</th>
                                 <th class="rhead">Price</th>
-                                <?php if (!isset($id)) : ?>
-                                    <th class="rhead"></th>
-                                <?php endif; ?>
                             </tr>
                         </thead>
                         <tbody id="tbody">
                             <tr>
                                 <td class="rbody">
-                                    <input type="text" name="weight[]" class="form-control" required value="">
+                                    <input type="text" name="weight" class="form-control" required value="">
                                 </td>
                                 <td class="rbody">
-                                    <input type="text" name="height[]" class="form-control" required>
+                                    <input type="text" name="height" class="form-control" required>
                                 </td>
                                 <td class="rbody">
-                                    <input type="text" name="length[]" class="form-control" required>
+                                    <input type="text" name="length" class="form-control" required>
                                 </td>
                                 <td class="rbody">
-                                    <input type="text" name="width[]" class="form-control" required>
+                                    <input type="text" name="width" class="form-control" required>
                                 </td>
                                 <td class="rbody">
-                                    <input type="text" name="price[]" class="form-control" required>
-                                </td>
-                                <td class="rbody">
-                                    <button class="btn-main btn-del" onclick="$(this).closest('tr').remove() && calc()">
-                                        <i class="fa fa-times"></i>
-                                    </button>
+                                    <input type="text" name="price" class="form-control" id="price" onkeyup="calcPrice(this)" required>
                                 </td>
                             </tr>
                         </tbody>
@@ -126,21 +124,11 @@ include 'topbar.php';
                                 <tr>
                                     <th colspan="4" class="text-right rhead">Total</th>
                                     <th class="text-right rhead" id="amount">0.00</th>
-                                    <th class="rhead"></th>
+                                    <!-- <th class="rhead"></th> -->
                                 </tr>
                             </tfoot>
                         <?php endif; ?>
                     </table>
-                    <?php if (!isset($id)) : ?>
-                        <div class="row">
-                            <div class="col-5">
-                                <button class="btn-main btn-style" type="button" id="new_cells">
-                                    <i class="fa fa-item">Add Item</i>
-                                </button>
-
-                            </div>
-                        </div>
-                    <?php endif; ?>
                 </form>
             </div>
             <div class="card-footer">
@@ -173,7 +161,7 @@ include 'topbar.php';
                 <input type="text" name="price[]" class="form-control" required>
             </td>
             <td class="rbody">
-                <button class="btn-main btn-del" onclick="$(this).closet('tr').remove() && calc()">
+                <button class="btn-main btn-del">
                     <i class="fa fa-times"></i>
                 </button>
             </td>
@@ -184,4 +172,4 @@ include 'topbar.php';
 <!-- <script src="assets/js/menu.js"></script> -->
 <script src="assets/js/handler.js"></script>
 <script src="assets/js/status.js"></script>
-<script src="assets/js/addtd.js"></script>
+<script src="assets/js/calcp.js"></script>
