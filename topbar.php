@@ -1,4 +1,4 @@
-        <div class="top-nav">
+        <div class="top-nav" id="top-bar">
             <div class="bars">
                 <span class="fas fa-bars menu-bars"></span>
             </div>
