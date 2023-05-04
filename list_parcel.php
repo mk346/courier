@@ -113,16 +113,20 @@ include 'topbar.php';
                                             </td>
                                             <td class="rbody">
                                                 <div class="btn-group">
-                                                    <button type="bu
-                                                    " class="btn-main btn-green">
+                                                    <button data-modal-target="#modal-parcel" class="btn-main btn-green" data-id="<?php echo $rows['parcel_id'] ?>">
                                                         <i class="fas fa-eye"></i>
                                                     </button>
+                                                    <!-- <a href="view_parcel.php?view_id=<?php //echo $rows['parcel_id'] 
+                                                                                            ?>" class="btn-main btn-green view-parcel" data-modal-target="#modal-parcel" id="showDialog">
+                                                        <i class="fas fa-eye"></i>
+                                                    </a> -->
                                                     <a href="#" class="btn-main btn-edit">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
-                                                    <button type="button" class="btn-main btn-del">
+                                                    <a href="#" class="btn-main btn-del">
                                                         <i class="fas fa-trash"></i>
-                                                    </button>
+
+                                                    </a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -139,4 +143,68 @@ include 'topbar.php';
 
     </div>
 </div>
+
+<!-- modal section -->
+<div class="modal fade show" role="dialog" id="modal-parcel">
+    <div class="modal-dialog modal-md large" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Parcel's Details</h5>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid2">
+                    <div class="colum-main">
+                        <div class="row">
+                            <div class="column-main">
+                                <div class="info-1 info-head">
+                                    <dl>
+                                        <dt>Tracking Number:</dt>
+                                        <dd>
+                                            <h4 class="track-no"><b class="stronger">12303777377</b></h4>
+                                        </dd>
+                                    </dl>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column-small">
+                                <div class="info-1 info-head">
+                                    <b class="border-bottom border-primary">Sender Information</b>
+                                    <dl>
+                                        <dt>Name:</dt>
+                                        <dd>John Kim</dd>
+                                        <dt>Address:</dt>
+                                        <dd>Kikuyu</dd>
+                                        <dt>Contact:</dt>
+                                        <dd>01887881819</dd>
+                                    </dl>
+                                </div>
+                                <div class="info-1 info-head">
+                                    <b class="border-bottom border-primary">Recipient Information</b>
+                                    <dl>
+                                        <dt>Name:</dt>
+                                        <dd>Rubi Kim</dd>
+                                        <dt>Address:</dt>
+                                        <dd>Mombasa</dd>
+                                        <dt>Contact:</dt>
+                                        <dd>01885681819</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<div id="modal-overlay"></div>
+
+
+
 <script src="assets/js/handler.js"></script>
+<script src="assets/js/modal.js"></script>
