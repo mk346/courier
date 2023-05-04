@@ -7,7 +7,7 @@ var subwrapper = document.getElementById("sub-wrapper")
 var modal2 = document.getElementById("modal-status")
 var update = document.getElementById("update-status")
 var modal1 = document.getElementById("modal-parcel")
-var closemodal = document.getElementById("close-modal2")
+var closeupdatemodal = document.getElementById("close-modal2")
 
 openModalButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -22,6 +22,12 @@ overlay.addEventListener('click', () => {
     modals.forEach(modal => {
         closeModal(modal)
     })
+    modal2.style.display = 'none';
+    overlay.classList.remove("active")
+    topbar.classList.remove("active")
+    container.classList.remove("active")
+    subwrapper.classList.remove("active")
+
 })
 
 
@@ -55,7 +61,7 @@ function closeModal(modal) {
 }
 
 
-closemodal.addEventListener('click', () => { 
+closeupdatemodal.addEventListener('click', () => { 
     modal2.style.display = 'none';
     overlay.classList.remove("active")
     topbar.classList.remove("active")
