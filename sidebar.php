@@ -1,3 +1,9 @@
+<?php
+require 'config/config.php';
+
+
+
+?>
 <div class="sidebar">
     <h2 class="text">OnTime Courier</h2>
     <nav class="menus">
@@ -29,18 +35,18 @@
                     <span class="fas fa-caret-down third"></span>
                 </a>
                 <ul class="show-3">
-                    <li><a href="add_parcel.php"><i class="fas fa-caret-right"></i>Add New</a></li>
+                    <li><a href="add_parcel.php?"><i class="fas fa-caret-right"></i>Add New</a></li>
                     <li><a href="list_parcel.php"><i class="fas fa-caret-right"></i>List All</a></li>
-                    <li><a href="parcel_list.php"><i class="fas fa-caret-right"></i>Item Accepted</a></li>
-                    <li><a href="parcel_list.php"><i class="fas fa-caret-right"></i>Collected</a></li>
-                    <li><a href="parcel_list.php"><i class="fas fa-caret-right"></i>Arrived at Destination</a></li>
-                    <li><a href="parcel_list.php"><i class="fas fa-caret-right"></i>Shipped</a></li>
-                    <li><a href="parcel_list.php"><i class="fas fa-caret-right"></i>In-Transit</a></li>
-                    <li><a href="parcel_list.php"><i class="fas fa-caret-right"></i>Out of Delivery</a></li>
-                    <li><a href="parcel_list.php"><i class="fas fa-caret-right"></i>Ready for Pickup</a></li>
-                    <li><a href="parcel_list.php"><i class="fas fa-caret-right"></i>Delivered</a></li>
-                    <li><a href="parcel_list.php"><i class="fas fa-caret-right"></i>Picked-Up</a></li>
-                    <li><a href="parcel_list.php"><i class="fas fa-caret-right"></i>Unsuccessful Delivery</a></li>
+                    <li><a href="parcel_list.php?&status=0"><i class="fas fa-caret-right"></i>Item Accepted</a></li>
+                    <li><a href="parcel_list.php?&status=1"><i class="fas fa-caret-right"></i>Collected</a></li>
+                    <li><a href="parcel_list.php?&status=2"><i class="fas fa-caret-right"></i>Shipped</a></li>
+                    <li><a href="parcel_list.php?&status=3"><i class="fas fa-caret-right"></i>In-Transit</a></li>
+                    <li><a href="parcel_list.php?&status=4"><i class="fas fa-caret-right"></i>Arrived at Destination</a></li>
+                    <li><a href="parcel_list.php?&status=5"><i class="fas fa-caret-right"></i>Out of Delivery</a></li>
+                    <li><a href="parcel_list.php?&status=6"><i class="fas fa-caret-right"></i>Ready for Pickup</a></li>
+                    <li><a href="parcel_list.php?&status=7"><i class="fas fa-caret-right"></i>Delivered</a></li>
+                    <li><a href="parcel_list.php?&status=8"><i class="fas fa-caret-right"></i>Picked-Up</a></li>
+                    <li><a href="parcel_list.php?&status=9"><i class="fas fa-caret-right"></i>Unsuccessful Delivery</a></li>
                 </ul>
             </li>
             <li><a href="track.php"><i class="fa-solid fa-magnifying-glass"></i>Track Parcel</a></li>

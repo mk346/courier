@@ -19,6 +19,7 @@ $options = "";
                         <div class="main-col col-span">
                             <b class="form-title">Sender Information</b>
                             <input type="hidden" name="id" value="<?php echo isset($id) ? $id : '' ?>">
+                            <input type="hidden" name="reference_number">
                             <div class="form-group spacing">
                                 <label for class="control-label">Name</label>
                                 <input type="text" name="sname" id="" class="form-control" required>
@@ -135,7 +136,7 @@ $options = "";
                 <div class="cardfooter-items">
                     <!-- <input type="submit" name="save" value="Save" class="btn1"> -->
                     <button class="card-btn1" form="manage-parcel">Save</button>
-                    <a href="#" class="card-btn2">Cancel</a>
+                    <a href="list_parcel.php" class="card-btn2">Cancel</a>
                 </div>
 
             </div>

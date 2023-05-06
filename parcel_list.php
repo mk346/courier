@@ -3,13 +3,17 @@ require 'config/config.php';
 include 'header.php';
 include 'sidebar.php';
 include 'topbar.php';
-require 'config/pdo.php';
+$id = '';
+$status = $_GET['status'];
+// $query = $con->query("SELECT * FROM parcels WHERE status = 1 ORDER BY parcel_id DESC");
+// while ($row = $query->fetch_assoc()):
 ?>
-<div class="sub-wrapper2">
+</script>
+<div class="sub-wrapper2" id="sub-wrapper">
     <h1 class="main-header1">Parcel List</h1>
     <hr class="line">
 </div>
-<div class="container-fluid">
+<div class="container-fluid" id="container">
     <div class="col-3">
         <div class="card-1 card-outline card-primary">
             <div class="card-header">
@@ -33,7 +37,7 @@ require 'config/pdo.php';
                     </div>
                     <div class="row-1">
                         <div class="table-col">
-                            <table class="branch-table">
+                            <table class="branch-table" id="list">
                                 <thead>
                                     <tr role="row" class="trow">
                                         <th class="rhead">#</th>
@@ -47,31 +51,36 @@ require 'config/pdo.php';
                                 <tbody>
                                     <?php
                                     $i = 1;
-                                    $query = $con->query("SELECT * parcels ORDER BY parcel_id DESC");
-                                    echo $query;
-                                    while ($row = $query->fetch_assoc()) :
+                                    $query = $con->query("SELECT * FROM parcels WHERE status = '$status' ORDER BY parcel_id DESC");
+                                    while ($rows = $query->fetch_assoc()) :
                                     ?>
                                         <tr>
                                             <td class="rbody"><?php echo $i++ ?></td>
-                                            <td class="rbody">
+                                            <td class="rbody text-center">
                                                 <b>
-                                                    <?php echo $row['reference_number'] ?>
+                                                    <?php
+                                                    echo $rows['reference_number']
+                                                    ?>
                                                 </b>
                                             </td>
-                                            <td class="rbody">
+                                            <td class="rbody text-center">
                                                 <b>
-                                                    <?php echo $row['sname'] ?>
+                                                    <?php
+                                                    echo $rows['sname']
+                                                    ?>
                                                 </b>
                                             </td>
-                                            <td class="rbody">
+                                            <td class="rbody text-center">
                                                 <b>
-                                                    <?php echo $row['rname'] ?>
+                                                    <?php
+                                                    echo $rows['rname']
+                                                    ?>
                                                 </b>
                                             </td>
                                             <td class="rbody text-center">
                                                 <?php
                                                 //create a switch case to set the parcel status
-                                                switch($row['status']){
+                                                switch ($rows['status']) {
                                                     case '1':
                                                         echo "<span class='status-btn'>Collected</span>";
                                                         break;
@@ -102,32 +111,35 @@ require 'config/pdo.php';
                                                     default:
                                                         echo "<span class='status-btn'>Item Accepted By Courier</span>";
                                                         break;
-                                            }
+                                                }
+
                                                 ?>
                                             </td>
                                             <td class="rbody">
                                                 <div class="btn-group">
-                                                    <button type="bu
-                                                    " class="btn-main btn-green">
-                                                    <i class="fas fa-eye"></i>
-                                                </button>
-                                                    <a href="#" class="btn-main btn-edit">
+                                                    <a href="edit_parcel.php?&parcel_id=<?php echo $rows['parcel_id'] ?>&cs=<?php echo $rows['status'] ?>" class="btn-main btn-edit">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
-                                                    <button type="button" class="btn-main btn-del">
+                                                    <a href="delete_parcel.php?&del_id=<?php echo $rows['parcel_id'] ?>" class="btn-main btn-del">
                                                         <i class="fas fa-trash"></i>
-                                                    </button>
+
+                                                    </a>
                                                 </div>
                                             </td>
                                         </tr>
+
                                     <?php endwhile; ?>
                                 </tbody>
                             </table>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
+
     </div>
 </div>
+
 <script src="assets/js/handler.js"></script>
+<!-- <script src="assets/js/modal.js"></script> -->
