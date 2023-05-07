@@ -802,7 +802,7 @@ textarea{
 .input-group{
     position: relative;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: stretch;
     text-align: center;
     width: 50%;
@@ -876,6 +876,26 @@ textarea{
     border-radius: 10rem;
     transition: color 1.5s ease-in-out;
     cursor: pointer;
+}
+.capture-input {
+    width: 100%;
+    display: flex;
+}
+
+.error-display {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+}
+
+#map{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 70%;
 }
 
 
@@ -1098,4 +1118,43 @@ dd{
 .padding-margin{
     padding: 0 !important;
     margin: 0 !important;
+}
+
+.sub-col{
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+    margin-left: 16.666667%;
+}
+
+.timeline{
+    margin: 0 0 45px;
+    padding: 0;
+    position: relative;
+}
+.bg-blue{
+    background-color: #007bff !important;
+}
+.toast{
+    max-width: 350px;
+    font-size: .875rem;
+    background-color: rgba(255,255,255,.85);
+    border: 1px solid rgba(0,0,0,.1);
+    box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,.1);
+    opacity: 0;
+    border-radius: 0.25rem;
+    margin-bottom: 0.75rem;
+    display: none;
+    min-width: 20vw;
+}
+.text-white{
+    color: #fff !important;
+}
+.toast-body{
+    padding: 0.75rem;
+}
+.toasts-top-right{
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1040;
 }
