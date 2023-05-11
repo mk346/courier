@@ -29,7 +29,7 @@ include 'form_handler/fetchdata.php';
                     <div class="input-group">
                         <form action="track.php" method="POST" id="tracker" class="capture-input">
                             <input type="search" name="track_no" class="form-control form-control2" id="ref_no" placeholder="Enter tracking Number" required>
-                            <input type="submit" name="submit" class="search-btn" value="Track">
+                            <input type="submit" name="submit" class="search-btn" value="Track" id="track">
                             <br>
                         </form>
                     </div>
@@ -44,68 +44,21 @@ include 'form_handler/fetchdata.php';
             </div>
         </div>
         <div class="row">
-            <?php
-            // while ($rows = mysqli_fetch_assoc($result)) :
-            ?>
+            <div class="form-group">
+                <input type="hidden" name="ref_number" value="<?php $reference_number; ?>">
+                <input type="hidden" name="origin" value="mombasa" id="departure">
+                <input type="hidden" name="destination" value="nairobi" id="destination">
 
-            <!-- <?php //endwhile; 
-                    ?> -->
-
-
-
-            <!-- <div class="sub-col">
-                <div class="timeline" id="parcel_history">
-
-                </div>
-            </div> -->
-        </div>
-        <!-- <div id="clone_timeline-item" class="d-none">
-            <div class="item">
-                <i class="fas fa-box bg-blue"></i>
-                <div class="timeline-item">
-                    <span class="time"></span>
-                    <div class="timeline-body">
-
-                    </div>
-                </div>
             </div>
-        </div> -->
+        </div>
     </div>
-    <div id="map" class="mymap"></div>
+    <div id="map" class="mymap">
+
+
+    </div>
+
 </div>
 
 <script src="assets/js/handler.js"></script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-<script>
-    (g => {
-        var h, a, k, p = "The Google Maps JavaScript API",
-            c = "google",
-            l = "importLibrary",
-            q = "__ib__",
-            m = document,
-            b = window;
-        b = b[c] || (b[c] = {});
-        var d = b.maps || (b.maps = {}),
-            r = new Set,
-            e = new URLSearchParams,
-            u = () => h || (h = new Promise(async (f, n) => {
-                await (a = m.createElement("script"));
-                e.set("libraries", [...r] + "");
-                for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
-                e.set("callback", c + ".maps." + q);
-                a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
-                d[q] = f;
-                a.onerror = () => h = n(Error(p + " could not load."));
-                a.nonce = m.querySelector("script[nonce]")?.nonce || "";
-                m.head.append(a)
-            }));
-        d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n))
-    })
-    ({
-        key: "AIzaSyB3OescahbXQEeGpLf3N61FwiIVSiIvaVk",
-        v: "beta"
-    });
-</script>
 <script src="assets/js/map.js"></script>
-<!-- <script defer src="https://maps.googleapis.com/maps/api/js?Key=AIzaSyB3OescahbXQEeGpLf3N61FwiIVSiIvaVk&callback=initMap"> -->
-</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3OescahbXQEeGpLf3N61FwiIVSiIvaVk&callback=initMap&v=weekly" defer></script>

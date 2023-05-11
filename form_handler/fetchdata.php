@@ -11,10 +11,12 @@ if(isset($_POST['submit'])){
         $rows = mysqli_num_rows($result);
         if($rows > 0){
             //echo "reference number found";
-            // while($rows = mysqli_fetch_assoc($result)){
-            //     $reference_number = $rows['reference_number'];
-            //     //echo $reference_number;
-            // }
+            while($rows = mysqli_fetch_assoc($result)){
+                $reference_number = $rows['reference_number'];
+                $origin = $rows['saddress'];
+                $destination = $rows['raddress'];
+                //echo $reference_number;
+            }
         }else if($rows <= 0){
             array_push($err_array, "<span style='color: red;'>Tracking Number Not Found</span><br>");
         }

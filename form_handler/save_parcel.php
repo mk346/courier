@@ -5,9 +5,11 @@ require '../config/config.php';
 $sname = "";
 $saddress = "";
 $scontact = "";
+$semail = "";
 $rname = "";
 $raddress = "";
 $rcontact = "";
+$remail = "";
 $type = "";
 $processed_br = "";
 $pickup_br = "";
@@ -38,6 +40,9 @@ $scontact = strip_tags($_POST['scontact']); // strip html tags
 $scontact   = ucwords($_POST['scontact']); // capitalize every first letter
 $_SESSION['scontact'] =$scontact; // store session variable
 
+$semail = strip_tags($_POST['semail']); // strip html tags
+$_SESSION['semail'] = $semail; // store session variable
+
 $rname = strip_tags($_POST['rname']); // strip html tags
 $rname = ucwords($_POST['rname']); // capitalize every first letter
 $_SESSION['rname'] = $rname; // store session variable
@@ -48,6 +53,9 @@ $_SESSION['raddress'] = $raddress; // store session variable
 
 $rcontact = strip_tags($_POST['rcontact']); // strip html tags
 $_SESSION['rcontact'] = $rcontact; // store session variable
+
+$remail = strip_tags($_POST['remail']); // strip html tags
+$_SESSION['remail'] = $remail; // store session variable
 
 $type = strip_tags($_POST['type']);
 $_SESSION['type'] = $type;
@@ -83,7 +91,7 @@ $amount = $price + ($price * $VAT);
 
 
 //sql query to save the data into the database
-$query = mysqli_query($con, "INSERT INTO parcels VALUES ('','$sname','$saddress','$scontact','$rname','$raddress','$rcontact','$type','$processed_br','$pickup_br','$delivery_loc','$weight','$height','$length','$width','$price','$amount','$reference_number','','$date_created')");
+$query = mysqli_query($con, "INSERT INTO parcels VALUES ('','$sname','$saddress','$scontact','$semail','$rname','$raddress','$rcontact','$remail','$type','$processed_br','$pickup_br','$delivery_loc','$weight','$height','$length','$width','$price','$amount','$reference_number','','$date_created')");
 
 
 

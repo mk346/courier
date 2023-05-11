@@ -4,6 +4,7 @@ include 'header.php';
 include 'sidebar.php';
 include 'topbar.php';
 $options = "";
+$options2 = "";
 ?>
 <!-- <div class="wrapper-main"> -->
 <div class="sub-wrapper2">
@@ -32,6 +33,10 @@ $options = "";
                                 <label for class="control-label">Contact</label>
                                 <input type="text" name="scontact" id="" class="form-control" required>
                             </div>
+                            <div class="form-group spacing">
+                                <label for class="control-label">Email</label>
+                                <input type="email" name="semail" id="" class="form-control" required>
+                            </div>
                         </div>
                         <div class="main-col col-span">
                             <b class="form-title">Recipient Information</b>
@@ -46,6 +51,10 @@ $options = "";
                             <div class="form-group spacing">
                                 <label for class="control-label">Contact</label>
                                 <input type="text" name="rcontact" id="" class="form-control" required>
+                            </div>
+                            <div class="form-group spacing">
+                                <label for class="control-label">Email</label>
+                                <input type="email" name="remail" id="" class="form-control" required>
                             </div>
                         </div>
                     </div>
@@ -68,18 +77,19 @@ $options = "";
                                 if (mysqli_num_rows($result) > 0) {
                                     while ($row = mysqli_fetch_assoc($result)) {
                                         $options = $options . "<option>" . $row['code'] . " " . $row['city'] . "</option>";
+                                        $options2 = $options2 . "<option>" . $row['city'] . "</option>";
                                     }
                                 }
                                 ?>
                                 <select name="processed_br" id="" class="form-control">
                                     <option value="#">Branch Processed</option>
-                                    <option value="<?php $options; ?>"><?php echo $options; ?></option>
+                                    <option value="<?php $options2; ?>"><?php echo $options; ?></option>
                                 </select>
                             </div>
                             <div class="form-group spacing">
                                 <select name="pickup_br" id="pickup" class="form-control hide-select">
                                     <option value="#">Pickup Branch</option>
-                                    <option value="<?php $options; ?>"><?php echo $options; ?></option>
+                                    <option value="<?php $options2; ?>"><?php echo $options; ?></option>
                                 </select>
                             </div>
                             <div class="form-group spacing" id="hide-div">
