@@ -1,80 +1,88 @@
-let map;
-let marker;
-let geocoder;
-var places;
-
-function initMap() {
-    map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 8,
-        center: { lat: -34.397, lng: 150.644 },
-        mapTypeControl: true,
-        mapTypeControlOptions: {
-            style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
-            position: google.maps.ControlPosition.TOP_LEFT
-        }
+var origin, destination;
+function initMap() { 
+    var myLatLng = { lat: 0.0236, lng: 37.9062 };
+    // var directionsService = new google.maps.DirectionsService;
+    // var directionsDisplay = new google.maps.DirectionsDisplay;
+    var map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 5,
+        center: myLatLng
     });
-    geocoder = new google.maps.Geocoder();
-
-    const origin = document.getElementById("departure");
-    const destination = document.getElementById("destination");
+    map.setZoom(5);
 
 
-    const submitButton = document.getElementById("track");
-
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(origin);
-    map.controls[google.maps.ControlPosition.TOP_RIGHT].push(destination);
-    map.controls[google.maps.ControlPosition.TOP_CENTER].push(submitButton);
-    marker = new google.maps.Marker({
-        map,
+    document.getElementById("track").addEventListener('click', function () {
+        var address = document.getElementById('ref_no').value;
+        findAplace(address, map)
+        
     });
-    map.addListener("click", (e) => {
-        geocode({ location: e.latLng });
-        // geocode2({ location: e.latLng });
-    });
-    places = [origin.value, destination.value];
-    for (var i = 0; i < places.length; i++) { 
-        submitButton.addEventListener("click", () =>
-        geocode({ address: places[i] }),
-    );
+    findPlaces(map)
+    //showDirection(directionsService, directionsDisplay)
+
+}
+
+function findPlaces(map) {
+    const fetch_data1 = "<?php $origin; ?>";
+    console.log(fetch_data1);
+    origin = document.getElementById('origin').value;
+    destination = document.getElementById('destination').value
+    var places = [origin, destination];
+    for (var i = 0; i < places.length; i++){
+        findAplace(places[i], map);
+        //console.log(places[i]);
     }
 }
 
-function geocode(request) {
-    geocoder
-        .geocode(request)
-        .then((result) => {
-            const { results } = result;
+function findAplace(place, map) {
+    var geocoder = new google.maps.Geocoder();
 
+    geocoder.geocode({ 'address': place }, function (results, status) {
+        if (status === google.maps.GeocoderStatus.OK) {
             map.setCenter(results[0].geometry.location);
-            marker.setPosition(results[0].geometry.location);
-            console.log(results);
+            map.setZoom(7);
+
+            var info = new google.maps.InfoWindow({
+                content: results[0].formatted_address
+            });
+            var marker = new google.maps.Marker({
+                position: results[0].geometry.location,
+                title: results[0].formatted_address,
+                animation: google.maps.Animation.DROP,
+            });
+            // for (var x = 0; x < results.length; x++){
+            //     console.log(results[x][0]);
+        
+            // }
+            // var line = new google.maps.Polyline({
+            //     path: results[0].geometry.location.getPath(),
+            //     strokeColor: "#FF0000",
+            //     strokeOpacity: 0.5,
+            //     strokeWeight: 1
+            // })
             marker.setMap(map);
-            return results;
-        })
-        .catch((e) => {
-        console.log("Geocode was not successful for the following reason: " + e);
-        });
+            //line.setMap(map);
+
+            marker.addListener('click', function () {
+                info.open(map, marker);
+            });
+        } else {
+            console.log('Not found:', +place + 'status:' + status);
+        }
+    });
 }
 
-// function geocode2(request2) {
-//     geocoder
-//         .geocode2(request2)
-//         .then((result) => {
-//             const { results } = result;
-//             map.setCenter(results[0].geometry.location);
-//             marker.setPosition(results[0].geometry.location);
-//             marker.setMap(map);
-//             return results;
-//         })
-//         .catch((e) => {
-//         alert("Geocode was not successful for the following reason: " + e);
-//         });
-    
-// }
+function showDirection(directionsService, directionsDisplay) { 
+    directionsService.route({
+        origin: origin,
+        destination: destination,
+        travelMode: 'DRIVING',
+    }, function (response, status) {
+        if (status === 'OK') {
+            directionsDisplay.setDirection(response);
 
-function callme() {
-    console.log("here i am")
+        } else {
+            console.log('Direction request failed: '+ status);
+        }
+    })
+
 }
-
-window.initMap = initMap;
 

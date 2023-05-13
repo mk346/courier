@@ -4,8 +4,10 @@
     <title>Track Parcel</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="https://kit.fontawesome.com/0fe3bc1f22.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
     <link rel="stylesheet" href="assets/css/style.css">
-    <script type="module" src="assets/js/map.js"></script>
+    <script type="module" src="assets/js/testmap.js"></script>
 </head>
 <?php
 require 'config/config.php';
@@ -29,6 +31,6 @@ include 'topbar.php';
         <div id="map"></div>
     </div>
     <script src="assets/js/handler.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3OescahbXQEeGpLf3N61FwiIVSiIvaVk&callback=initMap&v=weekly" defer></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3OescahbXQEeGpLf3N61FwiIVSiIvaVk&callback=initMap&v=weekly" defer></script> -->
 </body>
 </html>
