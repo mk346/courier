@@ -12,7 +12,7 @@ require("includes/login_handler.php");
     <script src="https://kit.fontawesome.com/0fe3bc1f22.js" crossorigin="anonymous"></script>
     <title>Login Page</title>
 </head>
-<body>
+<body class="login-body">
     <section class="admin-login">
         <div class="login-wrapper">
             <div class="wrapper-title">

@@ -1,8 +1,5 @@
 <?php
 require 'config/config.php';
-
-
-
 ?>
 <div class="sidebar">
     <h2 class="text">OnTime Courier</h2>

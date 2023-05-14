@@ -6,11 +6,14 @@
     user-select: none;
 }
 body{
-    background-color: #fffd;
+    background-color:  #fffd;
     /* min-height: 5000px; */
     padding-top: 45px;
     overflow-x: hidden;
     overflow-y: auto;
+}
+.login-body{
+    background-color:  rgb(204, 203, 203) !important;
 }
 .admin-login{
     width: 100%;
@@ -315,7 +318,7 @@ nav ul li a span.rotate{
     
 }
 .container-1.click{
-    left: 0px;
+    left: 15px;
     width: 100%;
 }
 .row{
@@ -330,7 +333,7 @@ nav ul li a span.rotate{
     position: relative;
     padding-left: 7px;
     padding-right: 7px;
-    /* width: 20%; */
+    margin-bottom: 10px;
     flex: 0 0 33.333333%;
     max-width: 33.333333%;
     overflow-y: hidden;
@@ -1159,84 +1162,40 @@ dd{
     top: 0;
     z-index: 1040;
 }
-
-
-
-/* input[type=text] {
-    background-color: #fff;
-    border: 0;
-    border-radius: 2px;
-    box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
-    margin: 10px;
-    padding: 0 0.5em;
-    font: 400 18px Roboto, Arial, sans-serif;
-    overflow: hidden;
-    line-height: 40px;
-    margin-right: 0;
-    min-width: 25%;
+.d-flex{
+    display: flex;
 }
-
-input[type=button] {
-    background-color: #fff;
-    border: 0;
-    border-radius: 2px;
-    box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
-    margin: 10px;
-    padding: 0 0.5em;
-    font: 400 18px Roboto, Arial, sans-serif;
-    overflow: hidden;
-    height: 40px;
-    cursor: pointer;
+.w-100{
+    width: 100%;
+}
+.px-1{
+    padding-right:  0.25rem;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    padding-left: 0.25rem;
+}
+.align-items{
+    align-items: center;
+}
+.justify-content{
+    justify-content: center;
+}
+.col-sm{
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+.mx-1{
+    margin-left: 0.25rem !important;
+    margin-right: 0.25rem !important;
+}
+.btn-view{
     margin-left: 5px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #007bff;
 }
-
-input[type=button]:hover {
-    background: rgb(235, 235, 235);
+.report-form{
+    width: 100%;
+    display: flex;
+    align-items: center;
 }
-
-input[type=button].button-primary {
-    background-color: #1a73e8;
-    color: white;
-}
-
-input[type=button].button-primary:hover {
-    background-color: #1765cc;
-}
-
-input[type=button].button-secondary {
-    background-color: white;
-    color: #1a73e8;
-}
-
-input[type=button].button-secondary:hover {
-    background-color: #d2e3fc;
-}
-
-#response-container {
-    background-color: #fff;
-    border: 0;
-    border-radius: 2px;
-    box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
-    margin: 10px;
-    padding: 0 0.5em;
-    font: 400 18px Roboto, Arial, sans-serif;
-    overflow: hidden;
-    overflow: auto;
-    max-height: 50%;
-    max-width: 90%;
-    background-color: rgba(255, 255, 255, 0.95);
-    font-size: small;
-}
-
-#instructions {
-    background-color: #fff;
-    border: 0;
-    border-radius: 2px;
-    box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
-    margin: 10px;
-    padding: 0 0.5em;
-    font: 400 18px Roboto, Arial, sans-serif;
-    overflow: hidden;
-    padding: 1rem;
-    font-size: medium;
-} */

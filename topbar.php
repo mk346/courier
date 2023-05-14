@@ -1,14 +1,26 @@
-        <div class="top-nav" id="top-bar">
-            <div class="bars">
-                <span class="fas fa-bars menu-bars"></span>
-            </div>
-            <h4 class="mytitle">Courier Management System</h4>
-            <a href="#" class="user-log">
-                <i class="fa-solid fa-user logged-in"></i>Administrator
-                <span class="fa fa-angle-down"></span>
-                <ul class="user-menu">
-                    <li><a href="#"><i class="fa-solid fa-gear"></i>Manage Account</a></li>
-                    <li><a href="#"><i class="fa-solid fa-power-off"></i>Log Out</a></li>
-                </ul>
-            </a>
+<?php
+//$id = $_GET['id'];
+// require 'config/config.php';
+// $userLoggedIn = $_SESSION['username'];
+// $user_details_query = mysqli_query($con, "SELECT * FROM users WHERE fname='$userLoggedIn'");
+
+?>
+<div class="top-nav" id="top-bar">
+        <div class="bars">
+            <span class="fas fa-bars menu-bars"></span>
         </div>
+        <h4 class="mytitle">Courier Management System</h4>
+        <a href="#" class="user-log">
+            <i class="fa-solid fa-user logged-in"></i>
+            <?php
+                echo $_SESSION['username'];
+                //echo $userLoggedIn;
+            ?>
+            <span class="fa fa-angle-down"></span>
+            <ul class="user-menu">
+                <li><a href="#" id="manage-account"><i class="fa-solid fa-gear"></i>Manage Account</a></li>
+                <li><a href="logout.php"><i class="fa-solid fa-power-off"></i>Log Out</a></li>
+            </ul>
+        </a>
+</div>
+
