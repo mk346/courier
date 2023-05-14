@@ -1,8 +1,5 @@
 <?php
-//$id = $_GET['id'];
-// require 'config/config.php';
-// $userLoggedIn = $_SESSION['username'];
-// $user_details_query = mysqli_query($con, "SELECT * FROM users WHERE fname='$userLoggedIn'");
+
 
 ?>
 <div class="top-nav" id="top-bar">
@@ -18,8 +15,16 @@
             ?>
             <span class="fa fa-angle-down"></span>
             <ul class="user-menu">
-                <li><a href="#" id="manage-account"><i class="fa-solid fa-gear"></i>Manage Account</a></li>
+                <?php
+                $i = 1;
+                $query = $con->query("SELECT * FROM users ORDER BY id DESC");
+                while ($row = $query->fetch_assoc()){
+                    $id = $row['id'];
+                }
+                ?>
+                <li><a href="manage_account.php?&id=<?php echo $id; ?>" id="manage-account"><i class="fa-solid fa-gear"></i>Manage Account</a></li>
                 <li><a href="logout.php"><i class="fa-solid fa-power-off"></i>Log Out</a></li>
+
             </ul>
         </a>
 </div>

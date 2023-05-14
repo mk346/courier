@@ -31,6 +31,11 @@ if(isset($_POST['submit'])){
     }
     else{
         array_push($err_array, "<span style='color: red;'>Email or Password was Incorrect</span><br>");
+        $_SESSION['email'] = "";
+        $_SESSION['username'] = "";
+        $_SESSION['password'] = "";
+        $_SESSION['login_id'] = "";
+
     }
 
 
