@@ -19,6 +19,7 @@ require("includes/login_handler.php");
                 <span>Courier Management System</span>
             </div>
             <form action="login.php" method="POST" class="wrapper-form">
+                <input type="hidden" name="login_id" value="<?php if (isset($_SESSION['login_id'])) echo $_SESSION['login_id']; ?>">
                 <div class="wrapper-row">
                     <i class="fa-solid fa-envelope"></i>
                     <input type="email" name="email" class="input-type-1" value="<?php if (isset($_SESSION['email'])) echo $_SESSION['email']; ?>" placeholder="Email" required>

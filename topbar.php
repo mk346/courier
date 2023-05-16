@@ -11,27 +11,21 @@
         <i class="fa-solid fa-user logged-in"></i>
         <?php
         echo $_SESSION['username'];
+        $login_id =  $_SESSION['login_id'];
         //echo $userLoggedIn;
         ?>
         <span class="fa fa-angle-down"></span>
         <ul class="user-menu">
             <?php
             //$i = 1;
-            $query = $con->query("SELECT * FROM users ORDER BY id DESC");
-            // $i = mysqli_num_rows($query);
-            // for($j = 0; $j = $i; $j++){
-            //     while ($row = $query->fetch_assoc()) {
-            //         $id = $row['id'];
-            //     }
+            $query = $con->query("SELECT * FROM users WHERE id = '$login_id' ");
+            while ($row = $query->fetch_assoc()){
+                $user_id = $row['id'];
 
-            // }
-
+            }
             ?>
-                <li><a href="#" id="manage-account"><i class="fa-solid fa-gear"></i>Manage Account</a></li>
-            <?php //endwhile; ?>
+            <li><a href="manage_account.php?&id=<?php echo $user_id ?>" id="manage-account"><i class="fa-solid fa-gear"></i>Manage Account</a></li>
             <li><a href="logout.php"><i class="fa-solid fa-power-off"></i>Log Out</a></li>
-
-
         </ul>
     </a>
 </div>
