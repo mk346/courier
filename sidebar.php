@@ -1,4 +1,5 @@
 <?php
+//require 'config/session.php';
 require 'config/config.php';
 ?>
 <div class="sidebar">
@@ -9,6 +10,7 @@ require 'config/config.php';
                 <a href="index.php"><i class="fa-solid fa-gauge"></i>Dashboard
                 </a>
             </li>
+            <?php if($_SESSION['login_type'] == 1): ?>
             <li>
                 <a href="#" class="btn-1"><i class="fa-solid fa-code-branch"></i>Branch
                     <span class="fas fa-caret-down first"></span>
@@ -27,6 +29,7 @@ require 'config/config.php';
                     <li><a href="staff.php"><i class="fas fa-caret-right"></i>List</a></li>
                 </ul>
             </li>
+            <?php endif; ?>
             <li>
                 <a href="#" class="btn-3"><i class="fa-solid fa-box"></i>Parcels
                     <span class="fas fa-caret-down third"></span>

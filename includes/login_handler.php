@@ -5,6 +5,7 @@ $err_array = array();
 $email = "";
 $password = "";
 $username = "";
+$role = "";
 
 if(isset($_POST['submit'])){
     //cleaning input data before sending it to the database
@@ -21,10 +22,13 @@ if(isset($_POST['submit'])){
     if($check_login_query == 1){
         $row = mysqli_fetch_array($check_database); //store database result in to an array
         $username = $row['fname'];
+        $role = $row['role'];
+
         //$login_id = $row['id'];
         $_SESSION['username'] = $username;
         $_SESSION['password'] = $password;
-        $_SESSION['login_id'] = $login_id;
+        //$_SESSION['login_id'] = $login_id;
+        $_SESSION['login_type'] = $role;
         header("Location: index.php");
         exit();
 
@@ -34,7 +38,7 @@ if(isset($_POST['submit'])){
         $_SESSION['email'] = "";
         $_SESSION['username'] = "";
         $_SESSION['password'] = "";
-        $_SESSION['login_id'] = "";
+        //$_SESSION['login_id'] = "";
 
     }
 

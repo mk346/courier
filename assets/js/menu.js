@@ -17,17 +17,6 @@ var wrapper = document.querySelector(".sub-wrapper")
 var mainwrapper = document.querySelector(".container-1")
 
 
-
-button1.addEventListener("click", function () {
-    submenus1.classList.toggle("show")
-    arrow1.classList.toggle("rotate")
-})
-
-button2.addEventListener("click", function () {
-    submenus2.classList.toggle("show")
-    arrow2.classList.toggle("rotate")
-})
-
 button3.addEventListener("click", function () {
     submenus3.classList.toggle("show")
     arrow3.classList.toggle("rotate")
@@ -44,6 +33,17 @@ bars.addEventListener("click", function(){
 arrow4.addEventListener("click", function(){
     usermenu.classList.toggle("show-me")
 })
+
+button1.addEventListener("click", function () {
+    submenus1.classList.toggle("show")
+    arrow1.classList.toggle("rotate")
+})
+
+button2.addEventListener("click", function () {
+    submenus2.classList.toggle("show")
+    arrow2.classList.toggle("rotate")
+})
+
 
 
 
