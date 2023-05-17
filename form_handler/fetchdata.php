@@ -1,4 +1,10 @@
 <?php
+//require './config/session.php';
+//require '../config/pdo.php';
+//require '../config/config.php';
+// include 'header.php';
+// include 'sidebar.php';
+// include 'topbar.php';
 $ref_no = "";
 $err_array = array();
 $track_number;
@@ -15,10 +21,18 @@ if(isset($_POST['submit'])){
                 $reference_number = $rows['reference_number'];
                 $origin = $rows['saddress'];
                 $destination = $rows['raddress'];
+
+                $_SESSION['reference'] = $reference_number;
+                $_SESSION['origin'] = $origin;
+                $_SESSION['destination'] = $destination;
                 //echo $reference_number;
             }
+            header("Location: track.php");
         }else if($rows <= 0){
             array_push($err_array, "<span style='color: red;'>Tracking Number Not Found</span><br>");
+            $_SESSION['reference'] = "";
+            $_SESSION['origin'] = "";
+            $_SESSION['destination'] = "";
         }
     }
 
@@ -26,9 +40,4 @@ if(isset($_POST['submit'])){
 
 }
 
-
-
-
-
-//$query = "SELECT * FROM parcels WHERE reference_no = '$ref_no'";
 ?>

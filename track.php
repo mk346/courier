@@ -7,6 +7,8 @@ include 'sidebar.php';
 include 'topbar.php';
 include 'form_handler/fetchdata.php';
 
+//$err_array = array();
+
 
 
 ?>
@@ -30,7 +32,7 @@ include 'form_handler/fetchdata.php';
                     <div class="input-group">
                         <form action="track.php" method="POST" id="tracker" class="capture-input">
                             <input type="search" name="track_no" class="form-control form-control2" id="ref_no" placeholder="Enter tracking Number" required>
-                            <input type="submit" name="submit" class="search-btn" value="Track" id="track" onclick="fetch_data()">
+                            <input type="submit" name="submit" class="search-btn" value="Track" id="track">
                             <br>
                         </form>
                     </div>
@@ -46,14 +48,9 @@ include 'form_handler/fetchdata.php';
         </div>
         <div class="row">
             <div class="form-group">
-                <input type="hidden" name="ref_number" value="<?php $reference_number; ?>">
-                <input type="hidden" name="origin" value="" id="origin">
-                <input type="hidden" name="destination" value="" id="destination">
-                <?php
-                //echo $origin;
-                //echo $destination;
-                ?>
-
+                <input type="hidden" name="ref_number" id="ref_no" value="<?php echo $_SESSION['reference']; ?>">
+                <input type="hidden" name="origin" id="origin" value="<?php echo $_SESSION['origin']; ?>">
+                <input type="hidden" name="destination" id="destination" value="<?php echo $_SESSION['destination']; ?>">
             </div>
         </div>
     </div>
@@ -65,6 +62,6 @@ include 'form_handler/fetchdata.php';
 </div>
 
 <script src="assets/js/handler.js"></script>
-<script src="assets/js/fetch.js"></script>
-<!-- <script src="assets/js/map.js"></script>
+<!-- <script src="assets/js/fetch.js"></script> -->
+<script src="assets/js/map.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3OescahbXQEeGpLf3N61FwiIVSiIvaVk&callback=initMap&v=weekly" defer></script> -->

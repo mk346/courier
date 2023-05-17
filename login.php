@@ -22,11 +22,11 @@ require("includes/login_handler.php");
                 <input type="hidden" name="login_id" value="<?php if (isset($_SESSION['login_id'])) echo $_SESSION['login_id']; ?>">
                 <div class="wrapper-row">
                     <i class="fa-solid fa-envelope"></i>
-                    <input type="email" name="email" class="input-type-1" value="<?php if (isset($_SESSION['email'])) echo $_SESSION['email']; ?>" placeholder="Email" required>
+                    <input type="email" name="email" class="input-type-1" value="<?php if (isset($_SESSION['email'])) //echo $_SESSION['email']; ?>" placeholder="Email" required>
                 </div>
                 <div class="wrapper-row">
                     <i class="fas fa-lock"></i>
-                    <input type="password" name="password" class="input-type-1" value="<?php if (isset($_SESSION['password'])) echo $_SESSION['password']; ?>" placeholder="Password" required>
+                    <input type="password" name="password" class="input-type-1" value="<?php if (isset($_SESSION['password'])) //echo $_SESSION['password']; ?>" placeholder="Password" required>
                 </div>
                 <div class="wrapper-row">
                     <p class="error-message"><?php if (in_array("<span style='color: red;'>Email or Password was Incorrect</span><br>", $err_array)) echo "<span style='color: red;'>Email or Password was Incorrect</span><br>"; ?></p>

@@ -1,88 +1,100 @@
 var origin, destination;
+var map
+var geocoder
+var geocoderMarkers = [];
+var info = [];
 function initMap() { 
-    var myLatLng = { lat: 0.0236, lng: 37.9062 };
-    // var directionsService = new google.maps.DirectionsService;
-    // var directionsDisplay = new google.maps.DirectionsDisplay;
-    var map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 5,
+    var myLatLng = new google.maps.LatLng(0.0236, 37.9062);
+    geocoder = new google.maps.Geocoder();
+    map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 8,
         center: myLatLng
     });
-    map.setZoom(5);
 
 
     document.getElementById("track").addEventListener('click', function () {
-        var address = document.getElementById('ref_no').value;
-        findAplace(address, map)
+        var address = document.getElementById('origin').value;
+        //findAplace()
         
     });
     findPlaces(map)
-    //showDirection(directionsService, directionsDisplay)
 
 }
+
 
 function findPlaces(map) {
-    const fetch_data1 = "<?php $origin; ?>";
-    console.log(fetch_data1);
     origin = document.getElementById('origin').value;
     destination = document.getElementById('destination').value
-    var places = [origin, destination];
-    for (var i = 0; i < places.length; i++){
-        findAplace(places[i], map);
-        //console.log(places[i]);
-    }
+    findAplace(origin,destination,map)
 }
 
-function findAplace(place, map) {
-    var geocoder = new google.maps.Geocoder();
-
-    geocoder.geocode({ 'address': place }, function (results, status) {
+function findAplace(o, d,map) {
+    geocoder.geocode({ 'address': o }, function (results, status) {
         if (status === google.maps.GeocoderStatus.OK) {
             map.setCenter(results[0].geometry.location);
-            map.setZoom(7);
-
-            var info = new google.maps.InfoWindow({
-                content: results[0].formatted_address
-            });
-            var marker = new google.maps.Marker({
-                position: results[0].geometry.location,
-                title: results[0].formatted_address,
-                animation: google.maps.Animation.DROP,
-            });
-            // for (var x = 0; x < results.length; x++){
-            //     console.log(results[x][0]);
-        
-            // }
-            // var line = new google.maps.Polyline({
-            //     path: results[0].geometry.location.getPath(),
-            //     strokeColor: "#FF0000",
-            //     strokeOpacity: 0.5,
-            //     strokeWeight: 1
-            // })
-            marker.setMap(map);
-            //line.setMap(map);
-
-            marker.addListener('click', function () {
-                info.open(map, marker);
-            });
+            info.push(
+                new google.maps.InfoWindow({
+                    content: results[0].formatted_address
+                })
+            )
+            geocoderMarkers.push(
+                new google.maps.Marker({
+                    position:results[0].geometry.location,
+                    title: results[0].formatted_address,
+                    animation: google.maps.Animation.DROP
+                })
+            )
+            displayMarkers()
+            
         } else {
             console.log('Not found:', +place + 'status:' + status);
         }
     });
-}
-
-function showDirection(directionsService, directionsDisplay) { 
-    directionsService.route({
-        origin: origin,
-        destination: destination,
-        travelMode: 'DRIVING',
-    }, function (response, status) {
-        if (status === 'OK') {
-            directionsDisplay.setDirection(response);
-
+    geocoder.geocode({ 'address': d }, function (results2, status2) {
+        if (status2 === google.maps.GeocoderStatus.OK) {
+            info.push(
+                new google.maps.InfoWindow({
+                    content: results2[0].formatted_address
+                })
+            )
+            geocoderMarkers.push(
+                new google.maps.Marker({
+                    position:results2[0].geometry.location,
+                    title: results2[0].formatted_address,
+                    animation: google.maps.Animation.DROP
+                }),
+            )
+            displayMarkers()
         } else {
-            console.log('Direction request failed: '+ status);
+            console.log('Not found:','status:' + status2);
         }
-    })
+    });
 
 }
+
+function displayMarkers(){
+    if(geocoderMarkers.length === 2){
+        // var bounds = new google.maps.LatLngBounds(
+        //     geocoderMarkers[0].getPosition(),
+        //     geocoderMarkers[1].getPosition()
+        // )
+        geocoderMarkers[0].setMap(map);
+        geocoderMarkers[1].setMap(map);
+        geocoderMarkers[0].addListener('click', function(){
+            info[0].open(map,geocoderMarkers[0])
+        })
+        geocoderMarkers[1].addListener('click', function(){
+            info[1].open(map,geocoderMarkers[1])
+        })
+
+        path = new google.maps.Polyline({
+            path: [geocoderMarkers[0].getPosition(), geocoderMarkers[1].getPosition()],
+            strokeColor: "#FF0000",
+            strokeOpacity: 1,
+            strokeWeight: 2,
+            map: map
+        })
+    }
+}
+
 

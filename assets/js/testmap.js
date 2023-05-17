@@ -11,13 +11,16 @@ function initMap() {
         center: latlng
     }
     map = new google.maps.Map(document.getElementById('map'), mapOtions);
-    var btn = document.getElementById('track');
-    btn.addEventListener('click', function () { 
-        codeAddress();
+    document.getElementById("track").addEventListener('click', function(){
+        var origin = document.getElementById('origin').value;
+        var destination = document.getElementById('destination').value;
+        //console.log("have been clicked")
+        codeAddress(origin,destination)
     })
+    //codeAddress(origin,destination)
 }
 
-function codeAddress() {
+function codeAddress(o,d) {
     // remove address
     for (var i = 0; i < geocoderMarkers.length; i++) { 
         geocoderMarkers[i].setMap(null);
@@ -31,9 +34,9 @@ function codeAddress() {
         path = undefined;
     }
 
-    var origin = document.getElementById('origin').value;
+    //or = document.getElementById('origin').value;
 
-    geocoder.geocode({ 'address': origin }, function (results, status) {
+    geocoder.geocode({ 'address': o }, function (results, status) {
         //add marker
         if (status === google.maps.GeocoderStatus.OK) {
             geocoderMarkers.push(
@@ -48,9 +51,9 @@ function codeAddress() {
             console.log("Geocoding failed" + status);
         }
     });
-    var destination = document.getElementById('destination').value;
+    //var destination = document.getElementById('destination').value;
 
-    geocoder.geocode({ 'address': destination }, function (results2, status2) {
+    geocoder.geocode({ 'address': d }, function (results2, status2) {
         if (status2 === google.maps.GeocoderStatus.OK) {
             geocoderMarkers.push(
                 new google.maps.Marker({
@@ -61,7 +64,7 @@ function codeAddress() {
             console.log(results2[0])
             displayMarkers();
         } else {
-            console.log("Geocoding faileed" +status2)
+            console.log("Geocoding failed" +status2)
         }
     })
 
@@ -70,7 +73,7 @@ function codeAddress() {
 function displayMarkers() { 
     //check if geocoding was successful
 
-    if (geocoderMarkers.length === 2) {
+    if (geocoderMarkers.length == 2) {
         // bound markers
         var bounds = new google.maps.LatLngBounds(
             geocoderMarkers[0].getPosition(),
