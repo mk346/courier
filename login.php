@@ -34,6 +34,9 @@ require("includes/login_handler.php");
                 <div class="wrapper-row row-button">
                     <input type="submit" name="submit" value="Login" class="submit-login-1">
                 </div>
+                <div class="customer-row">
+                    <a href="customer_login.php" class="a-tag">Customer Login</a>
+                </div>
             </form>
         </div>
 
