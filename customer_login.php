@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Customer Login</title>
+    <title>Customer Login Page</title>
 </head>
 <body class="customer-body">
     <main class="content-box">
@@ -17,7 +17,7 @@
                 <div class="box-sub-internal">
                     <div class="box-wrapper">
                         <h2>Login</h2>
-                        <form action="#" method="POST">
+                        <form action="#" method="POST" id="login">
                             <div class="wrapper-input">
                                 <input type="email" name="email" required>
                                 <label for="email">Email</label>
@@ -26,12 +26,12 @@
                                 <input type="password" name="password" required>
                                 <label for="password">Password</label>
                             </div>
-                            <a href="#">
+                            <a href="#" type="submit">
                                 <span></span>
                                 <span></span>
                                 <span></span>
                                 <span></span>
-                                Login
+                                <input type="submit" name="login-btn" value="Login" class="login_btn">
                             </a>
                         </form>
                     </div>
@@ -39,7 +39,7 @@
                 <div class="box-sub-internal2">
                     <div class="box-wrapper">
                         <h2>Register</h2>
-                        <form action="#" method="POST">
+                        <form action="#" method="POST" id="register">
                             <div class="wrapper-input">
                                 <input type="text" name="fname" required>
                                 <label for="fname">First Name</label>
@@ -65,7 +65,7 @@
                                 <span></span>
                                 <span></span>
                                 <span></span>
-                                Create An Account
+                                <input type="submit" name="reg-btn" value="Create An Account" class="login_btn">
                             </a>
                         </form>
                     </div>

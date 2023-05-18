@@ -1423,25 +1423,29 @@ dd{
     color: #8b80f9;
     font-size: 12px;
 }
-.box-internal form a{
+.box-internal form a {
     position: relative;
     display: inline-block;
+    margin-top: 40px;
+    text-decoration: none;
+    overflow: hidden;
+}
+.login_btn{
     padding: 10px 20px;
     color: #8b80f9;
-    font-size: 16px;
-    text-decoration: none;
+    outline: none;
+    background: transparent;
+    border: none;
     text-transform: uppercase;
-    overflow: hidden;
     transition: 0.5s;
-    margin-top: 40px;
     letter-spacing: 4px;
     cursor: pointer;
+    font-size: 16px;
 }
-.box-internal a:hover{
+.login_btn:hover{
     background: #8b80f9;
     color: #fff;
     border-radius: 5px;
-    box-shadow: 0 0 5px #8b80f9, 0 0 25px #8b80f9, 0 0 50px #8b80f9, 0 0 100px #8b80f9;
 }
 .box-internal a span{
     position: absolute;
