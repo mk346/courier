@@ -1423,6 +1423,20 @@ dd{
     color: #8b80f9;
     font-size: 12px;
 }
+.input_icon-wrapper{
+    position: absolute;
+    top: 30%;
+    right: 12px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.input_icon{
+    color: #999;
+    font-size: 24px;
+}
+.input_icon:hover{
+    color: #333;
+}
 .box-internal form a {
     position: relative;
     display: inline-block;
