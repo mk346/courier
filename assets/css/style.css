@@ -1,4 +1,4 @@
-/* import fonts */
+ /* import fonts */
 @font-face {
     font-family: 'Bellota-LightItalic';
     src: url(../fonts/Bellota-LightItalic.ttf);
@@ -1533,3 +1533,19 @@ dd{
         bottom: 100%;
     }
 }
+
+.mg-tp{
+    margin-top: 10px;
+}
+
+/* login 2 */
+.wrapper-box{
+    width: 380px;
+    height: 480px;
+    position: relative;
+    margin: 250px auto;
+    padding: 10px;
+    background-color: #fff;
+}
+
+
