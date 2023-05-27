@@ -1245,14 +1245,7 @@ dd{
 }
 
 /* customer page */
-.customer-row{
-    margin-top: 10px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10px;
-}
+/* 
 .html-2{
     height: 100%;
 }
@@ -1375,8 +1368,7 @@ dd{
 .input-checkbox:checked ~ .box-main .box-internal{
     transform: rotateY(180deg);
 }
-.box-sub-internal .box-wrapper,
-.box-sub-internal2 .box-wrapper{
+.box-wrapper{
     position: absolute;
     width: 100%;
     padding: 0 35px;
@@ -1392,35 +1384,43 @@ dd{
     color: #fff;
     text-align: center;
 }
-.box-internal .wrapper-input{
-    position: relative;
+.mg-top{
+    margin-top: 15px;
 }
-.box-internal .wrapper-input input{
+.wrapper-input{
+    width: 100%;
+    position: relative;
+    padding: 10px;
+}
+.wrapper-input input{
     width: 100%;
     padding: 10px 0;
     font-size: 16px;
-    color: #fff;
+    color: #000;
     margin-bottom: 30px;
     padding-left: 10px;
-    border: 2px solid #fff;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #007bff;
     outline: none;
     background: transparent;
 }
-.box-internal .wrapper-input label{
+.wrapper-input label{
     position: absolute;
     top: 0;
     left: 10px;
     padding: 10px 0;
     font-size: 16px;
-    color: #fff;
+    color: #007bff;
     pointer-events: none;
     transition: 0.5s;
 }
-.box-internal .wrapper-input input:focus ~ label,
-.box-internal .wrapper-input input:valid  ~ label{
+.wrapper-input input:focus ~ label,
+.wrapper-input input:valid  ~ label{
     top: -30px;
     left: 0;
-    color: #8b80f9;
+    color: #0093e9;
     font-size: 12px;
 }
 .input_icon-wrapper{
@@ -1444,9 +1444,14 @@ dd{
     text-decoration: none;
     overflow: hidden;
 }
+.submit-btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 .login_btn{
     padding: 10px 20px;
-    color: #8b80f9;
+    color: #007bff;
     outline: none;
     background: transparent;
     border: none;
@@ -1457,7 +1462,7 @@ dd{
     font-size: 16px;
 }
 .login_btn:hover{
-    background: #8b80f9;
+    background: #007bff;
     color: #fff;
     border-radius: 5px;
 }
@@ -1538,7 +1543,7 @@ dd{
     margin-top: 10px;
 }
 
-/* login 2 */
+
 .wrapper-box{
     width: 380px;
     height: 480px;
@@ -1546,6 +1551,132 @@ dd{
     margin: 250px auto;
     padding: 10px;
     background-color: #fff;
+    overflow: hidden;
+}
+.btn-wrapper{
+    position: relative;
+    width: 230px;
+    margin: 35px auto;
+    box-shadow: 0 0 20px 9px #0d53a5;
+    border-radius: 30px;
+}
+.toggle-btn{
+    position: relative;
+    padding: 15px 30px;
+    background: transparent;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}
+#add-color{
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    background: linear-gradient(to right, #0a7df3 ,#0f78ee);
+    border-radius: 30px;
+    transition: .5s;
+}
+.my-form{
+    position: absolute;
+    top: 180px;
+    width: 380px;
+    transform: .5s;
+    padding-right: 50px;
+}
+#login{
+    left: 50px;
+}
+#register{
+    left: 450px;
+} */
+
+/* CUSTOMER LOGIN PAGE */
+/* .customer-body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Bellota-BoldItalic';
+    background: linear-gradient(147deg, #0093e9, #80d0c7);
+} */
+.customer-row{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.wrapper-box{
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    min-width: 950px;
+    animation: animate 200s ease-in-out infinite;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 5rem;
+    overflow: hidden;
+    background: linear-gradient(147deg, #0093e9, #80d0c7);
+}
+.login_box {
+    font-family: 'Bellota-LightItalic',sans-serif;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    top: 7%;
+    width: 35%;
+    background-color: #fff;
+    border: 1px solid #EDEDED;
+    border-radius: 7px;
+    padding: 5px;
+    opacity: 0.98;
+}
+.login_header {
+    font-family: 'Bellota-LightItalic',sans-serif;
+    width: 100%;
+    height: 90px;
+    background-color: #11d3bd;
+    color: #fff;
+    text-align: center;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+
+}
+.login_header > h1 {
+    font-family: 'Bellota-BoldItalic', sans-serif;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #2f5462;
+    text-shadow: #73B6E2 0.5px 0.5px 0px;
+    font-size: 250%;
+}
+input[type="submit"] {
+    background-color: #11d3bd;
+    padding: 5px 10px 5px 10px;
+    border: 1px solid #11d3bd;
+    border-radius: 3px;
+    margin: 5px 0 10px 0;
+    color: #2f5462;
+    text-shadow: #73B6E2 0.5px 0.5px 0px;
+    font-family: 'Bellota-BoldItalic', sans-serif;
+    font-size: 100%;
+    cursor: pointer;
 }
 
+input[type="text"],input[type="email"],input[type="password"] {
+    border: 1px solid #e5e5e5;
+    margin-top: 5px;
+    width: 70%;
+    height: 35px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+}
+
+input[type="text"]:hover,input[type="email"]:hover,input[type="password"]:hover {
+    border-color: #11d3bd;
+}
+#second {
+    display: none;
+}
 
