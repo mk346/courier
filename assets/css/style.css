@@ -1651,7 +1651,7 @@ dd{
     text-shadow: #73B6E2 0.5px 0.5px 0px;
     font-size: 250%;
 }
-input[type="submit"] {
+/* input[type="submit"] {
     background-color: #11d3bd;
     padding: 5px 10px 5px 10px;
     border: 1px solid #11d3bd;
@@ -1675,7 +1675,7 @@ input[type="text"],input[type="email"],input[type="password"] {
 
 input[type="text"]:hover,input[type="email"]:hover,input[type="password"]:hover {
     border-color: #11d3bd;
-}
+} */
 #second {
     display: none;
 }
