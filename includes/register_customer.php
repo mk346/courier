@@ -27,11 +27,9 @@ if(isset($_POST['reg_btn'])){
 
     $password1 = strip_tags($_POST['reg_password1']);
     $password1 = str_replace(' ', '',$password1);
-    $_SESSION['password1'] = $password1;
 
     $password2 = strip_tags($_POST['reg_password2']);
     $password2 = str_replace(' ', '',$password2);
-    $_SESSION['password2'] = $password2;
 
     //set password strength
     $uppercase = preg_match('@[A-Z]@', $password1); // uppercase check
@@ -84,12 +82,9 @@ if(isset($_POST['reg_btn'])){
         array_push($err_array, "<span style='color: #14C800;'>Account Created Successfully</span><br>");
 
         //clear session variables
-        $_SESSION['fname'] = "";
-        $_SESSION['lname'] = "";
-        $_SESSION['email'] = "";
-        $_SESSION['password1'] = "";
-        $_SESSION['password2'] = "";
-
+        $_SESSION['reg_fname'] = "";
+        $_SESSION['reg_lname'] = "";
+        $_SESSION['reg_email'] = "";
         
     }
 }
