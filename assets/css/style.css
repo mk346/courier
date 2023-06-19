@@ -1255,12 +1255,6 @@ dd{
     cursor: pointer;
 }
 
-.customer-body{
-    margin: 0;
-    padding: 0;
-    font-family: 'Bellota-BoldItalic';
-    background: linear-gradient(147deg, #0093e9, #80d0c7);
-}
 .content-box{
     text-align: center;
     padding: 5rem;
@@ -1599,6 +1593,12 @@ dd{
     font-family: 'Bellota-BoldItalic';
     background: linear-gradient(147deg, #0093e9, #80d0c7);
 } */
+.customer-body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Bellota-BoldItalic';
+    background: linear-gradient(147deg, #0093e9, #80d0c7);
+}
 .customer-row{
     margin-top: 10px;
     width: 100%;
@@ -1607,17 +1607,13 @@ dd{
     justify-content: center;
     margin-bottom: 10px;
 }
-.wrapper-box{
-    background-size: 100%;
-    width: 100%;
-    height: 100%;
+.wrapper-div {
+    margin: 0 auto;
+    top: 150px;
+    position: relative;
+    padding: 0 10px;
+    width: 75%;
     min-width: 950px;
-    animation: animate 200s ease-in-out infinite;
-    background-size: cover;
-    background-repeat: no-repeat;
-    opacity: 5rem;
-    overflow: hidden;
-    background: linear-gradient(147deg, #0093e9, #80d0c7);
 }
 .login_box {
     font-family: 'Bellota-LightItalic',sans-serif;
@@ -1651,7 +1647,10 @@ dd{
     text-shadow: #73B6E2 0.5px 0.5px 0px;
     font-size: 250%;
 }
-/* input[type="submit"] {
+.myform{
+    text-align: center;
+}
+.btn-submit {
     background-color: #11d3bd;
     padding: 5px 10px 5px 10px;
     border: 1px solid #11d3bd;
@@ -1664,7 +1663,7 @@ dd{
     cursor: pointer;
 }
 
-input[type="text"],input[type="email"],input[type="password"] {
+.input-1 {
     border: 1px solid #e5e5e5;
     margin-top: 5px;
     width: 70%;
@@ -1673,9 +1672,10 @@ input[type="text"],input[type="email"],input[type="password"] {
     padding-left: 5px;
 }
 
-input[type="text"]:hover,input[type="email"]:hover,input[type="password"]:hover {
+.input-1:hover {
     border-color: #11d3bd;
-} */
+}
+
 #second {
     display: none;
 }
