@@ -3,8 +3,8 @@ require 'config/session.php';
 require 'config/config.php';
 require 'config/pdo.php';
 include 'header.php';
-include 'sidebar2.php';
-include 'topbar2.php';
+include 'sidebar.php';
+include 'topbar.php';
 include 'form_handler/fetchdata.php';
 
 //$err_array = array();

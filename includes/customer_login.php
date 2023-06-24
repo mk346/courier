@@ -11,7 +11,7 @@ if(isset($_POST['log_btn'])){
         $row = mysqli_fetch_array($check_db);
         $username = $row['fname'];
         $_SESSION['fname'] = $username;
-        header("location: track.php");
+        header("location: home.php");
         exit();
     }else{
         array_push($err_array, "<span style='color: red;'>Email or Password was Incorrect</span><br>");
