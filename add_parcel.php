@@ -105,36 +105,28 @@ $options2 = "";
                     <table class="branch-table margin-top" id="parcel_details">
                         <thead>
                             <tr>
-                                <th class="rhead">Weight</th>
-                                <th class="rhead">Height</th>
-                                <th class="rhead">Length</th>
-                                <th class="rhead">Width</th>
-                                <th class="rhead">Price</th>
+                                <th class="rhead">Weight (Kg)</th>
+                                <th class="rhead">Price per Kg</th>
+                                <th class="rhead">Delivery Charge</th> 
                             </tr>
                         </thead>
                         <tbody id="tbody">
                             <tr>
                                 <td class="rbody">
-                                    <input type="text" name="weight" class="form-control" required value="">
+                                    <input type="text" name="weight" id="weight" class="form-control" required>
                                 </td>
                                 <td class="rbody">
-                                    <input type="text" name="height" class="form-control" required>
+                                    <input type="text" name="price" class="form-control" id="price" required>
                                 </td>
                                 <td class="rbody">
-                                    <input type="text" name="length" class="form-control" required>
-                                </td>
-                                <td class="rbody">
-                                    <input type="text" name="width" class="form-control" required>
-                                </td>
-                                <td class="rbody">
-                                    <input type="text" name="price" class="form-control" value="" id="price" onkeyup="calcPrice(this)" required>
+                                    <input type="text" name="charge" id="charge" class="form-control" onkeyup="calcPrice(this)"  required>
                                 </td>
                             </tr>
                         </tbody>
                         <?php if (!isset($id)) : ?>
                             <tfoot class="border">
                                 <tr>
-                                    <th colspan="4" class="text-right rhead">Total VAT Inclusive (16%)</th>
+                                    <th colspan="2" class="text-right rhead">Total VAT Inclusive (16%)</th>
                                     <td class="text-right text-align rhead" id="amount">0.00</td>
                                     <!-- <th class="rhead"></th> -->
                                 </tr>
@@ -161,16 +153,10 @@ $options2 = "";
                 <input type="text" name="weight[]" class="form-control" required value="">
             </td>
             <td class="rbody">
-                <input type="text" name="height[]" class="form-control" required>
-            </td>
-            <td class="rbody">
-                <input type="text" name="length[]" class="form-control" required>
-            </td>
-            <td class="rbody">
-                <input type="text" name="width[]" class="form-control" required>
-            </td>
-            <td class="rbody">
                 <input type="text" name="price[]" class="form-control" required>
+            </td>
+            <td class="rbody">
+                <input type="text" name="charge[]" class="form-control" required>
             </td>
             <td class="rbody">
                 <button class="btn-main btn-del">

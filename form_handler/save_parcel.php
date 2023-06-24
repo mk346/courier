@@ -15,11 +15,11 @@ $processed_br = "";
 $pickup_br = "";
 $delivery_loc = "";
 $weight = "";
-$height = "";
-$length = "";
-$width = "";
+$charge = "";
 $price = "";
-$amount = "";
+$tax = 0;
+$amount = 0;
+$total = 0;
 $VAT = 0.16;
 //$i = 0;
 $reference_number = sprintf("%'012d", mt_rand(100000000, 9999999999999)); // generate a random reference number
@@ -72,26 +72,26 @@ $_SESSION['delivery_loc'] = $delivery_loc;
 
 $weight = strip_tags($_POST['weight']);
 $_SESSION['weight'] = $weight;
-
-$height = strip_tags($_POST['height']);
-$_SESSION['height'] = $height;
-
-$length = strip_tags($_POST['length']);
-$_SESSION['length'] = $length;
-
-$width = strip_tags($_POST['width']);
-$_SESSION['width'] = $width;
+$weight = intval($weight);
 
 $price = strip_tags($_POST['price']);
 $_SESSION['price'] = $price;
+$price = intval($price);
 
-$amount = $price + ($price * $VAT);
+$charge = strip_tags($_POST['charge']);
+$_SESSION['charge'] = $charge;
+$charge = intval($charge);
+
+
+$amount = $charge + ($price * $weight);
+$tax = $amount * $VAT;
+$total = $amount + $tax;
 
 
 
 
 //sql query to save the data into the database
-$query = mysqli_query($con, "INSERT INTO parcels VALUES ('','$sname','$saddress','$scontact','$semail','$rname','$raddress','$rcontact','$remail','$type','$processed_br','$pickup_br','$delivery_loc','$weight','$height','$length','$width','$price','$amount','$reference_number','','$date_created')");
+$query = mysqli_query($con, "INSERT INTO parcels VALUES ('','$sname','$saddress','$scontact','$semail','$rname','$raddress','$rcontact','$remail','$type','$processed_br','$pickup_br','$delivery_loc','$weight','$charge','$price','$total','$reference_number','','$date_created')");
 
 
 

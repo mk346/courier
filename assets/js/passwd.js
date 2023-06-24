@@ -1,9 +1,9 @@
 const inputIcon1 = document.querySelector('.input_icon1')
-const inputPasswd1 = document.querySelector('.input_field1')
+const inputPasswd1 = document.querySelector('.pass1')
 const inputIcon2 = document.querySelector('.input_icon2')
-const inputPasswd2 = document.querySelector('.input_field2')
+const inputPasswd2 = document.querySelector('.pass2')
 const inputIcon3 = document.querySelector('.input_icon3')
-const inputPasswd3 = document.querySelector('.input_field3')
+const inputPasswd3 = document.querySelector('.pass3')
 
 
 inputIcon1.addEventListener('click', () => {

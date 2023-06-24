@@ -1679,4 +1679,24 @@ dd{
 #second {
     display: none;
 }
-
+.show_pass{
+    position: absolute;
+    top: 75%;
+    right: 85px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.show_pass2{
+    position: absolute;
+    top: 63%;
+    right: 85px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.show_pass3{
+    position: absolute;
+    top: 61%;
+    right: 85px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}

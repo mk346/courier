@@ -10,6 +10,7 @@ require 'includes/customer_login.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script type="text/javascript"  src="assets/js/register.js"></script>
     <title>Customer Login Page</title>
@@ -43,7 +44,10 @@ require 'includes/customer_login.php';
                     }
                     ?>" required>
                     <br>
-                    <input type="password" name="log_password" class="input-1"  placeholder="Enter Your Password">
+                    <input type="password" name="log_password" class="input-1 pass3"  placeholder="Enter Your Password">
+                    <span class="show_pass3">
+                        <i class="input_icon3 ri-eye-off-line"></i>
+                    </span>
                     <br>
                     <?php if (in_array("<span style='color: red;'>Email or Password was Incorrect</span><br>", $err_array)) echo "<span style='color: red;'>Email or Password was Incorrect</span><br>"; ?>
                     <input type="submit" name="log_btn" class="btn-submit" value="Login">
@@ -83,7 +87,10 @@ require 'includes/customer_login.php';
                         echo "<span style='color: red;'>Invalid Email Format</span><br>";
                     }
                     ?>
-                    <input type="password" name="reg_password1" class="input-1" placeholder="Your Password" required>
+                    <input type="password" name="reg_password1" class="input-1 pass1" placeholder="Your Password" required>
+                    <span class="show_pass2">
+                        <i class="input_icon1 ri-eye-off-line"></i>
+                    </span>
                     <br>
                     <?php if (in_array("<span style='color: red;'>Your Passwords do not Match</span><br>", $err_array)) {
                         echo "<span style='color: red;'>Your Passwords do not Match</span><br>";
@@ -93,7 +100,10 @@ require 'includes/customer_login.php';
                         echo "<span style='color: red;'>Password must be between 8 and 32 characters</span><br>";
                     }
                     ?>
-                    <input type="password" name="reg_password2" class="input-1" placeholder="Confirm Password" required>
+                    <input type="password" name="reg_password2" class="input-1 pass2" placeholder="Confirm Password" required>
+                    <span class="show_pass">
+                        <i class="input_icon2 ri-eye-off-line"></i>
+                    </span>
                     <br>
                     <input type="submit" name="reg_btn" class="btn-submit" value="Register">
                     <br>
@@ -105,6 +115,7 @@ require 'includes/customer_login.php';
             </div>
         </div>
     </div>
+    <script src="assets/js/passwd.js"></script>
 </body>
 
 </html>

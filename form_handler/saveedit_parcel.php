@@ -3,7 +3,9 @@ require '../config/pdo.php';
 require '../config/config.php';
 
 $VAT = 0.16;
-$amount ="";
+$tax = 0;
+$amount = 0;
+$total = 0;
 $reference_number = "";
 $date_created = "";
 
@@ -21,11 +23,14 @@ $i = $_POST['processed_br'];
 $j = $_POST['pickup_br'];
 $k = $_POST['delivery_loc'];
 $l = $_POST['weight'];
-$m = $_POST['height'];
-$n = $_POST['length'];
-$o = $_POST['width'];
-$p = $_POST['price'];
-$amount = $p + ($p * $VAT);
+$l = intval($l);
+$m = $_POST['price'];
+$m = intval($m);
+$n = $_POST['charge'];
+$n = intval($n);
+$amount = $n + ($l * $m);
+$tax = $amount * $VAT;
+$total = $amount + $tax;
 $reference_number;
 $date_created = date("Y-m-d");
 
@@ -34,7 +39,7 @@ $date_created = date("Y-m-d");
 // $qry->execute(array($a,$b,$c,$d,$e,$f,$g,$h,$i,$j,$k,$l,$m,$n,$o,$p,$amount,$reference_number,$date_created,$id));
 
 //update status
-$update = $con->query("UPDATE parcels SET sname='$a',saddress='$b',scontact ='$c',rname='$d',raddress='$e',rcontact='$f',type='$g',status='$h',processed_br='$i',pickup_br='$j',deliver_loc='$k',weight='$l',height='$m',length='$n',width='$o',price='$p',amount='$amount',date_created='$date_created' WHERE parcel_id = '$id'");
+$update = $con->query("UPDATE parcels SET sname='$a',saddress='$b',scontact ='$c',rname='$d',raddress='$e',rcontact='$f',type='$g',status='$h',processed_br='$i',pickup_br='$j',deliver_loc='$k',weight='$l',charge='$n',price='$m',amount='$total',date_created='$date_created' WHERE parcel_id = '$id'");
 
 header("Location: ../list_parcel.php");
 
