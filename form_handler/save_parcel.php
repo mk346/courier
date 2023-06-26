@@ -102,27 +102,34 @@ $total = $amount + $tax;
 $query = mysqli_query($con, "INSERT INTO parcels VALUES ('','$sname','$saddress','$scontact','$semail','$rname','$raddress','$rcontact','$remail','$type','$processed_br','$pickup_br','$delivery_loc','$weight','$charge','$price','$total','$reference_number','','$date_created')");
 
 //mail configuration
-// $mail = new PHPMailer(true);
+$mail = new PHPMailer(true);
 
-// $mail->isSMTP();
-// $mail->isSMTP();
-// $mail->Host = 'smtp.gmail.com';
-// $mail->SMTPAuth = true;
-// $mail->Username = 'ontimecourier742@gmail.com';
-// $mail->Password = 'huquajsglqyticib';
-// $mail->SMTPSecure = 'ssl';
-// $mail->Port = 465;
+$mail->isSMTP();
+$mail->isSMTP();
+$mail->Host = 'smtp.gmail.com';
+$mail->SMTPAuth = true;
+$mail->Username = 'ontimecourier742@gmail.com';
+$mail->Password = 'huquajsglqyticib';
+$mail->SMTPSecure = 'ssl';
+$mail->Port = 465;
 
-// $mail->setFrom($semail, $name = $semail, auto:false);
-// $mail->addAddress('ontimecourier742@gmail.com');
-// $mail->isHTML(true);
+$mail->setFrom($semail, $name = $semail, auto:false);
+$mail->addAddress('ontimecourier742@gmail.com');
+$mail->isHTML(true);
 // $mail->Subject = 'Ontime Courier Services';
+// $mail->Body = 
 
 
 
 
 
-
-header('Location: ../list_parcel.php');
+//header('Location: ../list_parcel.php');
 
 ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://ww.w3.org/TR/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org./1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type">
+    </head>
+
+</html>
