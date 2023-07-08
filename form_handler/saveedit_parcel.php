@@ -1,6 +1,11 @@
 <?php
 require '../config/pdo.php';
 require '../config/config.php';
+include ("mail_config.php");
+
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 $VAT = 0.16;
 $tax = 0;
@@ -12,9 +17,11 @@ $date_created = "";
 //NEW DATA TO UPDATE THE DATABASE
 $id = $_POST['memi'];
 $a = $_POST['sname'];
+$o = $_POST['semail'];
 $b = $_POST['saddress'];
 $c = $_POST['scontact'];
 $d = $_POST['rname'];
+$p = $_POST['remail'];
 $e = $_POST['raddress'];
 $f = $_POST['rcontact'];
 $g = $_POST['type'];
@@ -34,13 +41,32 @@ $total = $amount + $tax;
 $reference_number;
 $date_created = date("Y-m-d");
 
-// $sql = "UPDATE parcels SET sname=?, saddress=?, scontact=?,rname=?,raddress=?,rcontact=?,type=?,processed_br=?,pickup_br=?,deliver_loc=?,weight=?,height=?,length=?,width=?,price=?,amount=?,reference_number=?,status=?,date_created=? WHERE parcel_id=?";
-// $qry = $db_con->prepare($sql);
-// $qry->execute(array($a,$b,$c,$d,$e,$f,$g,$h,$i,$j,$k,$l,$m,$n,$o,$p,$amount,$reference_number,$date_created,$id));
+
+//mail configuration
+$mail = new PHPMailer(true);
+
+$mail->isSMTP();
+$mail->isSMTP();
+$mail->Host = 'smtp.gmail.com';
+$mail->SMTPAuth = true;
+$mail->Username = 'ontimecourier742@gmail.com';
+$mail->Password = 'huquajsglqyticib';
+$mail->SMTPSecure = 'ssl';
+$mail->Port = 465;
+
 
 //update status
-$update = $con->query("UPDATE parcels SET sname='$a',saddress='$b',scontact ='$c',rname='$d',raddress='$e',rcontact='$f',type='$g',status='$h',processed_br='$i',pickup_br='$j',deliver_loc='$k',weight='$l',charge='$n',price='$m',amount='$total',date_created='$date_created' WHERE parcel_id = '$id'");
+$update = $con->query("UPDATE parcels SET sname='$a' ,semail='$o',saddress='$b',scontact ='$c',rname='$d', remail='$p' ,raddress='$e',rcontact='$f',type='$g',status='$h',processed_br='$i',pickup_br='$j',deliver_loc='$k',weight='$l',charge='$n',price='$m',amount='$total',date_created='$date_created' WHERE parcel_id = '$id'");
 
+if ($h == 3){
+    $mail->setFrom('ontimecourier742@gmail.com', $name = 'ontimecourier742@gmail.com', auto:false);
+    $mail->addAddress($o);
+    $mail->isHTML(true);
+    $mail->Subject = 'Ontime Courier Services';
+    $mail->Body = 'Dear '.' '. $sname .' '. 'Your Parcel is has been dispatched to its destination.'.'<br>'.'Use'.' '.$reference_number.' '.'to track of your parcel. Thank You for choosing Ontime Courier.';
+    $mail->send();
+
+}
 header("Location: ../list_parcel.php");
 
 

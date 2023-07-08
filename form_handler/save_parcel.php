@@ -113,23 +113,24 @@ $mail->Password = 'huquajsglqyticib';
 $mail->SMTPSecure = 'ssl';
 $mail->Port = 465;
 
-$mail->setFrom($semail, $name = $semail, auto:false);
-$mail->addAddress('ontimecourier742@gmail.com');
+$mail->setFrom('ontimecourier742@gmail.com', $name = 'ontimecourier742@gmail.com', auto:false);
+$mail->addAddress($semail);
 $mail->isHTML(true);
-// $mail->Subject = 'Ontime Courier Services';
-// $mail->Body = 
+$mail->Subject = 'Ontime Courier Services';
+$mail->Body = 'Dear '.' '. $sname .' '. 'Your Parcel has successfuly been processed.'.'<br>'.'Use'.' '.$reference_number.' '.'to track of your parcel. Thank You for choosing Ontime Courier.';
+$mail->send();
+
+$mail->setFrom('ontimecourier742@gmail.com', $name = 'ontimecourier742@gmail.com', auto:false);
+$mail->addAddress($remail);
+$mail->isHTML(true);
+$mail->Subject = 'Ontime Courier Services';
+$mail->Body = 'Dear'.' '. $rname .' '. 'a parcel has been sent to you from'.' '. $saddress.' ' .'by ' . $sname .'<br>'.'Use '.' '.$reference_number.' '. 'to track of your parcel. Thank You for choosing Ontime Courier.';
+$mail->send();
 
 
 
 
 
-//header('Location: ../list_parcel.php');
+header('Location: ../list_parcel.php');
 
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://ww.w3.org/TR/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org./1999/xhtml">
-    <head>
-        <meta http-equiv="Content-Type">
-    </head>
-
-</html>

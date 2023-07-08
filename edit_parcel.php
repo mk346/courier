@@ -33,6 +33,10 @@ for ($i = 0; $data = $qry->fetch(); $i++) {
                                     <input type="text" name="sname" id="" class="form-control" value="<?php echo $data['sname'] ?>" required>
                                 </div>
                                 <div class="form-group spacing">
+                                    <label for class="control-label">Email</label>
+                                    <input type="text" name="semail" id="" class="form-control" value="<?php echo $data['semail'] ?>" required>
+                                </div>
+                                <div class="form-group spacing">
                                     <label for class="control-label">Address</label>
                                     <input type="text" name="saddress" id="" class="form-control" value="<?php echo $data['saddress'] ?>" required>
                                 </div>
@@ -46,6 +50,10 @@ for ($i = 0; $data = $qry->fetch(); $i++) {
                                 <div class="form-group spacing">
                                     <label for class="control-label">Name</label>
                                     <input type="text" name="rname" id="" class="form-control" value="<?php echo $data['rname'] ?>" required>
+                                </div>
+                                <div class="form-group spacing">
+                                    <label for class="control-label">Email</label>
+                                    <input type="text" name="remail" id="" class="form-control" value="<?php echo $data['remail'] ?>" required>
                                 </div>
                                 <div class="form-group spacing">
                                     <label for class="control-label">Address</label>
