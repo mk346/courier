@@ -123,7 +123,8 @@ $id = '';
                                                         <i class="fas fa-trash"></i>
 
                                                     </a>
-                                                    <button class="btn-main btn-edit" data-modal-target="#modalTown" id="showDialog">Update Status</button>
+                                                    <!-- <button class="btn-main btn-edit" data-modal-target="#modalTown" id="showDialog">Update Status</button> -->
+                                                    <a href="#&parcel_id=<?php echo $rows['parcel_id'] ?>" class="btn-main btn-edit" data-toggle="modal" data-modal-target="#modalTown">Update Status</a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -148,14 +149,15 @@ $id = '';
             <button data-close-button class="close-btn">&times;</button>
         </div>
         <div class="modal-body-2">
-            <form action="add_town.php" method="POST">
+            <form action="form_handler/update_status.php" method="POST">
                 <div id="ac" class="#">
                     <div class="dialog-row">
                         <?php $status_arr = array("Item Accepted By Courier", "Collected", "Shipped", "In-Transit", "Arrived At Destination", "Out of Delivery", "Ready for Pickup", "Delivered", "Picked-Up", "Unsuccessful Delivery Attempt");
                         //$i = 0;
                         ?>
-                        <select name="status" id="" class="select-sm">
-                            <option value="#">Update Status</option>
+                        <!-- <input type="hidden" name="id" value="<?php //echo isset($id) ? $id : '' ?>"> -->
+                        <select name="status_update" id="" class="select-sm">
+                            <!-- <option value="#">Update Status</option> -->
                             <?php foreach ($status_arr as $k => $v) :
                                 //$i++;
                             ?>
