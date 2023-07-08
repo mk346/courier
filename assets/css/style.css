@@ -1244,355 +1244,142 @@ dd{
     align-items: center;
 }
 
-/* customer page */
-/* 
-.html-2{
-    height: 100%;
-}
-.a-tag{
-    text-decoration: none;
-    color: #007bff;
-    cursor: pointer;
-}
-
-.content-box{
-    text-align: center;
-    padding: 5rem;
-}
-[type="checkbox"]:checked,
-[type="checkbox"]:not(:checked){
-    position: absolute;
-    left: -9999px
-}
-.input-checkbox:checked + .sec_label .ck-label,
-.input-checkbox:not(:checked) + .sec_label .ck-label{
-    position: relative;
-    display: inline-block;
-    text-align: center;
-    width: 60px;
-    height: 16px;
-    border-radius: 8px;
-    padding: 0;
-    margin: 10px auto;
-    cursor: pointer;
-    background-color: #efefef;
-}
-
-.input-checkbox:checked + .sec_label .ck-label::before,
-.input-checkbox:not(:checked) + .sec_label .ck-label::before{
-    position: absolute;
-    display: block;
-    width: 36px;
-    height: 36px;
-    content: "";
-    background-image: url("../images/ic-logo.png");
-    background-size: 30px;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: 20;
-    top: -10px;
-    left: -10px;
-    transition: all 0.5s ease;
-}
-.input-checkbox:checked + .sec_label .ck-label::before{
-    transform: translate(44px) rotate(-270deg);
-}
-.sec_label{
-    text-align: center;
-    display: inline;
-    position: relative;
-}
-.sec_label::before,.sec_label::after{
-    position: absolute;
-    font-size: 26px;
-    font-weight: bold;
-    color: #efefef;
-}
-.sec_label::before{
-    content: "Login";
-    top: -21px;
-    left: -80px;
-}
-.sec_label::after{
-    content: "Register";
-    top: -21px;
-    right: -135px;
-}
-.box-main{
-    width: 440px;
-    height: 600px;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    perspective: 800px;
-    margin: auto;
-    margin-top: 100px;
-}
-.box-internal{
+/* modal box */
+.modal-box{
     width: 100%;
-    height: 100%;
-    position: relative;
-    top: 0;
-    left: 0;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    transition: all .6s ease-out;
-}
-.box-sub-internal,.box-sub-internal2{
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(-220deg, #fbab73, #f7ce68);
-    position: absolute;
-    border-radius: 6px;
-    padding: 2em;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    margin: auto;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -o-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-.box-sub-internal2{
-    transform: rotateY(180deg);
-}
-.input-checkbox:checked ~ .box-main .box-internal{
-    transform: rotateY(180deg);
-}
-.box-wrapper{
-    position: absolute;
-    width: 100%;
-    padding: 0 35px;
-    top: 10%;
-    left: 0;
-    transform: translate(0, -50%, 35px) perspective(100px);
-    z-index: 20;
-    display: block;
-}
-.box-internal h2{
-    margin: 0 0 30px;
-    padding: 0;
-    color: #fff;
-    text-align: center;
-}
-.mg-top{
-    margin-top: 15px;
-}
-.wrapper-input{
-    width: 100%;
-    position: relative;
-    padding: 10px;
-}
-.wrapper-input input{
-    width: 100%;
-    padding: 10px 0;
-    font-size: 16px;
-    color: #000;
-    margin-bottom: 30px;
-    padding-left: 10px;
-    border-left: 0;
-    border-top: 0;
-    border-right: 0;
-    border-bottom: 1px solid #007bff;
-    outline: none;
-    background: transparent;
-}
-.wrapper-input label{
-    position: absolute;
-    top: 0;
-    left: 10px;
-    padding: 10px 0;
-    font-size: 16px;
-    color: #007bff;
-    pointer-events: none;
-    transition: 0.5s;
-}
-.wrapper-input input:focus ~ label,
-.wrapper-input input:valid  ~ label{
-    top: -30px;
-    left: 0;
-    color: #0093e9;
-    font-size: 12px;
-}
-.input_icon-wrapper{
-    position: absolute;
-    top: 30%;
-    right: 12px;
-    transform: translateY(-50%);
-    cursor: pointer;
-}
-.input_icon{
-    color: #999;
-    font-size: 24px;
-}
-.input_icon:hover{
-    color: #333;
-}
-.box-internal form a {
-    position: relative;
-    display: inline-block;
-    margin-top: 40px;
-    text-decoration: none;
-    overflow: hidden;
-}
-.submit-btn{
-    width: 100%;
-    display: flex;
+    align-items: center;
     justify-content: center;
+    margin: 10px;
+    text-align: center;
 }
-.login_btn{
-    padding: 10px 20px;
-    color: #007bff;
-    outline: none;
-    background: transparent;
-    border: none;
-    text-transform: uppercase;
-    transition: 0.5s;
-    letter-spacing: 4px;
-    cursor: pointer;
-    font-size: 16px;
+.decoration-none {
+    text-decoration: none;
 }
-.login_btn:hover{
-    background: #007bff;
+
+.add-outage {
+    border: 1px solid #0099d8;
+    padding: 5px;
+    align-items: center;
+    text-align: center;
+    background: #0099d8;
     color: #fff;
     border-radius: 5px;
+    font-size: 15px;
+    text-decoration: none;
 }
-.box-internal a span{
-    position: absolute;
-    display: block;
+
+.add-outage:hover {
+    background: #fff;
+    color: #0099d8;
+    transform: 0.5s;
 }
-.box-internal a span:nth-child(1){
-    top: 0;
-    left: 100%;
+
+.add-outage i {
+    padding: 5px;
+    margin-right: 5px;
+}
+.add-town {
+    display: flex;
+    margin-left: 70px;
+}
+
+.dialog-row {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.dialog-input {
     width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent ,#8b80f9);
-    animation: animebutton1 1s linear infinite;
-}
-@keyframes animebutton {
-    0% {
-        left: -100%;
-    }
-    50%,100% {
-        left: 100%;
-    }
-}
-.box-internal a span:nth-child(2){
-    top: -100%;
-    right: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(180deg, transparent, #8b80f9);
-    animation: animebutton2 1s linear infinite;
-    animation-delay: 0.25s;
-
-}
-@keyframes animebutton2{
-    0%{
-        top: -100%;
-    }
-    50%, 100%{
-        top: 100%;
-    }
-}
-.box-internal a span:nth-child(3){
-    bottom: 0;
-    right: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(270deg, transparent, #8b80f9);
-    animation: animebutton3 1s linear infinite;
-    animation-delay: 0.5s;
-}
-@keyframes animebutton3{
-    0% {
-        right: -100%;
-    }
-    50%,100% {
-        right: 100%;
-    }
-}
-.box-internal a span:nth-child(4){
-    bottom: -100%;
-    left: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(360deg, transparent, #8b80f9);
-    animation: animebutton4 1s linear infinite;
-    animation-delay: 0.75s;
-}
-@keyframes animebutton4 {
-    0% {
-        bottom: -100%;
-    }
-    50%,100% {
-        bottom: 100%;
-    }
+    height: 30px;
+    border-radius: 10px;
+    outline: none;
 }
 
-.mg-tp{
-    margin-top: 10px;
+.dialog-btn {
+    width: 250px;
+    border-radius: 10px;
+    margin-bottom: 5px;
 }
 
-
-.wrapper-box{
-    width: 380px;
-    height: 480px;
-    position: relative;
-    margin: 250px auto;
-    padding: 10px;
+.town-modal {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid #0d705c;
+    border-radius: 10px;
+    z-index: 10;
     background-color: #fff;
-    overflow: hidden;
+    width: 400px;
+    max-width: 90%;
 }
-.btn-wrapper{
-    position: relative;
-    width: 230px;
-    margin: 35px auto;
-    box-shadow: 0 0 20px 9px #0d53a5;
-    border-radius: 30px;
+
+.town-modal.active {
+    transform: translate(-50%, -50%) scale(1);
 }
-.toggle-btn{
-    position: relative;
-    padding: 15px 30px;
-    background: transparent;
-    border: 0;
+
+.modal-header-2 {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #000;
+}
+
+.modal-header-2 .modal-title-2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.modal-header-2 .close-btn {
+    border: none;
     outline: none;
     cursor: pointer;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
 }
-#add-color{
+
+.modal-body-2 {
+    padding: 10px 15px;
+}
+
+.dialog-row-2 {
+    width: 50%;
+    display: flex;
+    position: relative;
+    left: 30%;
+}
+
+.dialog-btn:hover {
+    background: #fff;
+    color: #0d705c;
+    transition: 0.5s ease-out;
+}
+
+#town-overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
     top: 0;
     left: 0;
-    position: absolute;
-    width: 110px;
-    height: 100%;
-    background: linear-gradient(to right, #0a7df3 ,#0f78ee);
-    border-radius: 30px;
-    transition: .5s;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
 }
-.my-form{
-    position: absolute;
-    top: 180px;
-    width: 380px;
-    transform: .5s;
-    padding-right: 50px;
-}
-#login{
-    left: 50px;
-}
-#register{
-    left: 450px;
-} */
 
-/* CUSTOMER LOGIN PAGE */
-/* .customer-body{
-    margin: 0;
-    padding: 0;
-    font-family: 'Bellota-BoldItalic';
-    background: linear-gradient(147deg, #0093e9, #80d0c7);
-} */
+#town-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+
+
+
+/* customer page */
 .customer-body{
     margin: 0;
     padding: 0;

@@ -118,10 +118,12 @@ $id = '';
                                                     <a href="edit_parcel.php?&parcel_id=<?php echo $rows['parcel_id'] ?>&cs=<?php echo $rows['status'] ?>" class="btn-main btn-edit">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
-                                                    <a href="delete_parcel.php?&del_id=<?php echo $rows['parcel_id']?>" class="btn-main btn-del">
+
+                                                    <a href="delete_parcel.php?&del_id=<?php echo $rows['parcel_id'] ?>" class="btn-main btn-del">
                                                         <i class="fas fa-trash"></i>
 
                                                     </a>
+                                                    <button class="btn-main btn-edit" data-modal-target="#modalTown" id="showDialog">Update Status</button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -139,5 +141,47 @@ $id = '';
     </div>
 </div>
 
+<div class="modal-box">
+    <div class="town-modal" id="modalTown">
+        <div class="modal-header-2">
+            <div class="modal-title-2">Update Status</div>
+            <button data-close-button class="close-btn">&times;</button>
+        </div>
+        <div class="modal-body-2">
+            <form action="add_town.php" method="POST">
+                <div id="ac" class="#">
+                    <div class="dialog-row">
+                        <?php $status_arr = array("Item Accepted By Courier", "Collected", "Shipped", "In-Transit", "Arrived At Destination", "Out of Delivery", "Ready for Pickup", "Delivered", "Picked-Up", "Unsuccessful Delivery Attempt");
+                        //$i = 0;
+                        ?>
+                        <select name="status" id="" class="select-sm">
+                            <option value="#">Update Status</option>
+                            <?php foreach ($status_arr as $k => $v) :
+                                //$i++;
+                            ?>
+                                <option value="<?php echo $k ?>">
+                                    <?php echo $v; ?>
+                                </option>
+                            <?php
+                            endforeach;
+                            ?>
+                        </select>
+                        <!-- <span>Status:</span><input type="text" class="dialog-input" name="town" required /> -->
+                    </div>
+                    <div class="dialog-row-2">
+                        <button id="closeDialog" name="submit" class="btn-main btn-edit dialog-btn"><i class="icon icon-save icon-large"></i>Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="town-overlay"></div>
+
+
+
+
+
 <script src="assets/js/handler.js"></script>
+<script src="assets/js/openmodal.js"></script>
 <!-- <script src="assets/js/modal.js"></script> -->
