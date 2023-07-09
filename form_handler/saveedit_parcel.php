@@ -58,78 +58,7 @@ $mail->Port = 465;
 //update status
 $update = $con->query("UPDATE parcels SET sname='$a' ,semail='$o',saddress='$b',scontact ='$c',rname='$d', remail='$p' ,raddress='$e',rcontact='$f',type='$g',status='$h',processed_br='$i',pickup_br='$j',deliver_loc='$k',weight='$l',charge='$n',price='$m',amount='$total',date_created='$date_created' WHERE parcel_id = '$id'");
 
-if ($h == 1){
-    $mail->setFrom('ontimecourier742@gmail.com', $name = 'ontimecourier742@gmail.com', auto:false);
-    $mail->addAddress($o);
-    $mail->isHTML(true);
-    $mail->Subject = 'Ontime Courier Services';
-    $mail->Body = 'Dear '.' '. $a .' '. 'Your Parcel is has been Collected'.'<br>'.' '.'Thank You for choosing Ontime Courier.';
-    $mail->send();
-}
-else if($h == 3){
-    $mail->setFrom('ontimecourier742@gmail.com', $name = 'ontimecourier742@gmail.com', auto: false);
-    $mail->addAddress($o);
-    $mail->isHTML(true);
-    $mail->Subject = 'Ontime Courier Services';
-    $mail->Body = 'Dear ' . ' ' . $a . ' ' . 'Your Parcel is has been Dispatched to its Destination' . '<br>' . ' ' . 'Thank You for choosing Ontime Courier.';
-    $mail->send();
-}else if($h == 4){
-    $mail->setFrom('ontimecourier742@gmail.com', $name = 'ontimecourier742@gmail.com', auto: false);
-    $mail->addAddress($o);
-    $mail->isHTML(true);
-    $mail->Subject = 'Ontime Courier Services';
-    $mail->Body = 'Dear ' . ' ' . $a . ' ' . 'Your Parcel is has arrived at its Destination' . '<br>' . ' ' . 'Thank You for choosing Ontime Courier.';
-    $mail->send();
-
-    $mail->setFrom('ontimecourier742@gmail.com', $name = 'ontimecourier742@gmail.com', auto: false);
-    $mail->addAddress($p);
-    $mail->isHTML(true);
-    $mail->Subject = 'Ontime Courier Services';
-    $mail->Body = 'Dear ' . ' ' . $d . ' ' . 'Your Parcel is has arrived at its Destination and is ready for Pickup. Kindly come with your Original ID card.' . '<br>' . ' ' . 'Thank You for choosing Ontime Courier.';
-    $mail->send();
-}else if($h == 5){
-    $mail->setFrom('ontimecourier742@gmail.com', $name = 'ontimecourier742@gmail.com', auto: false);
-    $mail->addAddress($o);
-    $mail->isHTML(true);
-    $mail->Subject = 'Ontime Courier Services';
-    $mail->Body = 'Dear ' . ' ' . $a . ' ' . 'Your Parcel is has been handed over to the Receiver Successfully' . '<br>' . ' ' . 'Thank You for choosing Ontime Courier.';
-    $mail->send();
-}else if($h == 6){
-    $mail->setFrom('ontimecourier742@gmail.com', $name = 'ontimecourier742@gmail.com', auto: false);
-    $mail->addAddress($p);
-    $mail->isHTML(true);
-    $mail->Subject = 'Ontime Courier Services';
-    $mail->Body = 'Dear ' . ' ' . $d . ' ' . 'Your Parcel is ready for pick-up. Kindly Come with your original ID card' . '<br>' . ' ' . 'Thank You for choosing Ontime Courier.';
-    $mail->send();
-}else if($h == 7){
-    $mail->setFrom('ontimecourier742@gmail.com', $name = 'ontimecourier742@gmail.com', auto: false);
-    $mail->addAddress($o);
-    $mail->isHTML(true);
-    $mail->Subject = 'Ontime Courier Services';
-    $mail->Body = 'Dear ' . ' ' . $a . ' ' . 'Your Parcel is has been Delivered' . '<br>' . ' ' . 'Thank You for choosing Ontime Courier.';
-    $mail->send();
-}else if($h == 8){
-    $mail->setFrom('ontimecourier742@gmail.com', $name = 'ontimecourier742@gmail.com', auto: false);
-    $mail->addAddress($o);
-    $mail->isHTML(true);
-    $mail->Subject = 'Ontime Courier Services';
-    $mail->Body = 'Dear ' . ' ' . $a . ' ' . 'Your Parcel is has been Delivered Successfully' . '<br>' . ' ' . 'Thank You for choosing Ontime Courier.';
-    $mail->send();
-}else if($h == 9){
-    $mail->setFrom('ontimecourier742@gmail.com', $name = 'ontimecourier742@gmail.com', auto: false);
-    $mail->addAddress($o);
-    $mail->isHTML(true);
-    $mail->Subject = 'Ontime Courier Services';
-    $mail->Body = 'Dear ' . ' ' . $a . ' ' . 'Your Parcel is has been Picked-Up' . '<br>' . ' ' . 'Thank You for choosing Ontime Courier.';
-    $mail->send();
-}else if($h == 10){
-    $mail->setFrom('ontimecourier742@gmail.com', $name = 'ontimecourier742@gmail.com', auto: false);
-    $mail->addAddress($o);
-    $mail->isHTML(true);
-    $mail->Subject = 'Ontime Courier Services';
-    $mail->Body = 'Dear ' . ' ' . $a . ' ' . 'Your Parcel is has not been Claimed' . '<br>' . ' ' . 'Thank You for choosing Ontime Courier.';
-    $mail->send();
-}
+//redirect to this page
 header("Location: ../list_parcel.php");
 
 

@@ -1,37 +1,35 @@
-const openModalButtons = document.querySelectorAll("[data-modal-target]")
-const closeModalButtons = document.querySelectorAll('[data-close-button]')
-const overlay = document.getElementById('town-overlay')
-
-openModalButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const modal = document.querySelector(button.dataset.modalTarget)
-        openModal(modal)
+var modal = $('.modalBox');
+var openModal = $('.openModal');
+var close = $('.close');
+openModal.click(function () {
+    var id = $(this).data('id');
+    //console.log(id);
+    $('#status').change(function () { 
+        var status = $("#status option:selected").val();
+        $('#status').val(status);
+        $('#updateId').val(id);
+        //console.log(status);
     })
-})
 
-overlay.addEventListener('click', () => {
-    const modals = document.querySelectorAll('.town-modal.active')
-    modals.forEach(modal => {
-        closeModal(modal)
+    // open modal
+    modal.addClass('active');
+});
+
+$('#save').click(function () { 
+    var id = $('#updateId').val();
+    var status = $('#status').val();
+
+    $.ajax({
+        url:    '../form_handler/update_status.php',
+        method:  'post',
+        data:   { id, status },
+        success: function (response) {
+            console.log(response);
+        }
     })
+
 })
-
-closeModalButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const modal = button.closest('.town-modal')
-        closeModal(modal)
-    })
+// close modal
+close.click(function () { 
+    modal.removeClass('active');
 })
-
-
-function openModal(modal){
-    if (modal == null) return
-    modal.classList.add('active')
-    overlay.classList.add('active')
-}
-
-function closeModal(modal){
-    if (modal == null) return
-    modal.classList.remove('active')
-    overlay.classList.remove('active')
-}

@@ -1,12 +1,22 @@
 <?php
 require 'config/session.php';
 require 'config/config.php';
+require 'config/pdo.php';
 include 'header.php';
 include 'sidebar.php';
 include 'topbar.php';
+// include 'form_handler/mail_config.php';
+
+// use PHPMailer\PHPMailer\PHPMailer;
+// use PHPMailer\PHPMailer\Exception;
+
+
 $id = '';
 // require 'config/pdo.php';
 ?>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+
 <div class="sub-wrapper2" id="sub-wrapper">
     <h1 class="main-header1">Parcel List</h1>
     <hr class="line">
@@ -123,8 +133,7 @@ $id = '';
                                                         <i class="fas fa-trash"></i>
 
                                                     </a>
-                                                    <!-- <button class="btn-main btn-edit" data-modal-target="#modalTown" id="showDialog">Update Status</button> -->
-                                                    <a href="#&parcel_id=<?php echo $rows['parcel_id'] ?>" class="btn-main btn-edit" data-toggle="modal" data-modal-target="#modalTown">Update Status</a>
+                                                    <a href="#myModal" id="openmd" class="btn-main btn-edit openModal" data-id="<?php echo $rows['parcel_id']; ?>">Update Status</a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -142,48 +151,88 @@ $id = '';
     </div>
 </div>
 
-<div class="modal-box">
-    <div class="town-modal" id="modalTown">
-        <div class="modal-header-2">
-            <div class="modal-title-2">Update Status</div>
-            <button data-close-button class="close-btn">&times;</button>
+<!-- modal update -->
+<div class="modalBox" id="mymodal">
+    <div class="modalContent">
+
+        <div class="modal-header">
+            <div class="modal-title">Update Status</div>
+            <span class="close"><i class="fas fa-times-circle"></i></span>
         </div>
-        <div class="modal-body-2">
-            <form action="form_handler/update_status.php" method="POST">
-                <div id="ac" class="#">
-                    <div class="dialog-row">
-                        <?php $status_arr = array("Item Accepted By Courier", "Collected", "Shipped", "In-Transit", "Arrived At Destination", "Out of Delivery", "Ready for Pickup", "Delivered", "Picked-Up", "Unsuccessful Delivery Attempt");
-                        //$i = 0;
-                        ?>
-                        <!-- <input type="hidden" name="id" value="<?php //echo isset($id) ? $id : '' ?>"> -->
-                        <select name="status_update" id="" class="select-sm">
-                            <!-- <option value="#">Update Status</option> -->
-                            <?php foreach ($status_arr as $k => $v) :
-                                //$i++;
-                            ?>
-                                <option value="<?php echo $k ?>">
-                                    <?php echo $v; ?>
-                                </option>
-                            <?php
-                            endforeach;
-                            ?>
-                        </select>
-                        <!-- <span>Status:</span><input type="text" class="dialog-input" name="town" required /> -->
-                    </div>
-                    <div class="dialog-row-2">
-                        <button id="closeDialog" name="submit" class="btn-main btn-edit dialog-btn"><i class="icon icon-save icon-large"></i>Save</button>
-                    </div>
-                </div>
-            </form>
+        <div class="form-box">
+            <?php $status_arr = array("Item Accepted By Courier", "Collected", "Shipped", "In-Transit", "Arrived At Destination", "Out of Delivery", "Ready for Pickup", "Delivered", "Picked-Up", "Unsuccessful Delivery Attempt");
+            ?>
+            <select name="status_update" id="status" class="select-sm">
+                <?php foreach ($status_arr as $k => $v) :
+                ?>
+                    <option value="<?php echo $k ?>">
+                        <?php echo $v; ?>
+                    </option>
+                <?php
+                endforeach;
+                ?>
+            </select>
+            <input type="hidden" name="id" id="updateId">
+            <div class="dialog-row">
+                <button name="submit" id="save" class="btn-main btn-edit dialog-btn"><i class="icon icon-save icon-large"></i>Save</button>
+            </div>
         </div>
     </div>
 </div>
-<div id="town-overlay"></div>
-
-
+<!-- end modal -->
 
 
 
 <script src="assets/js/handler.js"></script>
-<script src="assets/js/openmodal.js"></script>
-<!-- <script src="assets/js/modal.js"></script> -->
+<script>
+    $(document).ready(function() {
+        var modal = $('.modalBox');
+        var openModal = $('.openModal');
+        var close = $('.close');
+        openModal.click(function() {
+            var id = $(this).data('id');
+            //console.log(id);
+            $('#status').change(function() {
+                var status = $("#status option:selected").val();
+                $('#status').val(status);
+                $('#updateId').val(id);
+                //console.log(status);
+            })
+
+            // open modal
+            modal.addClass('active');
+        });
+
+        $('#save').click(function() {
+            var id = $('#updateId').val();
+            var status = $('#status').val();
+
+            //console.log(status);
+
+            $.ajax({
+                url: 'form_handler/update_status.php',
+                method: 'post',
+                data: {
+                    id,
+                    status
+                },
+                success: function(response) {
+                    //console.log(response);
+                    if (response == 200) {
+                        console.log(response)
+                    }
+                }
+            })
+            // reload the page
+            setTimeout(function() {
+                location.reload();
+            }, 500);
+            modal.removeClass('active');
+        })
+
+        // close modal
+        close.click(function() {
+            modal.removeClass('active');
+        })
+    })
+</script>
