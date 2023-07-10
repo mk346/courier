@@ -3,8 +3,8 @@ if(isset($_POST['log_btn'])){
     $email = filter_var($_POST['log_email'], FILTER_SANITIZE_EMAIL);
     $_SESSION['log_email'] = $email;
 
-    $passwd = md5($_POST['log_password']);
-    $check_db = mysqli_query($con, "SELECT * FROM customers WHERE email = '$email' AND password1 = '$passwd'");
+    $tracking_number = md5($_POST['track_no']);
+    $check_db = mysqli_query($con, "SELECT * FROM parcels WHERE email = '$semail' OR email = '$remail' AND reference_number = '$tracking_number'");
     $check_login_query = mysqli_num_rows($check_db);
 
     if($check_login_query == 1){
