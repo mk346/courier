@@ -62,11 +62,12 @@ $status = isset($_GET['status']) ? $_GET['status'] : 'all'
                                 <thead>
                                     <tr class="trow">
                                         <th class="rhead">#</th>
-                                        <th class="rhead">Date</th>
                                         <th class="rhead">Sender</th>
                                         <th class="rhead">Recepient</th>
                                         <th class="rhead">Amount</th>
                                         <th class="rhead">Status</th>
+                                        <th class="rhead">Date Dispatched</th>
+                                        <th class="rhead">Date Delivered</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -87,9 +88,6 @@ $status = isset($_GET['status']) ? $_GET['status'] : 'all'
                                 ?>
                                     <tr class="trow">
                                         <td class="rbody"><?php echo $i ?></td>
-                                        <td class="rbody"><?php
-                                        $date_created = date("M d, Y", strtotime($data['date_created']));
-                                        echo $date_created ?></td>
                                         <td class="rbody"><?php echo $data['sname'] ?></td>
                                         <td class="rbody"><?php echo $data['rname'] ?></td>
                                         <td class="rbody"><?php
@@ -97,7 +95,16 @@ $status = isset($_GET['status']) ? $_GET['status'] : 'all'
                                         echo $amount ?></td>
                                         <td class="rbody"><?php 
                                         $update = $status_arr[$data['status']];
-                                        echo "<span class='status-btn'>$update</span>"; ?></td>
+                                        echo "<span class='status-btn'>$update</span>"; ?>
+                                        </td>
+                                        <td class="rbody"><?php
+                                        $date_sent = date("M d, Y", strtotime($data['date_created']));
+                                        echo $date_sent ?>
+                                        </td>
+                                        <td class="rbody"><?php
+                                        $date_arrived = date("M d, Y", strtotime($data['status_date']));
+                                        echo $date_arrived ?>
+                                        </td>
                                     </tr>
                                     <?php
                                         }
@@ -117,9 +124,6 @@ $status = isset($_GET['status']) ? $_GET['status'] : 'all'
                             ?>
                             <tr class="trow">
                             <td class="rbody"><?php echo $i ?></td>
-                                        <td class="rbody"><?php
-                                        $date_created = date("M d, Y", strtotime($data2['date_created']));
-                                        echo $date_created ?></td>
                                         <td class="rbody"><?php echo $data2['sname'] ?></td>
                                         <td class="rbody"><?php echo $data2['rname'] ?></td>
                                         <td class="rbody"><?php
@@ -128,6 +132,14 @@ $status = isset($_GET['status']) ? $_GET['status'] : 'all'
                                         <td class="rbody"><?php 
                                         $update = $status_arr[$data2['status']];
                                         echo "<span class='status-btn'>$update</span>"; ?></td>
+                                        <td class="rbody"><?php
+                                        $date_sent = date("M d, Y", strtotime($data2['date_created']));
+                                        echo $date_sent ?>
+                                        </td>
+                                        <td class="rbody"><?php
+                                        $date_arrived = date("M d, Y", strtotime($data2['status_date']));
+                                        echo $date_arrived ?>
+                                        </td>
 
                             </tr>
                             <?php

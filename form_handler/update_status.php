@@ -12,6 +12,7 @@ use PHPMailer\PHPMailer\Exception;
 if (isset($_POST['status'])){
     $id = $_POST['id'];
     $a = $_POST['status'];
+    $date_updated = date("Y-m-d");
 
     // update status
     $update = $con->query("UPDATE parcels SET status='$a' WHERE parcel_id = '$id'");
@@ -25,6 +26,8 @@ if (isset($_POST['status'])){
         $receiver_name = $rows['rname'];
         $receiver_mail = $rows['remail'];
         $status = $rows['status'];
+        $date_dispatched = $rows['date_created'];
+        $date_arrived = $rows['status_date'];
 
         //mail configuration
         $mail = new PHPMailer(true);
@@ -45,6 +48,13 @@ if (isset($_POST['status'])){
             $mail->isHTML(true);
             $mail->Subject = 'Ontime Courier Services';
             $mail->Body = 'Dear ' . ' ' . $sender_name . ' ' . 'Your Parcel is has been Accepted by the Courier' . '<br>' . ' ' . 'Thank You for choosing Ontime Courier.';
+            $mail->send();
+
+            $mail->setFrom('ontimecourier742@gmail.com', $name = 'ontimecourier742@gmail.com', auto: false);
+            $mail->addAddress($receiver_mail);
+            $mail->isHTML(true);
+            $mail->Subject = 'Ontime Courier Services';
+            $mail->Body = 'Dear ' . ' ' . $receiver_name . ' ' . 'A Parcel has been Sent to You by '. ' '. $sender_name .' '. 'We will let you know once it arrives at the desired destination'. '<br>' . ' ' . 'Thank You for choosing Ontime Courier.';
             $mail->send();
         }else if ($status == 1) {
             $mail->setFrom('ontimecourier742@gmail.com', $name = 'ontimecourier742@gmail.com', auto: false);
@@ -81,6 +91,9 @@ if (isset($_POST['status'])){
             $mail->Subject = 'Ontime Courier Services';
             $mail->Body = 'Dear ' . ' ' . $sender_name . ' ' . 'Your Parcel is has been handed over to the Receiver Successfully' . '<br>' . ' ' . 'Thank You for choosing Ontime Courier.';
             $mail->send();
+
+             // update delivery date
+            $update = $con->query("UPDATE parcels SET status_date='$date_arrived' WHERE parcel_id = '$id'");
         } else if ($status == 5) {
             $mail->setFrom('ontimecourier742@gmail.com', $name = 'ontimecourier742@gmail.com', auto: false);
             $mail->addAddress($receiver_mail);
@@ -95,6 +108,9 @@ if (isset($_POST['status'])){
             $mail->Subject = 'Ontime Courier Services';
             $mail->Body = 'Dear ' . ' ' . $sender_name . ' ' . 'Your Parcel is has been Delivered' . '<br>' . ' ' . 'Thank You for choosing Ontime Courier.';
             $mail->send();
+
+            // update delivery date
+            $update = $con->query("UPDATE parcels SET status_date='$date_arrived' WHERE parcel_id = '$id'");
         } else if ($status == 7) {
             $mail->setFrom('ontimecourier742@gmail.com', $name = 'ontimecourier742@gmail.com', auto: false);
             $mail->addAddress($sender_mail);
@@ -102,6 +118,9 @@ if (isset($_POST['status'])){
             $mail->Subject = 'Ontime Courier Services';
             $mail->Body = 'Dear ' . ' ' . $sender_name . ' ' . 'Your Parcel is has been Delivered Successfully' . '<br>' . ' ' . 'Thank You for choosing Ontime Courier.';
             $mail->send();
+
+             // update delivery date
+            $update = $con->query("UPDATE parcels SET status_date='$date_arrived' WHERE parcel_id = '$id'");
         } else if ($status == 8) {
             $mail->setFrom('ontimecourier742@gmail.com', $name = 'ontimecourier742@gmail.com', auto: false);
             $mail->addAddress($sender_mail);
