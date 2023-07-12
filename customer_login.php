@@ -1,6 +1,8 @@
 <?php
 require 'config/config.php';
 require 'includes/customer_login_handler.php';
+
+
 ?>
 <html lang="en">
 
@@ -42,7 +44,6 @@ require 'includes/customer_login_handler.php';
                         echo $_SESSION['log_email'];
                     }
                     ?>" required>
-                    <br>
                     <input type="password" name="track_no" class="input-1 pass3"  placeholder="Enter Tracking Number">
                     <span class="show_pass3">
                         <i class="input_icon3 ri-eye-off-line"></i>
