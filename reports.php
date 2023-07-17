@@ -84,6 +84,7 @@ $status = isset($_GET['status']) ? $_GET['status'] : 'all'
                                         $rows = mysqli_num_rows($result);
                                         if($rows > 0){
                                             foreach($result as $data){
+                                                $status_id = $data['status'];
                                                 $i++
                                 ?>
                                     <tr class="trow">
@@ -98,12 +99,17 @@ $status = isset($_GET['status']) ? $_GET['status'] : 'all'
                                         echo "<span class='status-btn'>$update</span>"; ?>
                                         </td>
                                         <td class="rbody"><?php
-                                        $date_sent = date("M d, Y", strtotime($data['date_created']));
+                                        $date_sent = date("M d, Y H:i:s", strtotime($data['date_created']));
                                         echo $date_sent ?>
                                         </td>
                                         <td class="rbody"><?php
-                                        $date_arrived = date("M d, Y", strtotime($data['status_date']));
-                                        echo $date_arrived ?>
+                                        if($status_id == 0){
+                                            echo "<span class='status-btn'>Not Yet Delivered</span>"; 
+                                        }else{
+                                        $date_arrived = date("M d, Y H:i:s", strtotime($data['status_date']));
+                                        echo $date_arrived;
+                                        }
+ ?>
                                         </td>
                                     </tr>
                                     <?php

@@ -1,4 +1,5 @@
 <?php
+$timezone = date_default_timezone_set("Africa/Nairobi");
 // Database configuration
 
 $db_host = 'localhost';
