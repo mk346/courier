@@ -1,4 +1,5 @@
 <?php
+require 'config/session.php';
 require 'config/config.php';
 require 'includes/customer_login_handler.php';
 
@@ -18,24 +19,11 @@ require 'includes/customer_login_handler.php';
 </head>
 
 <body class="customer-body">
-    <?php
-    if (isset($_POST['reg_btn'])) {
-        echo '
-        <script>
-        $(document).ready(function() {
-            $("#first").hide();
-            $("#second").show();
-        });
-        </script>
-        
-        ';
-    }
-    ?>
     <div class="wrapper-div">
         <div class="login_box">
             <div class="login_header">
                 <h1>ONTIME COURIER</h1>
-                Login or Sign up
+                Login
             </div>
             <div id="first">
                 <form action="customer_login.php" class="myform" method="POST">
@@ -44,12 +32,12 @@ require 'includes/customer_login_handler.php';
                         echo $_SESSION['log_email'];
                     }
                     ?>" required>
-                    <input type="password" name="track_no" class="input-1 pass3"  placeholder="Enter Tracking Number">
+                    <input type="password" name="track_no" value="<?php if (isset($_SESSION['track_no'])) //echo $_SESSION['track_no'] ?>" class="input-1 pass3"  placeholder="Enter Tracking Number">
                     <span class="show_pass3">
                         <i class="input_icon3 ri-eye-off-line"></i>
                     </span>
                     <br>
-                    <?php if (in_array("<span style='color: red;'>Email or Tracking Number was Incorrect</span><br>", $err_array)) echo "<span style='color: red;'>Email or Tracking Number was Incorrect</span><br>"; ?>
+                    <?php if (in_array("<span style='color: red;'>Tracking Number was Incorrect</span><br>", $err_array)) echo "<span style='color: red;'>Tracking Number was Incorrect</span><br>"; ?>
                     <input type="submit" name="log_btn" class="btn-submit" value="Login">
                     <br>
                     <!-- <a href="#" id="signup" class="signup">Need an Account? Sign up Here!</a> -->

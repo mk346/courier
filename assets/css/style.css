@@ -616,6 +616,14 @@ textarea{
     margin-left: -7.5px;
     margin-right: -7.5px;
 }
+.row-2{
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    left: 55px;
+    margin-left: -7.5px;
+    margin-right: -7.5px;
+}
 .col-search{
     position: relative;
     width: 100%;

@@ -33,7 +33,7 @@ $VAT = 0.16;
 $reference_number = sprintf("%'012d", mt_rand(100000000, 9999999999999)); // generate a random reference number
 
 $status = "";
-$date_created = date("Y-m-d"); // get the current date
+$date_created = date("Y-m-d H:i:s"); // get the current date and time
 
 // clean the data before saving
 $sname = strip_tags($_POST['sname']); // strip html tags
@@ -99,7 +99,7 @@ $total = $amount + $tax;
 
 
 //sql query to save the data into the database
-$query = mysqli_query($con, "INSERT INTO parcels VALUES ('','$sname','$saddress','$scontact','$semail','$rname','$raddress','$rcontact','$remail','$type','$processed_br','$pickup_br','$delivery_loc','$weight','$charge','$price','$total','$reference_number','','$date_created')");
+$query = mysqli_query($con, "INSERT INTO parcels VALUES ('','$sname','$saddress','$scontact','$semail','$rname','$raddress','$rcontact','$remail','$type','$processed_br','$pickup_br','$delivery_loc','$weight','$charge','$price','$total','$reference_number','','$date_created', '')");
 
 //mail configuration
 $mail = new PHPMailer(true);
@@ -117,7 +117,7 @@ $mail->setFrom('ontimecourier742@gmail.com', $name = 'ontimecourier742@gmail.com
 $mail->addAddress($semail);
 $mail->isHTML(true);
 $mail->Subject = 'Ontime Courier Services';
-$mail->Body = 'Dear '.' '. $sname .' '. 'Your Parcel has successfuly been processed.'.'<br>'.'Use'.' '.$reference_number.' '.'to track of your parcel. Thank You for choosing Ontime Courier.';
+$mail->Body = 'Dear '.' '. $sname .' '. 'Your Parcel has been processed successfully.'.'<br>'.'Use'.' '.$reference_number.' '.'to track of your parcel. Thank You for choosing Ontime Courier.';
 $mail->send();
 
 $mail->setFrom('ontimecourier742@gmail.com', $name = 'ontimecourier742@gmail.com', auto:false);
