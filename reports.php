@@ -42,9 +42,9 @@ $status = isset($_GET['status']) ? $_GET['status'] : 'all'
                             <?php endforeach; ?>
                         </select>
                         <label for="date_from" class="mx-1">From</label>
-                        <input type="date" class="form-control col-sm" id="mydate" name="from" id="date-from" required>
+                        <input type="date" class="form-control col-sm" id="mydate" name="from" required>
                         <label for="date_to" class="mx-1">To</label>
-                        <input type="date" class="form-control col-sm" id="mydate2" name="to" id="date-to" required>
+                        <input type="date" class="form-control col-sm" id="mydate2" name="to" required>
                         <input type="submit" name="filter" class="btn-main btn-view" value="View Report">
                         <br>
                     </form>
