@@ -10,16 +10,14 @@
     <a href="#" class="user-log">
         <i class="fa-solid fa-user logged-in"></i>
         <?php
-        //echo $_SESSION['username'];
-        //$login_id =  $_SESSION['login_id'];
-        //echo $userLoggedIn;
+        echo $_SESSION['reference_number'];
+        $track_no =  $_SESSION['reference_number'];
+        // echo $track_no;
         ?>
-        <span class="fa fa-angle-down">
-            <li><a href="logout.php"><i class="fa-solid fa-power-off"></i>Log Out</a></li>
-        </span>
+        <span class="fa fa-angle-down"></span>
         <ul class="user-menu">
-            <li><a href="#" id="manage-account"><i class="fa-solid fa-gear"></i>Manage Account</a></li>
-            <li><a href="logout.php"><i class="fa-solid fa-power-off"></i>Log Out</a></li>
+            <li><a href="#" id="manage-account"><i class="fa-solid fa-gear"></i><?php echo $track_no; ?></a></li>
+            <li><a href="logout_customer.php"><i class="fa-solid fa-power-off"></i>Log Out</a></li>
         </ul>
     </a>
 </div>

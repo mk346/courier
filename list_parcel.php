@@ -34,7 +34,7 @@ $id = '';
             </div>
             <div class="card-body">
                 <div class="container-wrapper">
-                    <div class="row-1">
+                    <!-- <div class="row-1">
                         <div class="col-search">
                             <div class="list-filter">
                                 <label for="search" class="search">Search:
@@ -42,7 +42,7 @@ $id = '';
                                 </label>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="row-1">
                         <div class="table-col">
                             <table class="branch-table" id="list">

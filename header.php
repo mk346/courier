@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/0fe3bc1f22.js" crossorigin="anonymous"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script> -->
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Home</title>
 </head>
