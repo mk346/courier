@@ -20,6 +20,43 @@ $i = 0;
 $status = isset($_GET['status']) ? $_GET['status'] : 'all'
 
 ?>
+<!--Load the AJAX API-->
+<!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    // Load the Visualization API and the corechart package.
+    google.charts.load('current', {
+        'packages': ['corechart']
+    });
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.charts.setOnLoadCallback(drawChart);
+
+    // Callback that creates and populates a data table,
+    // instantiates the pie chart, passes in the data and
+    // draws it.
+    function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        <?php
+        
+        
+        ?>
+
+        // Set chart options
+        var options = {
+            'title': 'How Much Pizza I Ate Last Night',
+            'width': 400,
+            'height': 300
+        };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+    }
+</script> -->
 <div class="sub-wrapper2">
     <h1 class="main-header1">Reports</h1>
     <hr class="line">
@@ -324,8 +361,8 @@ $status = isset($_GET['status']) ? $_GET['status'] : 'all'
                                                                                 echo $date_sent ?>
                                                             </td>
                                                             <td class="rbody"><?php
-                                                                    $date_arrived = date("Y-m-d H:i:s", strtotime($data2['status_date']));
-                                                                    echo $date_arrived; ?>
+                                                                                $date_arrived = date("Y-m-d H:i:s", strtotime($data2['status_date']));
+                                                                                echo $date_arrived; ?>
                                                             </td>
 
                                                         </tr>
@@ -346,7 +383,6 @@ $status = isset($_GET['status']) ? $_GET['status'] : 'all'
                                         </div>
                                     </tr>
                                 </tbody>
-
                             </table>
                         </div>
                     </div>
@@ -354,6 +390,10 @@ $status = isset($_GET['status']) ? $_GET['status'] : 'all'
             </div>
         </div>
     </div>
+    <!-- <div class="chart-row">
+        <div id="chart_div" class="my-chart"></div>
+    </div> -->
 </div>
+
 <script src="assets/js/date.js"></script>
 <script src="assets/js/handler.js"></script>

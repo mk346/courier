@@ -443,7 +443,7 @@ nav ul li a span.rotate{
     width: 100%;
 }
 .container-fluid{
-    width: 80%;
+    width: 75%;
     position: relative;
     padding-right: 7.5px;
     padding-left: 7.5px;
@@ -1491,4 +1491,16 @@ dd{
     right: 85px;
     transform: translateY(-50%);
     cursor: pointer;
+}
+
+/* chart js */
+.chart-row{
+    position: relative;
+    width: 100%;
+}
+.my-chart{
+    width: 50%;
+    position: absolute;
+    text-align: center;
+    left: 40%;
 }

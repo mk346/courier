@@ -24,41 +24,6 @@
         </div>
         <div class="container-1">
             <div class="row">
-                <!-- <div class="col">
-                    <div class="small-box">
-                        <div class="inner">
-                            <h3><?php //echo $con->query("SELECT * FROM parcels")->num_rows; ?></h3>
-                            <p>Total Parcels</p>
-                        </div>
-                        <div class="icon">
-                            <i class="icon-fa fa fa-boxes"></i>
-                        </div>
-                    </div>
-
-                </div> -->
-                <!-- <div class="col">
-                    <div class="small-box">
-                        <div class="inner">
-                            <h3><?php //echo $con->query("SELECT * FROM branch")->num_rows; ?></h3>
-                            <p>Total Branches</p>
-                        </div>
-                        <div class="icon">
-                            <i class="icon-fa fa fa-building"></i>
-                        </div>
-                    </div>
-
-                </div> -->
-                <!-- <div class="col">
-                    <div class="small-box">
-                        <div class="inner">
-                            <h3><?php //echo $con->query("SELECT * FROM users where role !=1")->num_rows;?></h3>
-                            <p>Total Staff</p>
-                        </div>
-                        <div class="icon">
-                            <i class="icon-fa fa fa-users"></i>
-                        </div>
-                    </div>
-                </div> -->
                 <?php
                 $status_arr = array("Item Accepted By Courier", "Collected", "Shipped", "In-Transit", "Arrived At Destination", "Out of Delivery", "Ready for Pickup", "Delivered", "Picked-Up", "Unsuccessful Delivery Attempt") ;
                 foreach($status_arr as $k => $v):
