@@ -82,19 +82,22 @@ $options2 = "";
                                     }
                                 }
                                 ?>
-                                <select name="processed_br" id="" class="form-control">
-                                    <option value="#">Branch Processed</option>
+                                <label for="deliver-loc">Processing Branch</label>
+                                <select name="processed_br" id="delivery_location" class="form-control">
+                                    <!-- <option value="#">Branch Processed</option> -->
                                     <option value="<?php $options2; ?>"><?php echo $options; ?></option>
                                 </select>
                             </div>
+                            
                             <div class="form-group spacing">
+                            <label for="deliver-loc" id="mylabel">Pick-Up Branch</label>
                                 <select name="pickup_br" id="pickup" class="form-control hide-select">
-                                    <option value="#">Pickup Branch</option>
+                                    <!-- <option value="#">Pickup Branch</option> -->
                                     <option value="<?php $options2; ?>"><?php echo $options; ?></option>
                                 </select>
                             </div>
                             <div class="form-group spacing" id="hide-div">
-                                <label for="deliver-loc">Delivery Location</label>
+                                <label>Delivery Location</label>
                                 <input type="text" name="delivery_loc" class="form-control hide-input" id="address">
                             </div>
                         </div>
@@ -106,17 +109,18 @@ $options2 = "";
                         <thead>
                             <tr>
                                 <th class="rhead">Weight (Kg)</th>
-                                <th class="rhead">Price per Kg</th>
-                                <th class="rhead">Delivery Charge</th> 
+                                <th class="rhead">Price</th>
+                                <th class="rhead">Transit Charge</th> 
                             </tr>
                         </thead>
                         <tbody id="tbody">
                             <tr>
                                 <td class="rbody">
-                                    <input type="text" name="weight" id="weight" class="form-control" required>
+                                    <input type="text" name="weight" id="weight" class="form-control" onkeyup="calcPrice(this)" required>
                                 </td>
-                                <td class="rbody">
-                                    <input type="text" name="price" class="form-control" id="price" required>
+                                <td class="text-right tx-center  rbody" id="price">
+                                    0.00
+        
                                 </td>
                                 <td class="rbody">
                                     <input type="text" name="charge" id="charge" class="form-control" onkeyup="calcPrice(this)"  required>
@@ -126,7 +130,7 @@ $options2 = "";
                         <?php if (!isset($id)) : ?>
                             <tfoot class="border">
                                 <tr>
-                                    <th colspan="2" class="text-right rhead">Total VAT Inclusive (16%)</th>
+                                    <th colspan="2" class="text-right rhead">Total (VAT Inclusive 16%)</th>
                                     <td class="text-right text-align rhead" id="amount">0.00</td>
                                     <!-- <th class="rhead"></th> -->
                                 </tr>
