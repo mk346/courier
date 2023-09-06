@@ -1509,3 +1509,54 @@ dd{
 #mylabel{
     display: none;
 }
+
+.radiobtn{
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -wekit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    
+}
+
+.radiobtn .radio-input{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+.checkmark{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+.radiobtn:hover .radio-input ~ .checkmark{
+    background-color: #ccc;
+}
+.radiobtn .radio-input:checked ~ .checkmark{
+    background-color: #2196F3;
+}
+.checkmark:after{
+    content: "";
+    position: absolute;
+    display: none;
+}
+.radiobtn .radio-input:checked ~ .checkmark:after{
+    display: block;
+}
+.radiobtn .checkmark::after{
+    left: 9px;
+    top: 9px;
+    height: 8px;
+    width: 8px;
+    background: #fff;
+    border-radius: 50%;
+}

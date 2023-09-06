@@ -82,16 +82,22 @@ $weight = strip_tags($_POST['weight']);
 $_SESSION['weight'] = $weight;
 $weight = intval($weight);
 
-$price = strip_tags($_POST['price']);
-$_SESSION['price'] = $price;
-$price = intval($price);
+if($weight <= 10){
+    $price = $weight * 5;
+}else if($weight > 10){
+    $price = ($weight - 10) * 10 + 5 * $weight;
+}
+
+// $price = strip_tags($_POST['price']);
+// $_SESSION['price'] = $price;
+// $price = intval($price);
 
 $charge = strip_tags($_POST['charge']);
 $_SESSION['charge'] = $charge;
 $charge = intval($charge);
 
 
-$amount = $charge + ($price * $weight);
+$amount = $charge + $price;
 $tax = $amount * $VAT;
 $total = $amount + $tax;
 

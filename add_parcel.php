@@ -137,6 +137,21 @@ $options2 = "";
                             </tfoot>
                         <?php endif; ?>
                     </table>
+                    <hr class="line3">
+                    <b>Payment</b>
+                    <div class="row">
+                        <div class="main-col col-span">
+                            <label for="myradio" class="radiobtn">Not Paid
+                                <input type="radio" class="radio-input">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label for="myradio" class="radiobtn">Paid
+                                <input type="radio" class="radio-input">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                
                 </form>
             </div>
             <div class="card-footer">
