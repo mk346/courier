@@ -4,7 +4,7 @@ $timezone = date_default_timezone_set("Africa/Nairobi");
 
 $db_host = 'localhost';
 $db_user = 'root';
-$db_pass = '';
+$db_pass = 'Apple@1mango';
 $db_name = 'courier';
 
 $db_con = new PDO('mysql:host='.$db_host. ';dbname='.$db_name, $db_user,$db_pass);

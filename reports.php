@@ -20,69 +20,6 @@ $i = 0;
 $status = isset($_GET['status']) ? $_GET['status'] : 'all'
 
 ?>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-
-      // Load Charts and the corechart package.
-      google.charts.load('current', {'packages':['corechart']});
-
-      // Draw the pie chart for Sarah's pizza when Charts is loaded.
-      google.charts.setOnLoadCallback(drawSarahChart);
-
-      // Draw the pie chart for the Anthony's pizza when Charts is loaded.
-      google.charts.setOnLoadCallback(drawAnthonyChart);
-
-      // Callback that draws the pie chart for Sarah's pizza.
-      function drawSarahChart() {
-
-        // Create the data table for Sarah's pizza.
-        // var data = new google.visualization.DataTable();
-        // data.addColumn('string', 'Topping');
-        // data.addColumn('number', 'Slices');
-        // data.addRows([
-        //   ['Mushrooms', 1],
-        //   ['Onions', 1],
-        //   ['Olives', 2],
-        //   ['Zucchini', 2],
-        //   ['Pepperoni', 1]
-        // ]);
-        var data = new google.visualization.arrayToDataTable([
-        <?php
-        $status_arr = array("Item Accepted By Courier", "Collected", "Shipped", "In-Transit", "Arrived At Destination", "Out of Delivery", "Ready for Pickup", "Delivered", "Picked-Up", "Unsuccessful Delivery Attempt");
-        foreach($status_arr as $k => $v){
-            $qry = "SELECT * FROM parcels";
-            $resultx = mysqli_query($con,$qry);
-            while ($result = mysqli_fetch_assoc($resultx)){
-                $x = mysqli_num_rows($resultx);
-                echo "['".$result["saddress"]."',".$result["weight"]."],";
-
-
-            }
-        }
-        
-        ?>
-        ]);
-
-        // Set options for Sarah's pie chart.
-        var options = {title:'test graph',
-                       width:1000,
-                       height:300};
-
-        // Instantiate and draw the chart for Sarah's pizza.
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-        chart.draw(data, options);
-
-    }
-    </script>
-
-
-
-
-
-
-
-
-
 <div class="sub-wrapper2">
     <h1 class="main-header1">Reports</h1>
     <hr class="line">
@@ -399,8 +336,8 @@ $status = isset($_GET['status']) ? $_GET['status'] : 'all'
                                                                                 echo $date_sent ?>
                                                             </td>
                                                             <td class="rbody"><?php
-                                                                    $date_arrived = date("Y-m-d H:i:s", strtotime($data2['status_date']));
-                                                                    echo $date_arrived; ?>
+                                                                                $date_arrived = date("Y-m-d H:i:s", strtotime($data2['status_date']));
+                                                                                echo $date_arrived; ?>
                                                             </td>
 
                                                         </tr>
@@ -421,7 +358,6 @@ $status = isset($_GET['status']) ? $_GET['status'] : 'all'
                                         </div>
                                     </tr>
                                 </tbody>
-
                             </table>
                         </div>
                     </div>
@@ -429,6 +365,10 @@ $status = isset($_GET['status']) ? $_GET['status'] : 'all'
             </div>
         </div>
     </div>
+    <!-- <div class="chart-row">
+        <div id="chart_div" class="my-chart"></div>
+    </div> -->
 </div>
+
 <script src="assets/js/date.js"></script>
 <script src="assets/js/handler.js"></script>
