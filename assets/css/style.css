@@ -418,6 +418,7 @@ nav ul li a span.rotate{
 }
 .col .small-box .icon > i.icon-fa{
     text-align: end;
+    color: #0d705c;
 }
 
 .wrapper-main{
@@ -1559,6 +1560,16 @@ dd{
     width: 8px;
     background: #fff;
     border-radius: 50%;
+}
+
+
+.radio-box{
+    position: relative;
+    display: grid;
+}
+.myradio{
+    font-size: 20px;
+    font-weight: bold;
 }
 
 /* chart js */

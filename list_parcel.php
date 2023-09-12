@@ -52,6 +52,7 @@ $id = '';
                                         <th class="rhead">Reference Number</th>
                                         <th class="rhead">Sender Name</th>
                                         <th class="rhead">Recipient Name</th>
+                                        <th class="rhead">Payment</th>
                                         <th class="rhead">Status</th>
                                         <th class="rhead">Action</th>
                                     </tr>
@@ -82,6 +83,13 @@ $id = '';
                                                 <b>
                                                     <?php
                                                     echo $rows['rname']
+                                                    ?>
+                                                </b>
+                                            </td>
+                                            <td class="rbody text-center">
+                                                <b>
+                                                    <?php
+                                                    echo $rows['payment']
                                                     ?>
                                                 </b>
                                             </td>

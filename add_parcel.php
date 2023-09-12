@@ -141,14 +141,17 @@ $options2 = "";
                     <b>Payment</b>
                     <div class="row">
                         <div class="main-col col-span">
-                            <label for="myradio" class="radiobtn">Not Paid
-                                <input type="radio" class="radio-input">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label for="myradio" class="radiobtn">Paid
-                                <input type="radio" class="radio-input">
-                                <span class="checkmark"></span>
-                            </label>
+                            <div class="radio-box">
+                                <label class="myradio">
+                                    <input name="payment" type="radio" value="Not Paid" checked>
+                                    <span>Not Paid</span>
+                                </label>
+                                <label class="myradio">
+                                    <input name="payment" type="radio" value="Paid">
+                                    <span>Paid</span>
+                                </label>
+                            </div>
+
                         </div>
                     </div>
                 

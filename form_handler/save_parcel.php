@@ -29,6 +29,7 @@ $tax = 0;
 $amount = 0;
 $total = 0;
 $VAT = 0.16;
+$payment = "";
 //$i = 0;
 $reference_number = sprintf("%'012d", mt_rand(100000000, 9999999999999)); // generate a random reference number
 
@@ -101,11 +102,14 @@ $amount = $charge + $price;
 $tax = $amount * $VAT;
 $total = $amount + $tax;
 
+$payment = strip_tags($_POST['payment']);
+
+
 
 
 
 //sql query to save the data into the database
-$query = mysqli_query($con, "INSERT INTO parcels VALUES ('','$sname','$saddress','$scontact','$semail','$rname','$raddress','$rcontact','$remail','$type','$processed_br','$pickup_br','$delivery_loc','$weight','$charge','$price','$total','$reference_number','','$date_created', '')");
+$query = mysqli_query($con, "INSERT INTO parcels VALUES ('','$sname','$saddress','$scontact','$semail','$rname','$raddress','$rcontact','$remail','$type','$processed_br','$pickup_br','$delivery_loc','$weight','$charge','$price','$total','$payment','$reference_number','','$date_created', '')");
 
 //mail configuration
 $mail = new PHPMailer(true);
