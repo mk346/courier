@@ -388,6 +388,12 @@ nav ul li a span.rotate{
     box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
     border: 1px solid #dee2e6 !important;
     padding: 20px;
+    background-color: #1d78ce;
+    color: #fff;
+}
+.small-box:hover{
+    background-color: #0e6b59;
+    color: #fff;
 }
 .small-box > .inner{
     padding: 10px;
@@ -396,9 +402,7 @@ nav ul li a span.rotate{
     width: 100%;
     margin-right: 20px;
 }
-.inner h3{
-    padding-bottom: 10px;
-}
+
 .col > .small-box .icon {
     width: 100%;
     display: flex;
@@ -418,7 +422,7 @@ nav ul li a span.rotate{
 }
 .col .small-box .icon > i.icon-fa{
     text-align: end;
-    color: #0d705c;
+    color: #fffe;
 }
 
 .wrapper-main{
@@ -1578,8 +1582,11 @@ dd{
     width: 100%;
 }
 .my-chart{
+    display: flex;
     width: 50%;
     position: absolute;
     text-align: center;
-    left: 40%;
+    left: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
