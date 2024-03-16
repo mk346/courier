@@ -28,24 +28,24 @@
             <hr class="line">
         </div>
         <div class="container-1">
-            <div class="row">
+            <!-- <div class="row">
                 <?php
-                $status_arr = array("Item Accepted By Courier", "Collected", "Shipped", "In-Transit", "Arrived At Destination", "Out of Delivery", "Ready for Pickup", "Delivered", "Picked-Up") ;
-                foreach($status_arr as $k => $v):
+                //$status_arr = array("Item Accepted By Courier", "Collected", "Shipped", "In-Transit", "Arrived At Destination", "Out of Delivery", "Ready for Pickup", "Delivered", "Picked-Up") ;
+                //foreach($status_arr as $k => $v):
                 ?>
                 <div class="col">
                     <div class="small-box">
                         <div class="inner">
-                            <h3><?php echo $con->query("SELECT * FROM parcels where status = {$k} ")->num_rows; ?></h3>
-                            <p><?php echo $v; ?></p>
+                            <h3><?php //echo $con->query("SELECT * FROM parcels where status = {$k} ")->num_rows; ?></h3>
+                            <p><?php // echo $v; ?></p>
                         </div>
                         <div class="icon">
                             <i class="icon-fa fa-solid fa-box"></i>
                         </div>
                     </div>
                 </div>
-                <?php endforeach; ?>
-            </div>
+                <?php //endforeach; ?>
+            </div> -->
             <div class="row">
                 <div class="chart-row">
                     <div class="my-chart">
@@ -54,7 +54,7 @@
                                 <tr class="trow">
                                     <td class="rbody">
                                         <!-- create chart canvas -->
-                                        <canvas id="myChart" width="800px" height="400px"></canvas>
+                                        <canvas id="myChart" width="500px" height="300px"></canvas>
                                         <?php
                                             $status_arr = array("Item Accepted By Courier", "Collected", "Shipped", "In-Transit", "Arrived At Destination", "Out of Delivery", "Ready for Pickup", "Delivered", "Picked-Up", "Unsuccessful Delivery");
                                             $data_1 = array(); //array one to hold data point 1
@@ -75,7 +75,7 @@
                                 <tr class="trow">
                                     <td class="rbody">
                                         <!-- create chart canvas -->
-                                        <canvas id="myChart2" width="600px" height="400px"></canvas>
+                                        <canvas id="myChart2" width="500px" height="300px"></canvas>
                                         <?php
                                             $status_arr = array("Item Accepted By Courier", "Collected", "Shipped", "In-Transit", "Arrived At Destination", "Out of Delivery", "Ready for Pickup", "Delivered", "Picked-Up", "Unsuccessful Delivery");
                                             $data_3 = array(); //array one to hold data point 1
