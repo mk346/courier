@@ -32,7 +32,7 @@ if(isset($_POST['save_branch'])){
     $contact = str_replace(' ', '', $contact); //remove spaces
     $_SESSION['contact'] = $contact; //store sessesion variable
 
-    $query = mysqli_query($con, "INSERT INTO branch VALUES('','$street','$city','$code','$postal','$county','$contact')");
+    $query = mysqli_query($con, "INSERT INTO branch VALUES(NULL,'$street','$city','$code','$postal','$county','$contact')");
 
     //clear session data
     $_SESSION['street'] = "";

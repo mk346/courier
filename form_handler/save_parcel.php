@@ -109,7 +109,7 @@ $payment = strip_tags($_POST['payment']);
 
 
 //sql query to save the data into the database
-$query = mysqli_query($con, "INSERT INTO parcels VALUES ('','$sname','$saddress','$scontact','$semail','$rname','$raddress','$rcontact','$remail','$type','$processed_br','$pickup_br','$delivery_loc','$weight','$charge','$price','$total','$payment','$reference_number','','$date_created', '')");
+$query = mysqli_query($con, "INSERT INTO parcels VALUES (NULL,'$sname','$saddress','$scontact','$semail','$rname','$raddress','$rcontact','$remail','$type','$processed_br','$pickup_br','$delivery_loc','$weight','$charge','$price','$total','$payment','$reference_number',NULL,'$date_created', '')");
 
 //mail configuration
 $mail = new PHPMailer(true);

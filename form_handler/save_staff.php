@@ -48,7 +48,7 @@ if(isset($_POST['save_staff'])){
     if(empty($err_array)){
         $password = md5($password); //encrypt password before saving
 
-        $query = mysqli_query($con, "INSERT INTO users VALUES ('','$fname','$lname','$email','$password','$role','$branch','$dt')");
+        $query = mysqli_query($con, "INSERT INTO users VALUES (NULL,'$fname','$lname','$email','$password','$role','$branch','$dt')");
 
         //clear session data
         $_SESSION['fname'] = '';
