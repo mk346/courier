@@ -36,7 +36,7 @@ $status = isset($_GET['status']) ? $_GET['status'] : 'all'
                     <form action="reports.php" method="POST" class="report-form">
                         <label for="date-from" class="mx-1">Status</label>
                         <select name="status" id="status" class="select-sm col-sm">
-                            <option value="all" <?php echo $status == 'all' ? "selected" : '' ?>">All</option>
+                            <option value="all" <?php echo $status == 'all' ? "selected" : '' ?>>All</option>
                             <?php foreach ($status_arr as $k => $v) : ?>
                                 <option value="<?php echo $k; ?>" <?php echo $status != 'all' && $status == $k ? "selected" : '' ?>><?php echo $v; ?></option>
                             <?php endforeach; ?>
