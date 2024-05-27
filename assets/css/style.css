@@ -365,6 +365,37 @@ nav ul li a span.rotate{
     left: 15px;
     width: 100%;
 }
+/* start */
+.cards{
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 2rem;
+	margin-top: 1rem;
+}
+.card-single{
+	display: flex;
+	background-color: #fff;
+	justify-content: space-between;
+	padding: 2rem;
+	border-radius: 10px;
+	box-shadow: 2px 5px 10px 2px rgb(0 0 0 / 10%);
+}
+.card-single span:first-child{
+	color: #f8e80c;
+}
+.card-single span:last-child{
+	font-size: 2rem;
+}
+.card-single small{
+	color: grey;
+}
+.card-single:hover{
+	background-color: #008ea1;
+	color: #fff;
+}
+
+
+/* end */
 .row{
     display: flex;
     align-items: center;
