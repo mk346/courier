@@ -28,6 +28,49 @@
             <hr class="line">
         </div>
         <div class="container-1">
+        <div class="cards">
+	 <div class="card-single">
+	 	<div>
+	 		<h2>200</h2>
+	 		<small>Delivered</small>
+	 	</div>
+	 	<div>
+	 		<span class="fa fa-shopping-cart"></span>
+	 	</div>
+	 </div>
+
+	 <div class="card-single">
+	 	<div>
+	 		<h2>20</h2>
+	 		<small>Collected</small>
+	 	</div>
+	 	<div>
+	 		<span class="fa fa-newspaper-o"></span>
+	 	</div>
+	 </div>
+
+
+	 <div class="card-single">
+	 	<div>
+	 		<h2>58</h2>
+	 		<small>In-Transit</small>
+	 	</div>
+	 	<div>
+	 		<span class="fa fa-outdent"></span>
+	 	</div>
+	 </div>
+
+	 <div class="card-single">
+	 	<div>
+	 	<h2>20</h2>
+	 	<small>Ready for Pick-Up</small>
+	 	</div>
+	 	<div>
+	 	<span class="fa fa-group"></span>
+	 </div>
+
+ </div>
+</div>
             <!-- <div class="row">
                 <?php
                 //$status_arr = array("Item Accepted By Courier", "Collected", "Shipped", "In-Transit", "Arrived At Destination", "Out of Delivery", "Ready for Pickup", "Delivered", "Picked-Up") ;

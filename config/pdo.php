@@ -3,8 +3,8 @@ $timezone = date_default_timezone_set("Africa/Nairobi");
 // Database configuration
 
 $db_host = '127.0.0.1:3307';
-$db_user = 'caleb';
-$db_pass = 'Apple@1mango';
+$db_user = 'root';
+$db_pass = 'Apple@mango';
 //$db_pass2 = '';
 $db_name = 'courier';
 
