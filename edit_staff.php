@@ -6,7 +6,7 @@ include 'header.php';
 include 'sidebar.php';
 include 'topbar.php';
 $id = $_GET['id'];
-$result = $db_con->prepare("SELECT fname,lname,email,password,role FROM users WHERE id = :id");
+$result = $db_con->prepare("SELECT fname,lname,email,password,role,date_created FROM users WHERE id = :id");
 $result->bindParam(':id', $id);
 $result->execute();
 $options = "";
