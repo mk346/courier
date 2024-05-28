@@ -1,14 +1,20 @@
 <?php
-$timezone = date_default_timezone_set("Africa/Nairobi");
-// Database configuration
 
-$db_host = '127.0.0.1:3307';
-$db_user = 'root';
-$db_pass = 'Apple@mango';
-//$db_pass2 = '';
-$db_name = 'courier';
+use Dotenv\Dotenv;
+require 'vendor/autoload.php';
+
+$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
+$timezone = date_default_timezone_set("Africa/Nairobi");
+
+
+// Database configuration
+$db_host = $_ENV['HOSTNAME'];
+$db_user = $_ENV['USERNAME'];
+$db_pass = $_ENV['PASSWORD'];
+$db_name = $_ENV['DATABASE'];
 
 $db_con = new PDO('mysql:host='.$db_host. ';dbname='.$db_name, $db_user,$db_pass);
-//$db_con = new PDO('mysql:host='.$db_host. ';dbname='.$db_name, $db_user,$db_pass2);
+
 $db_con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 ?>

@@ -363,7 +363,7 @@ nav ul li a span.rotate{
 }
 .container-1.click{
     left: 15px;
-    width: 100%;
+    width: 95%;
 }
 /* start */
 .cards{
@@ -1620,4 +1620,8 @@ dd{
     left: 10px;
     margin-bottom: 10px;
     margin-top: 10px;
+    padding-bottom: 20px;
+}
+.columns{
+    margin-right: 120px;
 }
