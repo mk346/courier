@@ -1,2 +1,12 @@
 .env
+<<<<<<< HEAD
 /config/vendor
+=======
+<<<<<<< HEAD
+/config/vendor
+/config/composer.json
+/config/composer.lock
+=======
+/vendor
+>>>>>>> d39d5f7520dee7552c0385d1b6a344c4d4fe6555
+>>>>>>> d7b05817992131edae9778be564125f80b5c2ab0
