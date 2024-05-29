@@ -20,7 +20,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <?php include 'header.php'; ?>
-    <div class="wrapper">
+    <div class="wrapper" id="mywrapper">
         <?php include 'sidebar.php' ?>
         <?php include 'topbar.php'; ?>
         <div class="sub-wrapper">

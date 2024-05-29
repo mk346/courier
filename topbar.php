@@ -4,7 +4,8 @@
     </div>
     <h4 class="mytitle">Courier Management System</h4>
     <a href="#" class="user-log">
-        <i class="fa-solid fa-user logged-in"></i>
+        <!-- <i class="fa-solid fa-user logged-in"></i> -->
+        <img decoding="async" src="assets/images/profile-1.jpg" width="30" height="30" class="logo-admin">
         <?php
         echo $_SESSION['username'];
         $login_id =  $_SESSION['login_id'];
