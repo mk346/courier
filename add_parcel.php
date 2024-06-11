@@ -6,6 +6,8 @@ include 'sidebar.php';
 include 'topbar.php';
 $options = "";
 $options2 = "";
+
+$error_array= array()
 ?>
 <!-- <div class="wrapper-main"> -->
 <div class="sub-wrapper2">
@@ -32,7 +34,13 @@ $options2 = "";
                             </div>
                             <div class="form-group spacing">
                                 <label for class="control-label">Contact</label>
-                                <input type="text" name="scontact" id="" class="form-control" required>
+                                <input type="Number" name="scontact" id="" class="form-control" required>
+                                <?php
+                                if (in_array("<span style='color:red;'>Phone Number Must be atleast 10 Digits</span><br>",$error_array)){
+                                    echo "<span style='color:red;'>Phone Number Must be atleast 10 Digits</span><br>";
+                                }
+    
+                                ?>
                             </div>
                             <div class="form-group spacing">
                                 <label for class="control-label">Email</label>
@@ -51,7 +59,12 @@ $options2 = "";
                             </div>
                             <div class="form-group spacing">
                                 <label for class="control-label">Contact</label>
-                                <input type="text" name="rcontact" id="" class="form-control" required>
+                                <input type="Number" name="rcontact" id="" class="form-control" required>
+                                <?php
+                                if (in_array("<span style='color:red;'>Phone Number Must be atleast 10 Digits</span><br>",$error_array)){
+                                    echo "<span style='color:red;'>Phone Number Must be atleast 10 Digits</span><br>";
+                                }
+                                ?>
                             </div>
                             <div class="form-group spacing">
                                 <label for class="control-label">Email</label>
@@ -83,10 +96,7 @@ $options2 = "";
                                 }
                                 ?>
                                 <label for="deliver-loc">Processing Branch</label>
-                                <select name="processed_br" id="delivery_location" class="form-control">
-                                    <!-- <option value="#">Branch Processed</option> -->
-                                    <option value="<?php $options2; ?>"><?php echo $options; ?></option>
-                                </select>
+                                <input type="text" class="form-control" value="<?php echo $user_branch ?>" name="processed_br" placeholder="<?php echo $user_branch ?>" disabled>
                             </div>
                             
                             <div class="form-group spacing">

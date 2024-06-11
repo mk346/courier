@@ -1625,3 +1625,7 @@ dd{
 .columns{
     margin-right: 120px;
 }
+.user-log img{
+    border-radius: 50%;
+    margin-right: 5px;
+}

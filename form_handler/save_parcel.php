@@ -30,6 +30,7 @@ $amount = 0;
 $total = 0;
 $VAT = 0.16;
 $payment = "";
+$error_array = array();
 //$i = 0;
 $reference_number = sprintf("%'012d", mt_rand(100000000, 9999999999999)); // generate a random reference number
 
@@ -105,12 +106,24 @@ $total = $amount + $tax;
 $payment = strip_tags($_POST['payment']);
 $status_date = date("Y-m-d");
 
+//Validating phone number
+if(preg_match('/^[0-9]{10}+$/', $scontact)){
+    $sender_phone = $scontact;
+}else{
+    array_push($error_array, "<span style='color:red;'>Phone Number Must be atleast 10 Digits</span>");
+}
+if(preg_match('/^[0-9]{10}+$/', $rcontact)){
+    $receiver_phone = $rcontact;
+}else{
+    array_push($error_array, "<span style='color:red;'>Phone Number Must be atleast 10 Digits</span>");
+}
 
 
 
-
-//sql query to save the data into the database
-$query = mysqli_query($con, "INSERT INTO parcels VALUES (NULL,'$sname','$saddress','$scontact','$semail','$rname','$raddress','$rcontact','$remail','$type','$processed_br','$pickup_br','$delivery_loc','$weight','$charge','$price','$total','$payment','$reference_number',$status,'$date_created','$status_date')");
+// if no errors save data to db
+if(empty($error_array)){
+    //sql query to save the data into the database
+$query = mysqli_query($con, "INSERT INTO parcels VALUES (NULL,'$sname','$saddress','$sender_phone','$semail','$rname','$raddress','$receiver_phone ','$remail','$type','$processed_br','$pickup_br','$delivery_loc','$weight','$charge','$price','$total','$payment','$reference_number',$status,'$date_created','$status_date')");
 
 //mail configuration
 $mail = new PHPMailer(true);
@@ -143,5 +156,8 @@ $mail->send();
 
 
 header('Location: ../list_parcel.php');
+
+}
+
 
 ?>

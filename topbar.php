@@ -18,6 +18,7 @@
             $query = $con->query("SELECT * FROM users WHERE id = '$login_id' ");
             while ($row = $query->fetch_assoc()){
                 $user_id = $row['id'];
+                $user_branch = $row['branch'];
 
             }
             ?>

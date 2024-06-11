@@ -24,12 +24,15 @@ if(isset($_POST['submit'])){
         $username = $row['fname'];
         $role = $row['role'];
         $id = $row['id'];
+        $user_branch = $row['branch'];
 
         //$login_id = $row['id'];
         $_SESSION['username'] = $username;
         $_SESSION['password'] = $password;
         $_SESSION['login_id'] = $id;
         $_SESSION['login_type'] = $role;
+        $_SESSION['user_branch'] = $user_branch;
+
         header("Location: index.php");
         exit();
 
@@ -39,7 +42,7 @@ if(isset($_POST['submit'])){
         $_SESSION['email'] = "";
         $_SESSION['username'] = "";
         $_SESSION['password'] = "";
-        //$_SESSION['login_id'] = "";
+        $_SESSION['user_branch'] = "";
 
     }
 
