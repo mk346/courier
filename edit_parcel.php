@@ -42,7 +42,7 @@ for ($i = 0; $data = $qry->fetch(); $i++) {
                                 </div>
                                 <div class="form-group spacing">
                                     <label for class="control-label">Contact</label>
-                                    <input type="text" name="scontact" id="" class="form-control" value="<?php echo $data['scontact'] ?>" required>
+                                    <input type="Number" name="scontact" id="" class="form-control" value="<?php echo $data['scontact'] ?>" required>
                                 </div>
                             </div>
                             <div class="main-col col-span">
@@ -61,7 +61,7 @@ for ($i = 0; $data = $qry->fetch(); $i++) {
                                 </div>
                                 <div class="form-group spacing">
                                     <label for class="control-label">Contact</label>
-                                    <input type="text" name="rcontact" id="" class="form-control" value="<?php echo $data['rcontact'] ?>" required>
+                                    <input type="Number" name="rcontact" id="" class="form-control" value="<?php echo $data['rcontact'] ?>" required>
                                 </div>
                             </div>
                         </div>
@@ -105,10 +105,11 @@ for ($i = 0; $data = $qry->fetch(); $i++) {
                                         }
                                     }
                                     ?>
-                                    <select name="processed_br" id="" class="form-control">
-                                        <option value="#">Branch Processed</option>
-                                        <option value="<?php $options; ?>"><?php echo $options; ?></option>
-                                    </select>
+                                    <!-- <select name="processed_br" id="" class="form-control"> -->
+                                        <!-- <option value="#">Branch Processed</option> -->
+                                        <!-- <option value="<?php //$options; ?>"><?php //echo $options; ?></option> -->
+                                    <input type="text" class="form-control" value="<?php echo $user_branch ?>" name="processed_br" placeholder="<?php echo $user_branch ?>" disabled>
+                                    <!-- </select> -->
                                 </div>
                                 <div class="form-group spacing">
                                     <select name="pickup_br" id="pickup" class="form-control hide-select">

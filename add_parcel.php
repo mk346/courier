@@ -96,7 +96,7 @@ $error_array= array()
                                 }
                                 ?>
                                 <label for="deliver-loc">Processing Branch</label>
-                                <input type="text" class="form-control" value="<?php echo $user_branch ?>" name="processed_br" placeholder="<?php echo $user_branch ?>" disabled>
+                                <input type="text" class="form-control" value="<?php echo $user_branch ?>" name="processed_br" disabled>
                             </div>
                             
                             <div class="form-group spacing">

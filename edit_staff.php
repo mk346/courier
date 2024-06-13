@@ -58,6 +58,7 @@ for ($i = 0; $row = $result->fetch(); $i++) {
                                         <select name="branch" id="" class="form-control" required>
                                             <option value="">Select Branch</option>
                                             <option value="<?php $options; ?>"><?php echo $options; ?></option>
+                                            
                                         </select>
                                     </div>
                                     <div class="form-group2 form-col2">
