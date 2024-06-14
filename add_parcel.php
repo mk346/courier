@@ -23,6 +23,7 @@ $error_array= array()
                         <div class="main-col col-span">
                             <b class="form-title">Sender Information</b>
                             <input type="hidden" name="id" value="<?php echo isset($id) ? $id : '' ?>">
+                            <input type="hidden" name="origin" value="<?php echo isset($user_branch) ? $user_branch: ''?>">
                             <input type="hidden" name="reference_number">
                             <div class="form-group spacing">
                                 <label for class="control-label">Name</label>
@@ -76,6 +77,7 @@ $error_array= array()
                     <div class="row">
                         <div class="main-col col-span">
                             <div class="form-group spacing">
+                                <label for="choose-delivery">Choose Delivery Option</label>
                                 <select name="type" id="type" class="form-control" required onchange="changeStatus();">
                                     <option value="Deliver">Deliver to Recipient Address</option>
                                     <option value="Pickup">Pickup at the Nearest Branch</option>
@@ -85,31 +87,32 @@ $error_array= array()
                         </div>
                         <div class="main-col col-span">
                             <div class="form-group spacing">
-                                <?php
-                                $query = "SELECT code,city FROM branch ORDER BY id DESC";
-                                $result = mysqli_query($con, $query);
-                                if (mysqli_num_rows($result) > 0) {
-                                    while ($row = mysqli_fetch_assoc($result)) {
-                                        $options = $options . "<option>" . $row['code'] . " " . $row['city'] . "</option>";
-                                        $options2 = $options2 . "<option>" . $row['city'] . "</option>";
+                                    <?php
+                                    $query = "SELECT code,city FROM branch ORDER BY id DESC";
+                                    $result = mysqli_query($con, $query);
+                                    if (mysqli_num_rows($result) > 0) {
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            $options = $options . "<option>" . $row['code'] . " " . $row['city'] . "</option>";
+                                            $options2 = $options2 . "<option>" . $row['city'] . "</option>";
+                                        }
                                     }
-                                }
-                                ?>
-                                <label for="deliver-loc">Processing Branch</label>
-                                <input type="text" class="form-control" value="<?php echo $user_branch ?>" name="processed_br" disabled>
-                            </div>
-                            
-                            <div class="form-group spacing">
-                            <label for="deliver-loc" id="mylabel">Pick-Up Branch</label>
-                                <select name="pickup_br" id="pickup" class="form-control hide-select">
-                                    <!-- <option value="#">Pickup Branch</option> -->
-                                    <option value="<?php $options2; ?>"><?php echo $options; ?></option>
-                                </select>
-                            </div>
-                            <div class="form-group spacing" id="hide-div">
-                                <label>Delivery Location</label>
-                                <input type="text" name="delivery_loc" class="form-control hide-input" id="address">
-                            </div>
+                                    ?>
+                                    <!-- <label for="deliver-loc">Processing Branch</label>
+                                    <input type="hidden" name="origin" class="form-control" value="<?php //echo htmlspecialchars($user_branch); ?>" style="width: auto;" disabled> -->
+                                </div>
+                                
+                                <div class="form-group spacing">
+                                    <label for="deliver-loc" id="mylabel">Pick-Up Branch</label>
+                                    <select name="pickup_br" id="pickup" class="form-control hide-select">
+                                        <!-- <option value="#">Pickup Branch</option> -->
+                                        <option value="<?php $options2; ?>"><?php echo $options; ?></option>
+                                    </select>
+                                </div>
+                                <div class="form-group spacing" id="hide-div">
+                                    <label>Delivery Location</label>
+                                    <input type="text" name="delivery_loc" class="form-control hide-input" id="address">
+                                </div>
+
                         </div>
                     </div>
                     <hr class="line3">
@@ -164,17 +167,16 @@ $error_array= array()
 
                         </div>
                     </div>
-                
+                    <div class="card-footer">
+                        <div class="cardfooter-items">
+                            <input type="submit" name="save_parcel" value="Save" class="card-btn1">
+                            <!-- <button class="card-btn1" form="manage-parcel">Save</button> -->
+                            <a href="list_parcel.php" class="card-btn2">Cancel</a>
+                        </div>
+                    </div>
                 </form>
             </div>
-            <div class="card-footer">
-                <div class="cardfooter-items">
-                    <!-- <input type="submit" name="save" value="Save" class="btn1"> -->
-                    <button class="card-btn1" form="manage-parcel">Save</button>
-                    <a href="list_parcel.php" class="card-btn2">Cancel</a>
-                </div>
 
-            </div>
         </div>
     </div>
 </div>

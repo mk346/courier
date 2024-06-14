@@ -27,6 +27,7 @@ for ($i = 0; $data = $qry->fetch(); $i++) {
                             <div class="main-col col-span">
                                 <b class="form-title">Sender Information</b>
                                 <input type="hidden" name="memi" value="<?php echo $parcel_id ?>">
+                                <input type="hidden" name="origin" value="<?php echo isset($user_branch) ? $user_branch: ''?>">
                                 <input type="hidden" name="reference_number" value="<?php $data['reference_number'] ?>">
                                 <div class="form-group spacing">
                                     <label for class="control-label">Name</label>
@@ -69,6 +70,7 @@ for ($i = 0; $data = $qry->fetch(); $i++) {
                         <div class="row">
                             <div class="main-col col-span">
                                 <div class="form-group spacing">
+                                    <label for="status">Choose Delivery Option</label>
                                     <select name="type" id="type" class="form-control" required onchange="changeStatus();">
                                         <option value="Deliver">Deliver to Recipient Address</option>
                                         <option value="Pickup">Pickup at the Nearest Branch</option>
@@ -78,6 +80,7 @@ for ($i = 0; $data = $qry->fetch(); $i++) {
                                     <?php $status_arr = array("Item Accepted By Courier", "Collected", "Shipped", "In-Transit", "Arrived At Destination", "Out of Delivery", "Ready for Pickup", "Delivered", "Picked-Up", "Unsuccessful Delivery Attempt");
                                     //$i = 0;
                                     ?>
+                                    <label for="status">Update Status</label>
                                     <select name="status" id="" class="select-sm">
                                         <option value="#">Update Status</option>
                                         <?php foreach ($status_arr as $k => $v) :
@@ -108,6 +111,7 @@ for ($i = 0; $data = $qry->fetch(); $i++) {
                                     <!-- <select name="processed_br" id="" class="form-control"> -->
                                         <!-- <option value="#">Branch Processed</option> -->
                                         <!-- <option value="<?php //$options; ?>"><?php //echo $options; ?></option> -->
+                                    <label for="processed_br">Processed Branch</label>
                                     <input type="text" class="form-control" value="<?php echo $user_branch ?>" name="processed_br" placeholder="<?php echo $user_branch ?>" disabled>
                                     <!-- </select> -->
                                 </div>
