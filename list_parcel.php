@@ -118,18 +118,12 @@ $id = '';
                                                         echo "<span class='status-btn'>Arrived at Destination</span>";
                                                         break;
                                                     case '5':
-                                                        echo "<span class='status-btn'>Out of Delivery</span>";
-                                                        break;
-                                                    case '6':
                                                         echo "<span class='status-btn'>Ready for Pickup</span>";
                                                         break;
-                                                    case '7':
+                                                    case '6':
                                                         echo "<span class='status-btn'>Delivered</span>";
                                                         break;
-                                                    case '8':
-                                                        echo "<span class='status-btn'>Picked Up</span>";
-                                                        break;
-                                                    case '9':
+                                                    case '7':
                                                         echo "<span class='status-btn'>Unsuccessful Delivery</span>";
                                                         break;
                                                     default:
@@ -176,7 +170,7 @@ $id = '';
             <span class="close"><i class="fas fa-times-circle"></i></span>
         </div>
         <div class="form-box">
-            <?php $status_arr = array("Item Accepted By Courier", "Collected", "Shipped", "In-Transit", "Arrived At Destination", "Out of Delivery", "Ready for Pickup", "Delivered", "Picked-Up", "Unsuccessful Delivery Attempt");
+            <?php $status_arr = array("Item Accepted By Courier", "Collected", "Shipped", "In-Transit", "Arrived At Destination", "Ready for Pickup", "Delivered", "Unsuccessful Delivery Attempt");
             ?>
             <select name="status_update" id="status" class="select-sm">
                 <?php foreach ($status_arr as $k => $v) : ?>
@@ -203,12 +197,7 @@ $id = '';
     $(document).ready(function() {
         var modal = $('.modalBox');
         var openModal = $('.openModal');
-        var btnEdit = $('.btn-edit');
         var close = $('.close');
-        var savedColor = localStorage.getItem('buttonColor');
-        if (savedColor) {
-            $('.btn-upd').css('background-color', savedColor);
-        }
         openModal.click(function() {
             var id = $(this).data('id');
             //console.log(id);
@@ -225,30 +214,30 @@ $id = '';
 
         $('#save').click(function() {
             var id = $('#updateId').val();
-            //console.log(id);
             var status = $('#status').val();
-            if (status === '8' || id === $('#updateId').val()) {
-                console.log("disable modal");
-                $('.btn-upd').css('background-color', 'grey');
-                localStorage.setItem('buttonColor', 'grey');
-            } else {
-                console.log("modal enabled");
-            }
 
+        // Disable the a tag if status is picked-up or collected
+        if (status === '1' || status === '6') {
+            $('a[data-id="' + id + '"]').addClass('disabled');
+            localStorage.setItem('status-' + id, status);
+            
+        } else {
+            localStorage.removeItem('status-' + id);
+        }
+        
 
-            //console.log(status);
-
-            $.ajax({
-                url: 'form_handler/update_status.php',
-                method: 'post',
-                data: {
-                    id,
-                    status
-                },
-                success: function(response) {
+        $.ajax({
+            url: 'form_handler/update_status.php',
+            method: 'post',
+            data: {
+                id: id,
+                status: status
+            },
+            success: function(response) {
+                if (response == 200) {
                     //console.log(response);
                     if (response == 200) {
-                        //console.log(response)
+                        console.log(response)
                     }
                 }
             })
@@ -257,7 +246,6 @@ $id = '';
                 location.reload();
             }, 500);
             modal.removeClass('active');
-            //console.log(status)
         })
 
         // close modal
