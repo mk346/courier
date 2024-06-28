@@ -1633,3 +1633,9 @@ dd{
     display: flex;
     align-items: center;
 } */
+
+.disabled {
+    pointer-events: none;
+    color: grey;
+    cursor: default;
+}

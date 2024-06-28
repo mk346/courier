@@ -110,18 +110,12 @@ $id = '';
                                                         echo "<span class='status-btn'>Arrived at Destination</span>";
                                                         break;
                                                     case '5':
-                                                        echo "<span class='status-btn'>Out of Delivery</span>";
-                                                        break;
-                                                    case '6':
                                                         echo "<span class='status-btn'>Ready for Pickup</span>";
                                                         break;
-                                                    case '7':
+                                                    case '6':
                                                         echo "<span class='status-btn'>Delivered</span>";
                                                         break;
-                                                    case '8':
-                                                        echo "<span class='status-btn'>Picked Up</span>";
-                                                        break;
-                                                    case '9':
+                                                    case '7':
                                                         echo "<span class='status-btn'>Unsuccessful Delivery</span>";
                                                         break;
                                                     default:
@@ -168,7 +162,7 @@ $id = '';
             <span class="close"><i class="fas fa-times-circle"></i></span>
         </div>
         <div class="form-box">
-            <?php $status_arr = array("Item Accepted By Courier", "Collected", "Shipped", "In-Transit", "Arrived At Destination", "Out of Delivery", "Ready for Pickup", "Delivered", "Picked-Up", "Unsuccessful Delivery Attempt");
+            <?php $status_arr = array("Item Accepted By Courier", "Collected", "Shipped", "In-Transit", "Arrived At Destination", "Ready for Pickup", "Delivered", "Unsuccessful Delivery Attempt");
             ?>
             <select name="status_update" id="status" class="select-sm">
                 <?php foreach ($status_arr as $k => $v) :
@@ -193,54 +187,85 @@ $id = '';
 
 <script src="assets/js/handler.js"></script>
 <script>
-    $(document).ready(function() {
-        var modal = $('.modalBox');
-        var openModal = $('.openModal');
-        var close = $('.close');
-        openModal.click(function() {
-            var id = $(this).data('id');
-            //console.log(id);
-            $('#status').change(function() {
-                var status = $("#status option:selected").val();
-                $('#status').val(status);
-                $('#updateId').val(id);
-                //console.log(status);
-            })
+$(document).ready(function() {
+    var modal = $('.modalBox');
+    var openModal = $('.openModal');
+    var close = $('.close');
 
-            // open modal
-            modal.addClass('active');
+    //function to handle the modal
+    openModal.click(function() {
+        var id = $(this).data('id');
+        var aTag = $(this);
+
+        // Open modal
+        modal.addClass('active');
+
+        $('#status').change(function() {
+            var status = $("#status option:selected").val();
+            $('#status').val(status);
+            $('#updateId').val(id);
+           
+
+            // Disable the a tag if status is picked-up or collected
+            if (status === '1' || status === '6') {
+                aTag.addClass('disabled');
+                //console.log(status)
+            } else {
+                aTag.removeClass('disabled');
+            }
+        });
+    });
+
+    $('#save').click(function() {
+        var id = $('#updateId').val();
+        var status = $('#status').val();
+
+        // Disable the a tag if status is picked-up or collected
+        if (status === '1' || status === '6') {
+            $('a[data-id="' + id + '"]').addClass('disabled');
+            localStorage.setItem('status-' + id, status);
+            
+        } else {
+            localStorage.removeItem('status-' + id);
+        }
+        
+
+        $.ajax({
+            url: 'form_handler/update_status.php',
+            method: 'post',
+            data: {
+                id: id,
+                status: status
+            },
+            success: function(response) {
+                if (response == 200) {
+                    //console.log(response);
+                }
+            }
         });
 
-        $('#save').click(function() {
-            var id = $('#updateId').val();
-            var status = $('#status').val();
+        //Reload the page
+        setTimeout(function() {
+            location.reload();
+        }, 500);
 
-            //console.log(status);
+        modal.removeClass('active');
+    });
 
-            $.ajax({
-                url: 'form_handler/update_status.php',
-                method: 'post',
-                data: {
-                    id,
-                    status
-                },
-                success: function(response) {
-                    //console.log(response);
-                    if (response == 200) {
-                        console.log(response)
-                    }
-                }
-            })
-            // reload the page
-            setTimeout(function() {
-                location.reload();
-            }, 500);
-            modal.removeClass('active');
-        })
+    // Check localStorage on page load to disable the relevant a tags
+    
+    $('a.openModal').each(function() {
+        var id = $(this).data('id');
+        var status = localStorage.getItem('status-' + id);
+        if (status === '1' || status === '6') {
+            $(this).addClass('disabled');
+        }
+    });
 
-        // close modal
-        close.click(function() {
-            modal.removeClass('active');
-        })
-    })
+    // Close modal
+    close.click(function() {
+        modal.removeClass('active');
+    });
+});
+
 </script>
