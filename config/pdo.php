@@ -1,4 +1,6 @@
 <?php
+//using pdo to connect to the database
+//PDO enables prepared statements, which improve security by reducing the risk of SQL injection attacks.
 
 use Dotenv\Dotenv;
 require 'vendor/autoload.php';

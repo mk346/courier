@@ -11,6 +11,7 @@ $qry = $db_con->prepare("SELECT * FROM parcels WHERE parcel_id = :id");
 $qry->bindParam(':id', $parcel_id);
 $qry->execute();
 for ($i = 0; $data = $qry->fetch(); $i++) {
+    $origin = $data['processed_br'];
 
 ?>
     <!-- <div class="wrapper-main"> -->
@@ -27,7 +28,7 @@ for ($i = 0; $data = $qry->fetch(); $i++) {
                             <div class="main-col col-span">
                                 <b class="form-title">Sender Information</b>
                                 <input type="hidden" name="memi" value="<?php echo $parcel_id ?>">
-                                <input type="hidden" name="origin" value="<?php echo isset($user_branch) ? $user_branch: ''?>">
+                                <input type="hidden" name="origin" value="<?php echo isset($origin) ? $origin: ''?>">
                                 <input type="hidden" name="reference_number" value="<?php $data['reference_number'] ?>">
                                 <div class="form-group spacing">
                                     <label for class="control-label">Name</label>
@@ -112,7 +113,7 @@ for ($i = 0; $data = $qry->fetch(); $i++) {
                                         <!-- <option value="#">Branch Processed</option> -->
                                         <!-- <option value="<?php //$options; ?>"><?php //echo $options; ?></option> -->
                                     <label for="processed_br">Processed Branch</label>
-                                    <input type="text" class="form-control" value="<?php echo $user_branch ?>" name="processed_br" placeholder="<?php echo $user_branch ?>" disabled>
+                                    <input type="text" class="form-control" value="<?php echo $data['processed_br'] ?>" name="processed_br" placeholder="<?php echo $origin ?>" disabled>
                                     <!-- </select> -->
                                 </div>
                                 <div class="form-group spacing">

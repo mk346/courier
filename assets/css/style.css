@@ -688,7 +688,7 @@ textarea{
 .rhead,.rbody{
     text-align: center;
     align-items: center;
-    padding: 15px;
+    padding: 5px;
 }
 
 .rhead,.rbody{
@@ -749,6 +749,18 @@ textarea{
     background-color: #007bff;
     border-color: #007bff;
     text-decoration: none;
+}
+.btn-upd{
+        position: relative;
+        flex: 1 1 auto;
+        cursor: pointer;
+        border-radius: 0;
+        border-width: 1px;
+        box-shadow: none;
+        color: #fff;
+        background-color: #007bff;
+        border-color: #007bff;
+        text-decoration: none;
 }
 .btn-del{
     position: relative;

@@ -22,6 +22,7 @@ for ($i = 0; $row = $result->fetch(); $i++) {
             <div class="card-1 card-outline card-primary">
                 <div class="card-body">
                     <form action="form_handler/saveedit_staff.php" method="POST" id="edit_staff">
+                        
                         <div class="row">
                             <div class="form-col2">
                                 <div class="row">

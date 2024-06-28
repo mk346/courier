@@ -51,10 +51,11 @@ $id = '';
                                         <th class="rhead">#</th>
                                         <th class="rhead">Reference Number</th>
                                         <th class="rhead">Sender Name</th>
+                                        <th class="rhead">Processing Branch</th>
                                         <th class="rhead">Recipient Name</th>
                                         <th class="rhead">Payment</th>
                                         <th class="rhead">Status</th>
-                                        <th class="rhead">Action</th>
+                                        <th class="rhead" colspan="2">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -82,6 +83,13 @@ $id = '';
                                             <td class="rbody text-center">
                                                 <b>
                                                     <?php
+                                                    echo $rows['processed_br']
+                                                    ?>
+                                                </b>
+                                            </td>
+                                            <td class="rbody text-center">
+                                                <b>
+                                                    <?php
                                                     echo $rows['rname']
                                                     ?>
                                                 </b>
@@ -93,7 +101,7 @@ $id = '';
                                                     ?>
                                                 </b>
                                             </td>
-                                            <td class="rbody text-center">
+                                            <td class="rbody text-center" colspan="2">
                                                 <?php
                                                 //create a switch case to set the parcel status
                                                 switch ($rows['status']) {
@@ -141,7 +149,7 @@ $id = '';
                                                         <i class="fas fa-trash"></i>
 
                                                     </a>
-                                                    <a href="#myModal" id="openmd" class="btn-main btn-edit openModal" data-id="<?php echo $rows['parcel_id']; ?>">Update Status</a>
+                                                    <a href="#myModal" id="openmd" class="btn-main btn-upd openModal" data-id="<?php echo $rows['parcel_id']; ?>">Update Status</a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -171,8 +179,7 @@ $id = '';
             <?php $status_arr = array("Item Accepted By Courier", "Collected", "Shipped", "In-Transit", "Arrived At Destination", "Out of Delivery", "Ready for Pickup", "Delivered", "Picked-Up", "Unsuccessful Delivery Attempt");
             ?>
             <select name="status_update" id="status" class="select-sm">
-                <?php foreach ($status_arr as $k => $v) :
-                ?>
+                <?php foreach ($status_arr as $k => $v) : ?>
                     <option value="<?php echo $k ?>">
                         <?php echo $v; ?>
                     </option>
@@ -196,7 +203,12 @@ $id = '';
     $(document).ready(function() {
         var modal = $('.modalBox');
         var openModal = $('.openModal');
+        var btnEdit = $('.btn-edit');
         var close = $('.close');
+        var savedColor = localStorage.getItem('buttonColor');
+        if (savedColor) {
+            $('.btn-upd').css('background-color', savedColor);
+        }
         openModal.click(function() {
             var id = $(this).data('id');
             //console.log(id);
@@ -213,7 +225,16 @@ $id = '';
 
         $('#save').click(function() {
             var id = $('#updateId').val();
+            //console.log(id);
             var status = $('#status').val();
+            if (status === '8' || id === $('#updateId').val()) {
+                console.log("disable modal");
+                $('.btn-upd').css('background-color', 'grey');
+                localStorage.setItem('buttonColor', 'grey');
+            } else {
+                console.log("modal enabled");
+            }
+
 
             //console.log(status);
 
@@ -227,7 +248,7 @@ $id = '';
                 success: function(response) {
                     //console.log(response);
                     if (response == 200) {
-                        console.log(response)
+                        //console.log(response)
                     }
                 }
             })
@@ -236,6 +257,7 @@ $id = '';
                 location.reload();
             }, 500);
             modal.removeClass('active');
+            //console.log(status)
         })
 
         // close modal
