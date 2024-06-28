@@ -198,59 +198,79 @@ $id = '';
         var modal = $('.modalBox');
         var openModal = $('.openModal');
         var close = $('.close');
+
+        //function to handle the modal
         openModal.click(function() {
             var id = $(this).data('id');
-            //console.log(id);
+            var aTag = $(this);
+
+            // Open modal
+            modal.addClass('active');
+
             $('#status').change(function() {
                 var status = $("#status option:selected").val();
                 $('#status').val(status);
                 $('#updateId').val(id);
-                //console.log(status);
-            })
 
-            // open modal
-            modal.addClass('active');
+
+                // Disable the a tag if status is picked-up or collected
+                if (status === '1' || status === '6') {
+                    aTag.addClass('disabled');
+                    //console.log(status)
+                } else {
+                    aTag.removeClass('disabled');
+                }
+            });
         });
 
         $('#save').click(function() {
             var id = $('#updateId').val();
             var status = $('#status').val();
 
-        // Disable the a tag if status is picked-up or collected
-        if (status === '1' || status === '6') {
-            $('a[data-id="' + id + '"]').addClass('disabled');
-            localStorage.setItem('status-' + id, status);
-            
-        } else {
-            localStorage.removeItem('status-' + id);
-        }
-        
+            // Disable the a tag if status is picked-up or collected
+            if (status === '1' || status === '6') {
+                $('a[data-id="' + id + '"]').addClass('disabled');
+                localStorage.setItem('status-' + id, status);
 
-        $.ajax({
-            url: 'form_handler/update_status.php',
-            method: 'post',
-            data: {
-                id: id,
-                status: status
-            },
-            success: function(response) {
-                if (response == 200) {
-                    //console.log(response);
+            } else {
+                localStorage.removeItem('status-' + id);
+            }
+
+
+            $.ajax({
+                url: 'form_handler/update_status.php',
+                method: 'post',
+                data: {
+                    id: id,
+                    status: status
+                },
+                success: function(response) {
                     if (response == 200) {
-                        console.log(response)
+                        //console.log(response);
                     }
                 }
-            })
-            // reload the page
+            });
+
+            //Reload the page
             setTimeout(function() {
                 location.reload();
             }, 500);
-            modal.removeClass('active');
-        })
 
-        // close modal
+            modal.removeClass('active');
+        });
+
+        // Check localStorage on page load to disable the relevant a tags
+        $('a.openModal').each(function() {
+            var id = $(this).data('id');
+            var status = localStorage.getItem('status-' + id);
+            if (status === '1' || status === '6') {
+                $(this).addClass('disabled');
+            }
+        });
+
+        // Close modal
         close.click(function() {
             modal.removeClass('active');
-        })
-    })
+        });
+    });
 </script>
