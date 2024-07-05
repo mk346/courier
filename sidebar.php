@@ -42,10 +42,8 @@ require 'config/config.php';
                     <li><a href="parcel_list.php?&status=2"><i class="fas fa-caret-right"></i>Shipped</a></li>
                     <li><a href="parcel_list.php?&status=3"><i class="fas fa-caret-right"></i>In-Transit</a></li>
                     <li><a href="parcel_list.php?&status=4"><i class="fas fa-caret-right"></i>Arrived at Destination</a></li>
-                    <li><a href="parcel_list.php?&status=5"><i class="fas fa-caret-right"></i>Out of Delivery</a></li>
                     <li><a href="parcel_list.php?&status=6"><i class="fas fa-caret-right"></i>Ready for Pickup</a></li>
                     <li><a href="parcel_list.php?&status=7"><i class="fas fa-caret-right"></i>Delivered</a></li>
-                    <li><a href="parcel_list.php?&status=8"><i class="fas fa-caret-right"></i>Picked-Up</a></li>
                     <li><a href="parcel_list.php?&status=9"><i class="fas fa-caret-right"></i>Unsuccessful Delivery</a></li>
                 </ul>
             </li>

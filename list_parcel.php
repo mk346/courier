@@ -5,14 +5,8 @@ require 'config/pdo.php';
 include 'header.php';
 include 'sidebar.php';
 include 'topbar.php';
-// include 'form_handler/mail_config.php';
-
-// use PHPMailer\PHPMailer\PHPMailer;
-// use PHPMailer\PHPMailer\Exception;
-
-
 $id = '';
-// require 'config/pdo.php';
+
 ?>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
@@ -34,15 +28,6 @@ $id = '';
             </div>
             <div class="card-body">
                 <div class="container-wrapper">
-                    <!-- <div class="row-1">
-                        <div class="col-search">
-                            <div class="list-filter">
-                                <label for="search" class="search">Search:
-                                    <input type="search" class="search-control">
-                                </label>
-                            </div>
-                        </div>
-                    </div> -->
                     <div class="row-1">
                         <div class="table-col">
                             <table class="branch-table" id="list">
@@ -213,7 +198,7 @@ $id = '';
                 $('#updateId').val(id);
 
 
-                // Disable the a tag if status is picked-up or collected
+                // Disable the a tag if status is delivered or collected
                 if (status === '1' || status === '6') {
                     aTag.addClass('disabled');
                     //console.log(status)
@@ -223,20 +208,22 @@ $id = '';
             });
         });
 
+        //save the status upon option select change
         $('#save').click(function() {
             var id = $('#updateId').val();
             var status = $('#status').val();
 
-            // Disable the a tag if status is picked-up or collected
+            // Disable the a tag if status is delivered or collected
             if (status === '1' || status === '6') {
                 $('a[data-id="' + id + '"]').addClass('disabled');
+                //save the status and id to the local storage
                 localStorage.setItem('status-' + id, status);
 
             } else {
                 localStorage.removeItem('status-' + id);
             }
 
-
+            //send data to update the database
             $.ajax({
                 url: 'form_handler/update_status.php',
                 method: 'post',
@@ -251,7 +238,7 @@ $id = '';
                 }
             });
 
-            //Reload the page
+            //Reload the page after 500ms
             setTimeout(function() {
                 location.reload();
             }, 500);

@@ -101,7 +101,7 @@
                                         <!-- create chart canvas -->
                                         <canvas id="myChart" width="500px" height="300px"></canvas>
                                         <?php
-                                        $status_arr = array("Item Accepted By Courier", "Collected", "Shipped", "In-Transit", "Arrived At Destination", "Out of Delivery", "Ready for Pickup", "Delivered", "Picked-Up", "Unsuccessful Delivery");
+                                        $status_arr = array("Item Accepted By Courier", "Collected", "Shipped", "In-Transit", "Arrived At Destination", "Ready for Pickup", "Delivered", "Unsuccessful Delivery");
                                         $data_1 = array(); //array one to hold data point 1
                                         $data_2 = array(); //array two to hold data point 2
                                         foreach ($status_arr as $x => $y) {
@@ -122,7 +122,7 @@
                                         <!-- create chart canvas -->
                                         <canvas id="myChart2" width="500px" height="300px"></canvas>
                                         <?php
-                                        $status_arr = array("Item Accepted By Courier", "Collected", "Shipped", "In-Transit", "Arrived At Destination", "Out of Delivery", "Ready for Pickup", "Delivered", "Picked-Up", "Unsuccessful Delivery");
+                                        $status_arr = array("Item Accepted By Courier", "Collected", "Shipped", "In-Transit", "Arrived At Destination", "Ready for Pickup", "Delivered", "Unsuccessful Delivery");
                                         $data_3 = array(); //array one to hold data point 1
                                         $data_4 = array(); //array two to hold data point 2
                                         foreach ($status_arr as $x => $y) {
