@@ -7,6 +7,7 @@
 
     if (isset($_SESSION['username'])) {
         $userLoggedIn = $_SESSION['username'];
+        $branch_id = $_SESSION['branch_id'];
         //$id = $_SESSION['login_id'];
         $user_details_query = mysqli_query($con, "SELECT * FROM users WHERE fname='$userLoggedIn'");
         //echo $userLoggedIn;
@@ -33,8 +34,11 @@
                     <div>
                         <h2>
                             <?php
-                            echo $con->query("SELECT * FROM parcels where status = 0 ")->num_rows;
-
+                            if ($_SESSION['login_type'] == 1) {
+                                echo $con->query("SELECT * FROM parcels where status = 0")->num_rows;
+                            }else if ($_SESSION['login_type'] == 2) {
+                                echo $con->query("SELECT * FROM parcels where status = 0 AND branch_id = '$branch_id' ")->num_rows;
+                            }
                             ?>
                         </h2>
                         <small>Delivered</small>
@@ -48,7 +52,11 @@
                     <div>
                         <h2>
                             <?php
-                            echo $con->query("SELECT * FROM parcels where status = 6 ")->num_rows;
+                            if ($_SESSION['login_type'] == 1) {
+                                echo $con->query("SELECT * FROM parcels where status = 6")->num_rows;
+                            } else if ($_SESSION['login_type'] == 2) {
+                                echo $con->query("SELECT * FROM parcels where status = 6 AND branch_id = '$branch_id' ")->num_rows;
+                            }
 
                             ?>
                         </h2>
@@ -64,7 +72,11 @@
                     <div>
                         <h2>
                             <?php
-                            echo $con->query("SELECT * FROM parcels where status = 3 ")->num_rows;
+                                if ($_SESSION['login_type'] == 1) {
+                                    echo $con->query("SELECT * FROM parcels where status = 3")->num_rows;
+                                } else if ($_SESSION['login_type'] == 2) {
+                                    echo $con->query("SELECT * FROM parcels where status = 3 AND branch_id = '$branch_id' ")->num_rows;
+                                }
 
                             ?>
                         </h2>
@@ -79,7 +91,11 @@
                     <div>
                         <h2>
                             <?php
-                            echo $con->query("SELECT * FROM parcels where status = 2 ")->num_rows;
+                            if ($_SESSION['login_type'] == 1) {
+                                echo $con->query("SELECT * FROM parcels where status = 2")->num_rows;
+                            } else if ($_SESSION['login_type'] == 2) {
+                                echo $con->query("SELECT * FROM parcels where status = 2 AND branch_id = '$branch_id' ")->num_rows;
+                            }
 
                             ?>
                         </h2>
@@ -105,7 +121,11 @@
                                         $data_1 = array(); //array one to hold data point 1
                                         $data_2 = array(); //array two to hold data point 2
                                         foreach ($status_arr as $x => $y) {
-                                            $count = $con->query("SELECT * FROM parcels WHERE status = {$x}")->num_rows;
+                                            if ($_SESSION['login_type'] == 1) {
+                                                $count = $con->query("SELECT * FROM parcels WHERE status = {$x}")->num_rows;
+                                            }else if($_SESSION['login_type'] == 2) {
+                                                $count = $con->query("SELECT * FROM parcels WHERE status = {$x} AND branch_id = '$branch_id'")->num_rows;
+                                            }
                                             $data_1[] = $count;
                                             $data_2[] = $y;
                                             // echo "<h4>$count</h4>" . "<p>$y</p>";
@@ -126,7 +146,11 @@
                                         $data_3 = array(); //array one to hold data point 1
                                         $data_4 = array(); //array two to hold data point 2
                                         foreach ($status_arr as $x => $y) {
-                                            $count = $con->query("SELECT * FROM parcels WHERE status = {$x}")->num_rows;
+                                            if($_SESSION['login_type'] == 1){
+                                                $count = $con->query("SELECT * FROM parcels WHERE status = {$x}")->num_rows;
+                                            }else if($_SESSION['login_type'] == 2){
+                                                $count = $con->query("SELECT * FROM parcels WHERE status = {$x} AND branch_id = '$branch_id'")->num_rows;
+                                            }
                                             $data_3[] = $count;
                                         }
                                         $branches = $con->query("SELECT processed_br FROM parcels");

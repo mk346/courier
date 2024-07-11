@@ -6,8 +6,7 @@ include 'sidebar.php';
 include 'topbar.php';
 $id = '';
 $status = $_GET['status'];
-// $query = $con->query("SELECT * FROM parcels WHERE status = 1 ORDER BY parcel_id DESC");
-// while ($row = $query->fetch_assoc()):
+$branch_id = $_SESSION['branch_id'];
 ?>
 </script>
 <div class="sub-wrapper2" id="sub-wrapper">
@@ -52,7 +51,11 @@ $status = $_GET['status'];
                                 <tbody>
                                     <?php
                                     $i = 1;
-                                    $query = $con->query("SELECT * FROM parcels WHERE status = '$status' ORDER BY parcel_id DESC");
+                                    if ($_SESSION['login_type'] == 1) {
+                                        $query = $con->query("SELECT * FROM parcels WHERE status = '$status' ORDER BY parcel_id DESC");
+                                    } else if ($_SESSION['login_type'] == 2) {
+                                        $query = $con->query("SELECT * FROM parcels WHERE branch_id='$branch_id' AND status = '$status' ORDER BY parcel_id DESC");
+                                    }
                                     while ($rows = $query->fetch_assoc()) :
                                     ?>
                                         <tr>
@@ -95,18 +98,12 @@ $status = $_GET['status'];
                                                         echo "<span class='status-btn'>Arrived at Destination</span>";
                                                         break;
                                                     case '5':
-                                                        echo "<span class='status-btn'>Out of Delivery</span>";
-                                                        break;
-                                                    case '6':
                                                         echo "<span class='status-btn'>Ready for Pickup</span>";
                                                         break;
-                                                    case '7':
+                                                    case '6':
                                                         echo "<span class='status-btn'>Delivered</span>";
                                                         break;
-                                                    case '8':
-                                                        echo "<span class='status-btn'>Picked Up</span>";
-                                                        break;
-                                                    case '9':
+                                                    case '7':
                                                         echo "<span class='status-btn'>Unsuccessful Delivery</span>";
                                                         break;
                                                     default:

@@ -1,3 +1,6 @@
+<?php
+$login_id =  $_SESSION['login_id'];
+?>
 <div class="top-nav" id="top-bar">
     <div class="bars">
         <span class="fas fa-bars menu-bars"></span>
@@ -5,10 +8,14 @@
     <h4 class="mytitle">Courier Management System</h4>
     <a href="#" class="user-log">
         <!-- <i class="fa-solid fa-user logged-in"></i> -->
-        <img decoding="async" src="assets/images/profile-1.jpg" width="30" height="30" class="logo-admin">
+    <?php if ($_SESSION['login_type'] == 1) : ?>
+            <img decoding="async" src="assets/images/profile-1.jpg" width="30" height="30" class="logo-admin">
+    <?php else : ?>
+        <img decoding="async" src="assets/images/profile.png" width="30" height="30" class="logo-admin">
+    <?php endif; ?>
         <?php
         echo $_SESSION['username'];
-        $login_id =  $_SESSION['login_id'];
+        //$login_id =  $_SESSION['login_id'];
         //echo $userLoggedIn;
         ?>
         <span class="fa fa-angle-down"></span>
@@ -16,10 +23,9 @@
             <?php
             //$i = 1;
             $query = $con->query("SELECT * FROM users WHERE id = '$login_id' ");
-            while ($row = $query->fetch_assoc()){
+            while ($row = $query->fetch_assoc()) {
                 $user_id = $row['id'];
                 $user_branch = $row['branch'];
-
             }
             ?>
             <li><a href="manage_account.php?&id=<?php echo $user_id ?>" id="manage-account"><i class="fa-solid fa-gear"></i>Manage Account</a></li>

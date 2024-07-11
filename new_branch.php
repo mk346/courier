@@ -20,27 +20,27 @@ require 'form_handler/save_branch.php';
                         <div class="form-row">
                             <div class="col-1 form-group">
                                 <label for class="control-label">Street/Building</label>
-                                <textarea name="street" id="" cols="30" rows="2" class="form-control" required></textarea>
+                                <input type="text" name="street" class="form-control" placeholder="Afya Center" required>
                             </div>
                             <div class="col-1 form-group">
                                 <label for class="control-label">City/Town</label>
-                                <textarea name="city" id="" cols="30" rows="2" class="form-control" required></textarea>
+                                <input type="text" name="city" class="form-control" placeholder="Nakuru" required>
                             </div>
                             <div class="col-1 form-group">
                                 <label for class="control-label">Branch Code</label>
-                                <textarea name="code" id="" cols="30" rows="2" class="form-control" required></textarea>
+                                <input type="number" class="form-control" name="code" placeholder="0001" required>
                             </div>
                             <div class="col-1 form-group">
                                 <label for class="control-label">Postal Code</label>
-                                <textarea name="postal" id="" cols="30" rows="2" class="form-control" required></textarea>
+                                <input type="text" class="form-control" name="postal" placeholder="000-000" required>
                             </div>
                             <div class="col-1 form-group">
                                 <label for class="control-label">County</label>
-                                <textarea name="county" id="" cols="30" rows="2" class="form-control" required></textarea>
+                                <input type="text" name="county" class="form-control" placeholder="Nairobi" required>
                             </div>
                             <div class="col-1 form-group">
                                 <label for class="control-label">Contact</label>
-                                <textarea name="contact" id="" cols="30" rows="2" class="form-control" required></textarea>
+                                <input type="number" class="form-control" name="contact" placeholder="0700000000" required>
                             </div>
                             <hr class="line2">
                             <div class="col-2">

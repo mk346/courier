@@ -6,6 +6,8 @@ include 'header.php';
 include 'sidebar.php';
 include 'topbar.php';
 $id = '';
+//$status = $_GET['status'];
+$branch_id = $_SESSION['branch_id'];
 
 ?>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -46,7 +48,11 @@ $id = '';
                                 <tbody>
                                     <?php
                                     $i = 1;
+                                    if ($_SESSION['login_type'] == 1){
                                     $query = $con->query("SELECT * FROM parcels ORDER BY parcel_id DESC");
+                                    } else if ($_SESSION['login_type'] == 2){
+                                        $query = $con->query("SELECT * FROM parcels WHERE branch_id='$branch_id'  ORDER BY parcel_id DESC");
+                                    }
                                     while ($rows = $query->fetch_assoc()) :
                                     ?>
                                         <tr>

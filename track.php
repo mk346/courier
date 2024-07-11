@@ -5,10 +5,12 @@ require 'config/pdo.php';
 include 'header.php';
 include 'sidebar.php';
 include 'topbar.php';
-include 'form_handler/fetchdata.php';
 
-//$err_array = array();
-
+//variables
+$ref_no = "";
+$err_array = array();
+$track_number;
+$reference_number;
 
 
 ?>
@@ -30,8 +32,8 @@ include 'form_handler/fetchdata.php';
                 <div class="track-div">
                     <!-- <label for="">Enter Tracking Number</label> -->
                     <div class="input-group">
-                        <form action="track.php" method="POST" id="tracker" class="capture-input">
-                            <input type="search" name="track_no" class="form-control form-control2" id="ref_no" placeholder="Enter tracking Number" required>
+                        <form action="form_handler/fetchdata.php" method="POST" id="tracker" class="capture-input">
+                            <input type="text" name="track_no" class="form-control form-control2" id="ref_no" placeholder="Enter tracking Number" required>
                             <input type="submit" name="submit" class="search-btn" value="Track" id="track">
                             <br>
                         </form>
@@ -48,9 +50,9 @@ include 'form_handler/fetchdata.php';
         </div>
         <div class="row">
             <div class="form-group">
-                <input type="hidden" name="ref_number" id="ref_no" value="<?php echo $_SESSION['reference']; ?>">
-                <input type="hidden" name="origin" id="origin" value="<?php echo $_SESSION['origin']; ?>">
-                <input type="hidden" name="destination" id="destination" value="<?php echo $_SESSION['destination']; ?>">
+                <input type="hidden" name="ref_number" id="ref_no" value="<?php echo isset($_SESSION['reference']) ? $_SESSION['reference'] : '' ?>">
+                <input type="hidden" name="origin_town" id="from" value="<?php echo isset($_SESSION['origin']) ? $_SESSION['origin'] : ''; ?>">
+                <input type="hidden" name="destination_town" id="to" value="<?php echo isset($_SESSION['destination']) ? $_SESSION['destination'] : '' ?>">
             </div>
         </div>
     </div>
@@ -63,5 +65,5 @@ include 'form_handler/fetchdata.php';
 
 <script src="assets/js/handler.js"></script>
 <!-- <script src="assets/js/fetch.js"></script> -->
-<script src="assets/js/map.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3OescahbXQEeGpLf3N61FwiIVSiIvaVk&callback=initMap&v=weekly" defer></script> -->
+<script src="assets/js/map2.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3OescahbXQEeGpLf3N61FwiIVSiIvaVk&callback=initMap&v=weekly" defer></script>

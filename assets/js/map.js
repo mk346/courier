@@ -13,7 +13,8 @@ function initMap() {
 
 
     document.getElementById("track").addEventListener('click', function () {
-        var address = document.getElementById('origin').value;
+        //e.preventDefault(); 
+        var address = document.getElementById('from').value;
         //findAplace()
         
     });
@@ -23,8 +24,8 @@ function initMap() {
 
 
 function findPlaces(map) {
-    origin = document.getElementById('origin').value;
-    destination = document.getElementById('destination').value
+    origin = document.getElementById('from').value;
+    destination = document.getElementById('to').value
     findAplace(origin,destination,map)
 }
 

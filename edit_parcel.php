@@ -12,6 +12,7 @@ $qry->bindParam(':id', $parcel_id);
 $qry->execute();
 for ($i = 0; $data = $qry->fetch(); $i++) {
     $origin = $data['processed_br'];
+    $status = $data['status'];
 
 ?>
     <!-- <div class="wrapper-main"> -->
@@ -28,7 +29,8 @@ for ($i = 0; $data = $qry->fetch(); $i++) {
                             <div class="main-col col-span">
                                 <b class="form-title">Sender Information</b>
                                 <input type="hidden" name="memi" value="<?php echo $parcel_id ?>">
-                                <input type="hidden" name="origin" value="<?php echo isset($origin) ? $origin: ''?>">
+                                <input type="hidden" name="origin" value="<?php echo isset($origin) ? $origin : '' ?>">
+                                <input type="hidden" name="status" value="<?php echo isset($status) ? $status : '' ?>">
                                 <input type="hidden" name="reference_number" value="<?php $data['reference_number'] ?>">
                                 <div class="form-group spacing">
                                     <label for class="control-label">Name</label>
@@ -44,7 +46,7 @@ for ($i = 0; $data = $qry->fetch(); $i++) {
                                 </div>
                                 <div class="form-group spacing">
                                     <label for class="control-label">Contact</label>
-                                    <input type="Number" name="scontact" id="" class="form-control" value="<?php echo $data['scontact'] ?>" required>
+                                    <input type="text" name="scontact" id="sender" class="form-control" value="<?php echo $data['scontact'] ?>" required>
                                 </div>
                             </div>
                             <div class="main-col col-span">
@@ -63,7 +65,7 @@ for ($i = 0; $data = $qry->fetch(); $i++) {
                                 </div>
                                 <div class="form-group spacing">
                                     <label for class="control-label">Contact</label>
-                                    <input type="Number" name="rcontact" id="" class="form-control" value="<?php echo $data['rcontact'] ?>" required>
+                                    <input type="text" name="rcontact" id="receiver" class="form-control" value="<?php echo $data['rcontact'] ?>" required>
                                 </div>
                             </div>
                         </div>
@@ -78,48 +80,49 @@ for ($i = 0; $data = $qry->fetch(); $i++) {
                                     </select>
                                 </div>
                                 <div class="form-group spacing">
-                                    <?php $status_arr = array("Item Accepted By Courier", "Collected", "Shipped", "In-Transit", "Arrived At Destination", "Out of Delivery", "Ready for Pickup", "Delivered", "Picked-Up", "Unsuccessful Delivery Attempt");
-                                    //$i = 0;
-                                    ?>
-                                    <label for="status">Update Status</label>
-                                    <select name="status" id="" class="select-sm">
-                                        <option value="#">Update Status</option>
-                                        <?php foreach ($status_arr as $k => $v) :
-                                        //$i++;
-                                        ?>
-                                            <option value="<?php echo $k?>" <?php echo $_GET['cs'] == $k ? "selected" : '' ?>> 
-                                                            <?php echo $v; ?>
-                                            </option>
+                                    <label for="status">Parcel Status</label>
+                                    <select name="status" id="" class="select-sm" disabled>
                                         <?php
-                                        endforeach;
+                                        if ($status == 0) {
+                                            echo '<option value="' . htmlspecialchars($status) . '">' . htmlspecialchars("Item Accepted By Courier") . '</option>';
+                                        } else if ($status == 1) {
+                                            echo '<option value="' . htmlspecialchars($status) . '">' . htmlspecialchars("Collected") . '</option>';
+                                        } else if ($status == 2) {
+                                            echo '<option value="' . htmlspecialchars($status) . '">' . htmlspecialchars("Shipped") . '</option>';
+                                        } else if ($status == 3) {
+                                            echo '<option value="' . htmlspecialchars($status) . '">' . htmlspecialchars("In-Transit") . '</option>';
+                                        } else if ($status == 4) {
+                                            echo '<option value="' . htmlspecialchars($status) . '">' . htmlspecialchars("Arrived At Destination") . '</option>';
+                                        } else if ($status == 5) {
+                                            echo '<option value="' . htmlspecialchars($status) . '">' . htmlspecialchars("Ready for Pickup") . '</option>';
+                                        } else if ($status == 6) {
+                                            echo '<option value="' . htmlspecialchars($status) . '">' . htmlspecialchars("Delivered") . '</option>';
+                                        } else if ($status == 7) {
+                                            echo '<option value="' . htmlspecialchars($status) . '">' . htmlspecialchars("Unsuccessful Delivery") . '</option>';
+                                        }
                                         ?>
                                     </select>
-
                                 </div>
-
                             </div>
                             <div class="main-col col-span">
                                 <div class="form-group spacing">
-                                    <?php
-                                    $query = "SELECT code,city FROM branch ORDER BY id DESC";
-                                    $result = mysqli_query($con, $query);
-                                    if (mysqli_num_rows($result) > 0) {
-                                        while ($row = mysqli_fetch_assoc($result)) {
-                                            $options = $options . "<option>" . $row['code'] . " " . $row['city'] . "</option>";
-                                        }
-                                    }
-                                    ?>
-                                    <!-- <select name="processed_br" id="" class="form-control"> -->
-                                        <!-- <option value="#">Branch Processed</option> -->
-                                        <!-- <option value="<?php //$options; ?>"><?php //echo $options; ?></option> -->
                                     <label for="processed_br">Processed Branch</label>
                                     <input type="text" class="form-control" value="<?php echo $data['processed_br'] ?>" name="processed_br" placeholder="<?php echo $origin ?>" disabled>
                                     <!-- </select> -->
                                 </div>
                                 <div class="form-group spacing">
+                                    <?php
+                                    $query = "SELECT street,city FROM branch ORDER BY id DESC";
+                                    $result = mysqli_query($con, $query);
+                                    ?>
                                     <select name="pickup_br" id="pickup" class="form-control hide-select">
-                                        <option value="#">Pickup Branch</option>
-                                        <option value="<?php $options; ?>"><?php echo $options; ?></option>
+                                        <?php
+                                        if (mysqli_num_rows($result) > 0) {
+                                            while ($row = mysqli_fetch_assoc($result)) {
+                                                echo '<option value="' . htmlspecialchars($row["street"]) . '">' . htmlspecialchars($row["street"]) . ' - ' . htmlspecialchars($row["city"]) . '</option>';
+                                            }
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                                 <div class="form-group spacing" id="hide-div">
@@ -162,6 +165,23 @@ for ($i = 0; $data = $qry->fetch(); $i++) {
                                 </tfoot>
                             <?php endif; ?>
                         </table>
+                        <hr class="line3">
+                        <b>Payment</b>
+                        <div class="row">
+                            <div class="main-col col-span">
+                                <div class="radio-box">
+                                    <label class="myradio">
+                                        <input name="payment" type="radio" value="Not Paid" checked>
+                                        <span>Not Paid</span>
+                                    </label>
+                                    <label class="myradio">
+                                        <input name="payment" type="radio" value="Paid">
+                                        <span>Paid</span>
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
                     </form>
                 <?php
             }
@@ -178,8 +198,23 @@ for ($i = 0; $data = $qry->fetch(); $i++) {
             </div>
         </div>
     </div>
-    <!-- </div> -->
-    <!-- <script src="assets/js/menu.js"></script> -->
+    <script>
+        //phone number validation
+        document.getElementById("manage-parcel").addEventListener('submit', function(event) {
+            // event.preventDefault();
+            var sender_phone = document.getElementById('sender').value;
+            var receiver_phone = document.getElementById('receiver').value;
+
+            var phonePattern = /^\+2547\d{8}$|^07\d{8}$/;
+
+            if (!phonePattern.test(sender_phone) || !phonePattern.test(receiver_phone)) {
+                event.preventDefault();
+                alert('Senders Phone and Receivers Phone must be valid phone numbers');
+            }
+
+
+        })
+    </script>
     <script src="assets/js/handler.js"></script>
     <script src="assets/js/status.js"></script>
     <script src="assets/js/calcp.js"></script>

@@ -1,6 +1,5 @@
 <?php
-require '../config/config.php';
-require '../config/config.php';
+
 include ("mail_config.php");
 
 
@@ -29,7 +28,7 @@ $amount = 0;
 $total = 0;
 $VAT = 0.16;
 $payment = "";
-$error_array = array();
+$my_array = array();
 //$i = 0;
 $reference_number = sprintf("%'012d", mt_rand(100000000, 9999999999999)); // generate a random reference number
 
@@ -111,58 +110,58 @@ if(isset($_POST['save_parcel'])){
     $payment = strip_tags($_POST['payment']);
     $status_date = date("Y-m-d");
 
-    //Validating phone number
-    if(preg_match('/^[0-9]{10}+$/', $scontact)){
-        $sender_phone = $scontact;
-    }else{
-        array_push($error_array, "<span style='color:red;'>Phone Number Must be atleast 10 Digits</span>");
-    }
-    if(preg_match('/^[0-9]{10}+$/', $rcontact)){
-        $receiver_phone = $rcontact;
-    }else{
-        array_push($error_array, "<span style='color:red;'>Phone Number Must be atleast 10 Digits</span>");
-    }
+
+    $sender_phone = $scontact;
+
+    $receiver_phone = $rcontact;
 
 
 
-    // if no errors save data to db
-    if(empty($error_array)){
+        //fetch branch id from database
+        $my_query = "SELECT id FROM branch WHERE street = '$pickup_br' ";
+        $result = mysqli_query($con, $my_query);
+        if (mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+            $branch_id = $row['id'];
+
         //sql query to save the data into the database
-    $query = mysqli_query($con, "INSERT INTO parcels VALUES (NULL,'$sname','$saddress','$sender_phone','$semail','$rname','$raddress','$receiver_phone ','$remail','$type','$processed_br','$pickup_br','$delivery_loc','$weight','$charge','$price','$total','$payment','$reference_number',$status,'$date_created','$status_date')");
+        $query = mysqli_query($con, "INSERT INTO parcels VALUES (NULL,'$sname','$saddress','$sender_phone','$semail','$rname','$raddress','$receiver_phone ','$remail','$type','$processed_br','$pickup_br','$delivery_loc','$weight','$charge','$price','$total','$payment','$reference_number',$status,'$date_created','$status_date','$branch_id')");
 
-    //mail configuration
-    $mail = new PHPMailer(true);
+        } else {
+            echo 'branch not found';
+        }
+        //mail configuration
+        $mail = new PHPMailer(true);
 
-    $mail->isSMTP();
-    $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
-    $mail->SMTPAuth = true;
-    $mail->Username = 'ontimecourier742@gmail.com';
-    $mail->Password = 'huquajsglqyticib';
-    $mail->SMTPSecure = 'ssl';
-    $mail->Port = 465;
+        $mail->isSMTP();
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'ontimecourier742@gmail.com';
+        $mail->Password = 'huquajsglqyticib';
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port = 465;
 
-    $mail->setFrom('ontimecourier742@gmail.com', $name = 'ontimecourier742@gmail.com', auto:false);
-    $mail->addAddress($semail);
-    $mail->isHTML(true);
-    $mail->Subject = 'Ontime Courier Services';
-    $mail->Body = 'Dear '.' '. $sname .' '. 'Your Parcel has been processed successfully.'.'<br>'.'Use'.' '.$reference_number.' '.'to track of your parcel. Thank You for choosing Ontime Courier.';
-    $mail->send();
+        $mail->setFrom('ontimecourier742@gmail.com', $name = 'ontimecourier742@gmail.com', auto:false);
+        $mail->addAddress($semail);
+        $mail->isHTML(true);
+        $mail->Subject = 'Ontime Courier Services';
+        $mail->Body = 'Dear '.' '. $sname .' '. 'Your Parcel has been processed successfully.'.'<br>'.'Use'.' '.$reference_number.' '.'to track of your parcel. Thank You for choosing Ontime Courier.';
+        $mail->send();
 
-    $mail->setFrom('ontimecourier742@gmail.com', $name = 'ontimecourier742@gmail.com', auto:false);
-    $mail->addAddress($remail);
-    $mail->isHTML(true);
-    $mail->Subject = 'Ontime Courier Services';
-    $mail->Body = 'Dear'.' '. $rname .' '. 'a parcel has been sent to you from'.' '. $saddress.' ' .'by ' . $sname .'<br>'.'Use '.' '.$reference_number.' '. 'to track of your parcel. Thank You for choosing Ontime Courier.';
-    $mail->send();
-
-
+        $mail->setFrom('ontimecourier742@gmail.com', $name = 'ontimecourier742@gmail.com', auto:false);
+        $mail->addAddress($remail);
+        $mail->isHTML(true);
+        $mail->Subject = 'Ontime Courier Services';
+        $mail->Body = 'Dear'.' '. $rname .' '. 'a parcel has been sent to you from'.' '. $saddress.' ' .'by ' . $sname .'<br>'.'Use '.' '.$reference_number.' '. 'to track of your parcel. Thank You for choosing Ontime Courier.';
+        $mail->send();
 
 
 
-    header('Location: ../list_parcel.php');
 
-    }
+
+        header('Location: ./list_parcel.php');
+
 }
 
 ?>

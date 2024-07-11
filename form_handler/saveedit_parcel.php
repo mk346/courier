@@ -38,6 +38,7 @@ $n = intval($n);
 $amount = $n + ($l * $m);
 $tax = $amount * $VAT;
 $total = $amount + $tax;
+$payment = strip_tags($_POST['payment']);
 $reference_number;
 $date_created = date("Y-m-d");
 
@@ -55,8 +56,20 @@ $mail->SMTPSecure = 'ssl';
 $mail->Port = 465;
 
 
+//fetch branch id from database
+$my_query = "SELECT id FROM branch WHERE street = '$j' ";
+$result = mysqli_query($con, $my_query);
+if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+    $branch_id = $row['id'];
+
 //update status
-$update = $con->query("UPDATE parcels SET sname='$a' ,semail='$o',saddress='$b',scontact ='$c',rname='$d', remail='$p' ,raddress='$e',rcontact='$f',type='$g',status='$h',processed_br='$i',pickup_br='$j',deliver_loc='$k',weight='$l',charge='$n',price='$m',amount='$total',date_created='$date_created' WHERE parcel_id = '$id'");
+$update = $con->query("UPDATE parcels SET sname='$a' ,semail='$o',saddress='$b',scontact ='$c',rname='$d', remail='$p' ,raddress='$e',rcontact='$f',type='$g',status='$h',processed_br='$i',pickup_br='$j',deliver_loc='$k',weight='$l',charge='$n',price='$m',amount='$total',payment='$payment',date_created='$date_created',branch_id='$branch_id' WHERE parcel_id = '$id'");
+
+
+} else {
+    echo 'branch not found';
+}
 
 //redirect to this page
 header("Location: ../list_parcel.php");

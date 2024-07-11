@@ -5,7 +5,9 @@ include 'header.php';
 include 'sidebar.php';
 include 'topbar.php';
 require 'form_handler/save_staff.php';
-$options = "";
+$street = "";
+$city="";
+$options ="";
 ?>
 <div class="sub-wrapper2">
     <h1 class="main-header1">New Staff</h1>
@@ -38,19 +40,18 @@ $options = "";
                                 <div class="form-group2 form-col2">
                                     <?php
                                     //extract data from database
-                                    $query = "SELECT code,city FROM branch ORDER BY id DESC";
+                                    $query = "SELECT street,city FROM branch ORDER BY id DESC";
                                     $result = mysqli_query($con, $query);
-                                    if (mysqli_num_rows($result) > 0) {
-                                        while ($row = mysqli_fetch_assoc($result)) {
-                                            //create html element option
-                                            $options = $options . "<option>" . $row['code'] . " " . $row['city'] . "</option>";
-                                        }
-                                    }
                                     ?>
-                                    <label for class="control-label">Branch</label>
+                                    <label for class="control-label">Select Branch</label>
                                     <select name="branch" id="" class="form-control" required>
-                                        <option value="">Select Branch</option>
-                                        <option value="<?php $options; ?>"><?php echo $options; ?></option>
+                                        <?php
+                                            if (mysqli_num_rows($result) > 0) {
+                                                while ($row = mysqli_fetch_assoc($result)) {
+                                                echo '<option value="' . htmlspecialchars($row["street"]) . '">' .htmlspecialchars($row["street"]) .' - '.htmlspecialchars($row["city"]) . '</option>';
+                                                }
+                                            }
+                                        ?>
                                     </select>
                                 </div>
                                 <div class="form-group2 form-col2">

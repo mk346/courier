@@ -22,7 +22,7 @@ for ($i = 0; $row = $result->fetch(); $i++) {
             <div class="card-1 card-outline card-primary">
                 <div class="card-body">
                     <form action="form_handler/saveedit_staff.php" method="POST" id="edit_staff">
-                        
+
                         <div class="row">
                             <div class="form-col2">
                                 <div class="row">
@@ -38,28 +38,33 @@ for ($i = 0; $row = $result->fetch(); $i++) {
                                     <div class="form-group2 form-col2">
                                         <label for class="control-label">User Role</label>
                                         <select name="role" id="" class="form-control" required>
-                                            <option value="#">User Role</option>
+                                            <?php
+                                            if ($row['role'] == 1){
+                                                echo '<option value="' . htmlspecialchars($row["role"]) . '">' . htmlspecialchars("Admin").'</option>';
+                                            }else if($row['role'] == 2){
+                                                echo '<option value="' . htmlspecialchars($row["role"]) . '">' . htmlspecialchars("Normal") . '</option>';
+                                            }
+                                            ?>
+                                            <!-- <option value="#">User Role</option>
                                             <option value="1">1 - Admin</option>
-                                            <option value="2">2 - Normal</option>
+                                            <option value="2">2 - Normal</option> -->
                                         </select>
                                     </div>
                                     <div class="form-group2 form-col2">
                                         <?php
                                         //extract data from database
-                                        $query = "SELECT code,city FROM branch ORDER BY id DESC";
+                                        $query = "SELECT street,city FROM branch ORDER BY id DESC";
                                         $result2 = mysqli_query($con, $query);
-                                        if (mysqli_num_rows($result2) > 0) {
-                                            while ($row2 = mysqli_fetch_assoc($result2)) {
-                                                //create html element option
-                                                $options = $options . "<option>" . $row2['code'] . " " . $row2['city'] . "</option>";
-                                            }
-                                        }
                                         ?>
                                         <label for class="control-label">Branch</label>
                                         <select name="branch" id="" class="form-control" required>
-                                            <option value="">Select Branch</option>
-                                            <option value="<?php $options; ?>"><?php echo $options; ?></option>
-                                            
+                                            <?php
+                                            if (mysqli_num_rows($result2) > 0) {
+                                                while ($row2 = mysqli_fetch_assoc($result2)) {
+                                                    echo '<option value="' . htmlspecialchars($row2["street"]) . '">' . htmlspecialchars($row2["street"]) . ' - ' . htmlspecialchars($row2["city"]) . '</option>';
+                                                }
+                                            }
+                                            ?>
                                         </select>
                                     </div>
                                     <div class="form-group2 form-col2">

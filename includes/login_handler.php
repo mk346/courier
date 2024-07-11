@@ -25,6 +25,7 @@ if(isset($_POST['submit'])){
         $role = $row['role'];
         $id = $row['id'];
         $user_branch = $row['branch'];
+        $branch_id = $row['branch_id'];
 
         //$login_id = $row['id'];
         $_SESSION['username'] = $username;
@@ -32,6 +33,7 @@ if(isset($_POST['submit'])){
         $_SESSION['login_id'] = $id;
         $_SESSION['login_type'] = $role;
         $_SESSION['user_branch'] = $user_branch;
+        $_SESSION['branch_id'] = $branch_id;
 
         header("Location: index.php");
         exit();

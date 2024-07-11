@@ -4,10 +4,11 @@ require 'config/config.php';
 include 'header.php';
 include 'sidebar.php';
 include 'topbar.php';
-$options = "";
-$options2 = "";
+require 'form_handler/save_parcel.php';
+// $options = "";
+// $options2 = "";
 
-$error_array= array()
+$my_array = array()
 ?>
 <!-- <div class="wrapper-main"> -->
 <div class="sub-wrapper2">
@@ -18,12 +19,12 @@ $error_array= array()
     <div class="main-col">
         <div class="card-1 card-outline card-primary">
             <div class="card-body">
-                <form action="form_handler/save_parcel.php" method="POST" class="add-parcel" id="manage-parcel">
+                <form action="add_parcel.php" method="POST" class="add-parcel" id="manage-parcel">
                     <div class="row">
                         <div class="main-col col-span">
                             <b class="form-title">Sender Information</b>
                             <input type="hidden" name="id" value="<?php echo isset($id) ? $id : '' ?>">
-                            <input type="hidden" name="origin" value="<?php echo isset($user_branch) ? $user_branch: ''?>">
+                            <input type="hidden" name="origin" value="<?php echo isset($user_branch) ? $user_branch : '' ?>">
                             <input type="hidden" name="reference_number">
                             <div class="form-group spacing">
                                 <label for class="control-label">Name</label>
@@ -35,12 +36,12 @@ $error_array= array()
                             </div>
                             <div class="form-group spacing">
                                 <label for class="control-label">Contact</label>
-                                <input type="Number" name="scontact" id="" class="form-control" required>
+                                <input type="text" name="scontact" id="sender" class="form-control" required>
                                 <?php
-                                if (in_array("<span style='color:red;'>Phone Number Must be atleast 10 Digits</span><br>",$error_array)){
+                                if (in_array("<span style='color:red;'>Phone Number Must be atleast 10 Digits</span><br>", $my_array)) {
                                     echo "<span style='color:red;'>Phone Number Must be atleast 10 Digits</span><br>";
                                 }
-    
+
                                 ?>
                             </div>
                             <div class="form-group spacing">
@@ -60,9 +61,9 @@ $error_array= array()
                             </div>
                             <div class="form-group spacing">
                                 <label for class="control-label">Contact</label>
-                                <input type="Number" name="rcontact" id="" class="form-control" required>
+                                <input type="text" name="rcontact" id="receiver" class="form-control" required>
                                 <?php
-                                if (in_array("<span style='color:red;'>Phone Number Must be atleast 10 Digits</span><br>",$error_array)){
+                                if (in_array("<span style='color:red;'>Phone Number Must be atleast 10 Digits</span><br>", $my_array)) {
                                     echo "<span style='color:red;'>Phone Number Must be atleast 10 Digits</span><br>";
                                 }
                                 ?>
@@ -87,31 +88,28 @@ $error_array= array()
                         </div>
                         <div class="main-col col-span">
                             <div class="form-group spacing">
+                                <?php
+                                $query = "SELECT street,city FROM branch ORDER BY id DESC";
+                                $result = mysqli_query($con, $query);
+                                ?>
+                            </div>
+
+                            <div class="form-group spacing">
+                                <label for="deliver-loc" id="mylabel">Pick-Up Branch</label>
+                                <select name="pickup_br" id="pickup" class="form-control hide-select">
                                     <?php
-                                    $query = "SELECT code,city FROM branch ORDER BY id DESC";
-                                    $result = mysqli_query($con, $query);
                                     if (mysqli_num_rows($result) > 0) {
                                         while ($row = mysqli_fetch_assoc($result)) {
-                                            $options = $options . "<option>" . $row['code'] . " " . $row['city'] . "</option>";
-                                            $options2 = $options2 . "<option>" . $row['city'] . "</option>";
+                                            echo '<option value="' . htmlspecialchars($row["street"]) . '">' . htmlspecialchars($row["street"]) . ' - ' . htmlspecialchars($row["city"]) . '</option>';
                                         }
                                     }
                                     ?>
-                                    <!-- <label for="deliver-loc">Processing Branch</label>
-                                    <input type="hidden" name="origin" class="form-control" value="<?php //echo htmlspecialchars($user_branch); ?>" style="width: auto;" disabled> -->
-                                </div>
-                                
-                                <div class="form-group spacing">
-                                    <label for="deliver-loc" id="mylabel">Pick-Up Branch</label>
-                                    <select name="pickup_br" id="pickup" class="form-control hide-select">
-                                        <!-- <option value="#">Pickup Branch</option> -->
-                                        <option value="<?php $options2; ?>"><?php echo $options; ?></option>
-                                    </select>
-                                </div>
-                                <div class="form-group spacing" id="hide-div">
-                                    <label>Delivery Location</label>
-                                    <input type="text" name="delivery_loc" class="form-control hide-input" id="address">
-                                </div>
+                                </select>
+                            </div>
+                            <div class="form-group spacing" id="hide-div">
+                                <label>Delivery Location</label>
+                                <input type="text" name="delivery_loc" class="form-control hide-input" id="address">
+                            </div>
 
                         </div>
                     </div>
@@ -123,7 +121,7 @@ $error_array= array()
                             <tr>
                                 <th class="rhead">Weight (Kg)</th>
                                 <th class="rhead">Price</th>
-                                <th class="rhead">Transit Charge</th> 
+                                <th class="rhead">Transit Charge</th>
                             </tr>
                         </thead>
                         <tbody id="tbody">
@@ -133,10 +131,10 @@ $error_array= array()
                                 </td>
                                 <td class="text-right tx-center  rbody" id="price">
                                     0.00
-        
+
                                 </td>
                                 <td class="rbody">
-                                    <input type="text" name="charge" id="charge" class="form-control" onkeyup="calcPrice(this)"  required>
+                                    <input type="text" name="charge" id="charge" class="form-control" onkeyup="calcPrice(this)" required>
                                 </td>
                             </tr>
                         </tbody>
@@ -201,7 +199,23 @@ $error_array= array()
     </table>
 </div>
 <!-- </div> -->
-<!-- <script src="assets/js/menu.js"></script> -->
+<script>
+    //phone number validation
+    document.getElementById("manage-parcel").addEventListener('submit', function(event){
+        // event.preventDefault();
+        var sender_phone = document.getElementById('sender').value;
+        var receiver_phone = document.getElementById('receiver').value;
+
+        var phonePattern = /^\+2547\d{8}$|^07\d{8}$/;
+
+        if (!phonePattern.test(sender_phone) || !phonePattern.test(receiver_phone)){
+            event.preventDefault();
+            alert('Senders Phone and Receivers Phone must be valid phone numbers');
+        }
+
+        
+    })
+</script>
 <script src="assets/js/handler.js"></script>
 <script src="assets/js/status.js"></script>
 <script src="assets/js/calcp.js"></script>
