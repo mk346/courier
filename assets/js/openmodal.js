@@ -11,7 +11,7 @@ openModal.click(function () {
         //console.log(status);
     })
 
-    // open modal
+    // open modal function
     modal.addClass('active');
 });
 

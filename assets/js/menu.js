@@ -1,3 +1,4 @@
+// get html elements to use
 var submenus1 = document.querySelector(".show-1")
 var submenus2 = document.querySelector(".show-2")
 var submenus3 = document.querySelector(".show-3")
