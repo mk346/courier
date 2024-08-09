@@ -1,26 +1,12 @@
-    <?php
+<?php
     require 'config/session.php';
     require 'functions.php';
     require 'config/config.php';
+    require 'check_login.php';
+    include 'header.php';
+?>
 
-
-
-    if (isset($_SESSION['username'])) {
-        $userLoggedIn = $_SESSION['username'];
-        $branch_id = $_SESSION['branch_id'];
-        //$id = $_SESSION['login_id'];
-        $user_details_query = mysqli_query($con, "SELECT * FROM users WHERE fname='$userLoggedIn'");
-        //echo $userLoggedIn;
-        $user = mysqli_fetch_array($user_details_query);
-    } else {
-        header("Location: login.php");
-    }
-
-    ?>
-    <!-- import chart js cdn -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <?php include 'header.php'; ?>
     <div class="wrapper" id="mywrapper">
         <?php include 'sidebar.php' ?>
         <?php include 'topbar.php'; ?>
@@ -92,9 +78,9 @@
                         <h2>
                             <?php
                             if ($_SESSION['login_type'] == 1) {
-                                echo $con->query("SELECT * FROM parcels where status = 2")->num_rows;
+                                echo $con->query("SELECT * FROM parcels where status = 5")->num_rows;
                             } else if ($_SESSION['login_type'] == 2) {
-                                echo $con->query("SELECT * FROM parcels where status = 2 AND branch_id = '$branch_id' ")->num_rows;
+                                echo $con->query("SELECT * FROM parcels where status = 5 AND branch_id = '$branch_id' ")->num_rows;
                             }
 
                             ?>

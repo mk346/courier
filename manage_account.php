@@ -2,6 +2,7 @@
 require 'config/session.php';
 require 'config/pdo.php';
 require 'config/config.php';
+require 'check_login.php';
 include 'header.php';
 include 'sidebar.php';
 include 'topbar.php';

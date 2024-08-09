@@ -1,6 +1,8 @@
 <?php
 require 'config/session.php';
+require 'config/config.php';
 require 'config/pdo.php';
+require 'check_login.php';
 include 'header.php';
 include 'sidebar.php';
 include 'topbar.php';

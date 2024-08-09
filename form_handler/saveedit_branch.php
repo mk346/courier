@@ -1,5 +1,7 @@
 <?php
 include '../config/pdo.php'; //database connection
+require '../config/config.php';
+require '../check_login.php';
 
 //edit data capture
 $id = $_POST['memi'];

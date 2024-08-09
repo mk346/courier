@@ -1,6 +1,7 @@
 <?php
 require 'config/session.php';
 require 'config/config.php';
+require 'check_login.php';
 include 'header.php';
 include 'sidebar.php';
 include 'topbar.php';
@@ -14,7 +15,7 @@ require 'form_handler/save_branch.php';
 <div class="container-fluid">
     <div class="card-1 card-outline card-primary">
         <div class="card-body">
-            <form action="new_branch.php" method="POST">
+            <form action="new_branch.php" method="POST" id="add_branch">
                 <div class="form-row">
                     <div class="form-col">
                         <div class="form-row">
@@ -40,7 +41,7 @@ require 'form_handler/save_branch.php';
                             </div>
                             <div class="col-1 form-group">
                                 <label for class="control-label">Contact</label>
-                                <input type="number" class="form-control" name="contact" placeholder="0700000000" required>
+                                <input type="number" class="form-control" id="branch_contact" name="contact" placeholder="0700000000" required>
                             </div>
                             <hr class="line2">
                             <div class="col-2">
@@ -61,3 +62,19 @@ require 'form_handler/save_branch.php';
 <!-- </section> -->
 
 <script src="assets/js/handler.js"></script>
+<script>
+    //phone number validation
+    document.getElementById("add_branch").addEventListener('submit', function(event) {
+        // event.preventDefault();
+        var sender_phone = document.getElementById('branch_contact').value;
+
+        var phonePattern = /^\+2547\d{8}$|^07\d{8}$/;
+
+        if (!phonePattern.test(sender_phone)) {
+            event.preventDefault();
+            alert('Phone number must be a valid phone number');
+        }
+
+
+    })
+</script>

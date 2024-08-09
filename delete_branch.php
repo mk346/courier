@@ -1,5 +1,6 @@
 <?php
 require 'config/config.php';
+require 'check_login.php';
 if(isset($_GET['del_id'])){
     $id = $_GET['del_id'];
 

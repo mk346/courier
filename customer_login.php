@@ -27,7 +27,7 @@ require 'includes/customer_login_handler.php';
             </div>
             <div id="first">
                 <form action="customer_login.php" class="myform" method="POST">
-                    <input type="email" name="log_email" class="input-1" placeholder="Enter Your Email Address" value="<?php
+                    <input type="email" name="log_email" class="input-1" placeholder="Enter Sender's Email Address" value="<?php
                     if (isset($_SESSION['log_email'])) {
                         echo $_SESSION['log_email'];
                     }

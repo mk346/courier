@@ -1,6 +1,7 @@
 <?php
 //require 'config/session.php';
 require 'config/config.php';
+require 'check_login.php';
 ?>
 <div class="sidebar">
     <h2 class="text">OnTime Courier</h2>

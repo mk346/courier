@@ -1,5 +1,7 @@
 <?php
 include '../config/config.php';
+require '../config/pdo.php';
+require '../check_login.php';
 
 //new data to update database
 $id = $_POST['memi'];
