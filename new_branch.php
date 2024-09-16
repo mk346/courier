@@ -66,11 +66,11 @@ require 'form_handler/save_branch.php';
     //phone number validation
     document.getElementById("add_branch").addEventListener('submit', function(event) {
         // event.preventDefault();
-        var sender_phone = document.getElementById('branch_contact').value;
+        var branch_phone = document.getElementById('branch_contact').value;
 
         var phonePattern = /^\+2547\d{8}$|^07\d{8}$/;
 
-        if (!phonePattern.test(sender_phone)) {
+        if (!phonePattern.test(branch_phone)) {
             event.preventDefault();
             alert('Phone number must be a valid phone number');
         }

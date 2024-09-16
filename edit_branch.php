@@ -21,7 +21,7 @@ for ($i = 0; $row = $result->fetch(); $i++) {
     <div class="container-fluid">
         <div class="card-1 card-outline card-primary">
             <div class="card-body">
-                <form action="form_handler/saveedit_branch.php" method="POST">
+                <form action="form_handler/saveedit_branch.php" method="POST" id="edit_branch">
                     <div class="form-row">
                         <div class="form-col">
                             <div class="form-row">
@@ -48,7 +48,7 @@ for ($i = 0; $row = $result->fetch(); $i++) {
                                 </div>
                                 <div class="col-1 form-group">
                                     <label for class="control-label">Contact</label>
-                                    <input type="text" name="contact" class="form-control" value="<?php echo $row['contact'] ?>">
+                                    <input type="text" name="contact" class="form-control" id="edit_contact" value="<?php echo $row['contact'] ?>">
                                 </div>
                                 <hr class="line2">
                                 <div class="col-2">
@@ -69,3 +69,20 @@ for ($i = 0; $row = $result->fetch(); $i++) {
 
     </div>
     <script src="assets/js/handler.js"></script>
+    <script>
+        //phone number validation
+        document.getElementById("edit_branch").addEventListener('submit', function(event) {
+            // event.preventDefault();
+            var branch_phone = document.getElementById('edit_contact').value;
+
+            // phone number format
+            var phonePattern = /^\+2547\d{8}$|^07\d{8}$/;
+
+            if (!phonePattern.test(branch_phone)) {
+                event.preventDefault();
+                alert('Phone number must be a valid phone number');
+            }
+
+
+        })
+    </script>

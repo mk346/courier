@@ -49,9 +49,9 @@ $branch_id = $_SESSION['branch_id'];
                                 <tbody>
                                     <?php
                                     $i = 1;
-                                    if ($_SESSION['login_type'] == 1){
-                                    $query = $con->query("SELECT * FROM parcels ORDER BY parcel_id DESC");
-                                    } else if ($_SESSION['login_type'] == 2){
+                                    if ($_SESSION['login_type'] == 1) {
+                                        $query = $con->query("SELECT * FROM parcels ORDER BY parcel_id DESC");
+                                    } else if ($_SESSION['login_type'] == 2) {
                                         $query = $con->query("SELECT * FROM parcels WHERE branch_id='$branch_id'  ORDER BY parcel_id DESC");
                                     }
                                     while ($rows = $query->fetch_assoc()) :
@@ -131,11 +131,11 @@ $branch_id = $_SESSION['branch_id'];
                                                         <i class="fas fa-edit"></i>
                                                     </a>
 
-                                                    <a href="delete_parcel.php?&del_id=<?php echo $rows['parcel_id'] ?>" class="btn-main btn-del">
+                                                    <!-- <a href="delete_parcel.php?&del_id=<?php //echo $rows['parcel_id'] 
+                                                                                            ?>" class="btn-main btn-del">
                                                         <i class="fas fa-trash"></i>
-
-                                                    </a>
-                                                    <a href="#myModal" id="openmd" class="btn-main btn-upd openModal" data-id="<?php echo $rows['parcel_id']; ?>">Update Status</a>
+                                                    </a> -->
+                                                    <a href="#myModal" id="openmd" class="btn-main btn-upd openModal" data-id="<?php echo $rows['parcel_id']; ?>"><i class="fa-solid fa-pen-nib"></i> Update Status</a>
                                                 </div>
                                             </td>
                                         </tr>

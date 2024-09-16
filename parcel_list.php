@@ -53,9 +53,9 @@ $branch_id = $_SESSION['branch_id'];
                                     <?php
                                     $i = 1;
                                     if ($_SESSION['login_type'] == 1) {
-                                        $query = $con->query("SELECT * FROM parcels WHERE status = '$status' ORDER BY parcel_id DESC");
+                                        $query = $con->query("SELECT * FROM parcels WHERE status = '$status' ORDER BY parcel_id DESC LIMIT 20");
                                     } else if ($_SESSION['login_type'] == 2) {
-                                        $query = $con->query("SELECT * FROM parcels WHERE branch_id='$branch_id' AND status = '$status' ORDER BY parcel_id DESC");
+                                        $query = $con->query("SELECT * FROM parcels WHERE branch_id='$branch_id' AND status = '$status' ORDER BY parcel_id DESC LIMIT 20");
                                     }
                                     while ($rows = $query->fetch_assoc()) :
                                     ?>
@@ -119,10 +119,9 @@ $branch_id = $_SESSION['branch_id'];
                                                     <a href="edit_parcel.php?&parcel_id=<?php echo $rows['parcel_id'] ?>&cs=<?php echo $rows['status'] ?>" class="btn-main btn-edit">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
-                                                    <a href="delete_parcel.php?&del_id=<?php echo $rows['parcel_id'] ?>" class="btn-main btn-del">
+                                                    <!-- <a href="delete_parcel.php?&del_id=<?php //echo $rows['parcel_id'] ?>" class="btn-main btn-del">
                                                         <i class="fas fa-trash"></i>
-
-                                                    </a>
+                                                    </a> -->
                                                 </div>
                                             </td>
                                         </tr>

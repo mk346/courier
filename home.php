@@ -36,7 +36,7 @@
                                 <th class="rhead">#</th>
                                 <th class="rhead">Sender's Name</th>
                                 <th class="rhead">Recepient's Name</th>
-                                <!-- <th class="rhead">Status</th> -->
+                                <th class="rhead">Status</th>
                                 <th class="rhead">Date Dispatched</th>
                                 <th class="rhead">Date Delivered</th>
                             </tr>
@@ -58,29 +58,58 @@
                                     <td class="rbody">
                                         <?php echo $rows['rname'] ?>
                                     </td>
-                                    <!-- <td class="rbody">
-                                        <?php //echo $rows['status'] ?>
-                                    </td> -->
+                                    <td class="rbody">
+                                        <?php
+                                        //$stat = $rows['status'];
+                                        switch ($rows['status']) {
+                                            case '1':
+                                                echo "<span class='status-btn'>Collected</span>";
+                                                break;
+                                            case '2':
+                                                echo "<span class='status-btn'>Shipped</span>";
+                                                break;
+                                            case '3':
+                                                echo "<span class='status-btn'>In-Transit</span>";
+                                                break;
+                                            case '4':
+                                                echo "<span class='status-btn'>Arrived at Destination</span>";
+                                                break;
+                                            case '5':
+                                                echo "<span class='status-btn'>Ready for Pickup</span>";
+                                                break;
+                                            case '6':
+                                                echo "<span class='status-btn'>Delivered</span>";
+                                                break;
+                                            case '7':
+                                                echo "<span class='status-btn'>Unsuccessful Delivery</span>";
+                                                break;
+                                            default:
+                                                echo "<span class='status-btn'>Item Accepted By Courier</span>";
+                                                break;
+                                        }
+
+                                        ?>
+                                    </td>
                                     <td class="rbody">
                                         <?php echo $rows['date_created'] ?>
                                     </td>
                                     <td class="rbody">
                                         <?php
-                                        if($rows['status'] == 0){
+                                        if ($rows['status'] == 0) {
                                             echo "<span class='status-btn2'>Pending</span>";
-                                        }else if($rows['status'] == 2){
+                                        } else if ($rows['status'] == 2) {
                                             echo "<span class='status-btn2'>Pending</span>";
                                         } else if ($rows['status'] == 3) {
                                             echo "<span class='status-btn2'>Pending</span>";
                                         } else if ($rows['status'] == 9) {
                                             echo "<span class='status-btn2'>Pending</span>";
-                                        }else{
+                                        } else {
                                             $date_arrived = date("M d, Y H:i:s", strtotime($rows['status_date']));
                                             echo $date_arrived;
                                         }
 
-                                        
-                                        
+
+
                                         ?>
                                     </td>
 

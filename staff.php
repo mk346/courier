@@ -47,7 +47,7 @@ include 'topbar.php';
                                 <tbody>
                                     <?php
                                     $i = 1;
-                                    $query = $con->query("SELECT * FROM users ORDER BY id DESC");
+                                    $query = $con->query("SELECT * FROM users ORDER BY id DESC LIMIT 20");
                                     while ($row = $query->fetch_assoc()) :
                                     ?>
                                         <tr>
@@ -60,9 +60,9 @@ include 'topbar.php';
                                                     <a href="edit_staff.php?&id=<?php echo $row['id'] ?>" class="btn-main btn-edit">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
-                                                    <a href="delete_staff.php?&del_id=<?php echo $row['id'] ?>" class="btn-main btn-del">
+                                                    <!-- <a href="delete_staff.php?&del_id=<?php //echo $row['id'] ?>" class="btn-main btn-del">
                                                         <i class="fas fa-trash"></i>
-                                                    </a>
+                                                    </a> -->
                                                 </div>
                                             </td>
                                         </tr>
