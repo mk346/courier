@@ -61,4 +61,4 @@ include 'form_handler/fetchdata.php';
 
 <script src="assets/js/handler.js"></script>
 <script src="assets/js/testmap.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3OescahbXQEeGpLf3N61FwiIVSiIvaVk&callback=initMap&v=weekly" defer></script>
+<script src="your api key" defer></script>

@@ -75,4 +75,4 @@ $reference_number;
 <script src="assets/js/handler.js"></script>
 <!-- <script src="assets/js/fetch.js"></script> -->
 <script src="assets/js/map2.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3OescahbXQEeGpLf3N61FwiIVSiIvaVk&callback=initMap&v=weekly" defer></script>
+<script src="your maps api key" defer></script>
